@@ -1,0 +1,592 @@
+# PermitLog Analiz Sonuçları
+
+## Log Yükleme
+dataset/PermitLog.xes dosyası başarıyla yüklendi.
+
+## Alpha Miner Sonuçları
+Alpha Miner ile süreç modeli oluşturuldu.
+
+(<pm4py.objects.petri.petrinet.PetriNet object at 0x13830a090>, ['start:1'], ['end:1'])
+
+## Heuristic Miner Sonuçları
+{'Start trip': (node:Start trip connections:{End trip:[0.9998402811052548], Request For Payment APPROVED by SUPERVISOR:[0.75]}), 'End trip': (node:End trip connections:{Permit SUBMITTED by EMPLOYEE:[0.9982174688057041], Declaration SUBMITTED by EMPLOYEE:[0.9997657531037714], Declaration SAVED by EMPLOYEE:[0.8], Send Reminder:[0.999104744852283], Permit REJECTED by MISSING:[0.9714285714285714], Request For Payment SAVED by EMPLOYEE:[0.75], Permit REJECTED by SUPERVISOR:[0.875]}), 'Request For Payment APPROVED by SUPERVISOR': (node:Request For Payment APPROVED by SUPERVISOR connections:{Request For Payment FINAL_APPROVED by DIRECTOR:[0.9655172413793104], Request For Payment FINAL_APPROVED by SUPERVISOR:[0.6666666666666666], Permit FINAL_APPROVED by DIRECTOR:[0.6666666666666666]}), 'Permit SUBMITTED by EMPLOYEE': (node:Permit SUBMITTED by EMPLOYEE connections:{Permit FINAL_APPROVED by SUPERVISOR:[0.9985250737463127], Permit APPROVED by SUPERVISOR:[0.9939393939393939], Permit APPROVED by PRE_APPROVER:[0.9982817869415808], Permit REJECTED by SUPERVISOR:[0.9523809523809523], Permit REJECTED by PRE_APPROVER:[0.9705882352941176], Permit APPROVED by ADMINISTRATION:[0.9998247458815283], Permit REJECTED by ADMINISTRATION:[0.9925373134328358], Permit FOR_APPROVAL by ADMINISTRATION:[0.5]}), 'Declaration SUBMITTED by EMPLOYEE': (node:Declaration SUBMITTED by EMPLOYEE connections:{Declaration FINAL_APPROVED by SUPERVISOR:[0.9982964224872232], Declaration APPROVED by PRE_APPROVER:[0.9981818181818182], Declaration APPROVED by ADMINISTRATION:[0.9997865983781477], Declaration REJECTED by PRE_APPROVER:[0.8860759493670886], Declaration APPROVED by SUPERVISOR:[0.9863013698630136], Declaration REJECTED by SUPERVISOR:[0.9090909090909091], Declaration REJECTED by ADMINISTRATION:[0.9993036211699164]}), 'Declaration SAVED by EMPLOYEE': (node:Declaration SAVED by EMPLOYEE connections:{Permit REJECTED by MISSING:[0.75], Declaration SUBMITTED by EMPLOYEE:[0.9411764705882353], Declaration SAVED by EMPLOYEE:[0.8333333333333334], Request For Payment SUBMITTED by EMPLOYEE:[0.8333333333333334], Declaration FINAL_APPROVED by SUPERVISOR:[0.6666666666666666], Start trip:[0.75]}), 'Send Reminder': (node:Send Reminder connections:{Send Reminder:[0.9989094874591058], Declaration SUBMITTED by EMPLOYEE:[0.997229916897507], Declaration SAVED by EMPLOYEE:[0.9333333333333333], Request For Payment SAVED by EMPLOYEE:[0.5]}), 'Permit REJECTED by MISSING': (node:Permit REJECTED by MISSING connections:{Permit SUBMITTED by EMPLOYEE:[0.9473684210526315], Start trip:[0.9333333333333333], Permit SAVED by EMPLOYEE:[0.5], Request Payment:[0]}), 'Request For Payment SAVED by EMPLOYEE': (node:Request For Payment SAVED by EMPLOYEE connections:{Start trip:[0.8], Declaration SUBMITTED by EMPLOYEE:[0.8333333333333334], Request For Payment SUBMITTED by EMPLOYEE:[0.75], Permit APPROVED by BUDGET OWNER:[0.75], Permit APPROVED by SUPERVISOR:[0.5], Declaration SAVED by EMPLOYEE:[0.5]}), 'Permit REJECTED by SUPERVISOR': (node:Permit REJECTED by SUPERVISOR connections:{Permit REJECTED by EMPLOYEE:[0.9911504424778761], Start trip:[0.8571428571428571]}), 'Permit FINAL_APPROVED by SUPERVISOR': (node:Permit FINAL_APPROVED by SUPERVISOR connections:{Declaration SUBMITTED by EMPLOYEE:[0.9985714285714286], Start trip:[0.9040511727078892], Request For Payment SUBMITTED by EMPLOYEE:[0.9988532110091743], Permit REJECTED by MISSING:[0.9583333333333334], Send Reminder:[0.9952153110047847], Request For Payment FINAL_APPROVED by SUPERVISOR:[0.9879518072289156], Request For Payment SAVED by EMPLOYEE:[0.8], Declaration SAVED by EMPLOYEE:[0.9090909090909091], Request For Payment REJECTED by EMPLOYEE:[0.9090909090909091], Request For Payment REJECTED by SUPERVISOR:[0.5]}), 'Permit APPROVED by SUPERVISOR': (node:Permit APPROVED by SUPERVISOR connections:{Permit FINAL_APPROVED by DIRECTOR:[0.9984126984126984], Permit REJECTED by DIRECTOR:[0.6666666666666666], Request For Payment APPROVED by SUPERVISOR:[0.6666666666666666], Request For Payment REJECTED by SUPERVISOR:[0.5]}), 'Permit APPROVED by PRE_APPROVER': (node:Permit APPROVED by PRE_APPROVER connections:{Permit FINAL_APPROVED by SUPERVISOR:[0.9980544747081712], Start trip:[0.9714285714285714]}), 'Permit REJECTED by PRE_APPROVER': (node:Permit REJECTED by PRE_APPROVER connections:{Permit REJECTED by EMPLOYEE:[0.9696969696969697]}), 'Permit APPROVED by ADMINISTRATION': (node:Permit APPROVED by ADMINISTRATION connections:{Permit FINAL_APPROVED by SUPERVISOR:[0.9996618194115657], Permit APPROVED by BUDGET OWNER:[0.9994632313472893], Permit REJECTED by BUDGET OWNER:[0.9811320754716981], Permit APPROVED by SUPERVISOR:[0.9962962962962963], Permit REJECTED by SUPERVISOR:[0.9836065573770492], Request For Payment SUBMITTED by EMPLOYEE:[0.9931972789115646], Start trip:[0.9968944099378882], Request For Payment SAVED by EMPLOYEE:[0.8]}), 'Permit REJECTED by ADMINISTRATION': (node:Permit REJECTED by ADMINISTRATION connections:{Permit REJECTED by EMPLOYEE:[0.9921875]}), 'Permit FOR_APPROVAL by ADMINISTRATION': (node:Permit FOR_APPROVAL by ADMINISTRATION connections:{Start trip:[0.5]}), 'Request For Payment SUBMITTED by EMPLOYEE': (node:Request For Payment SUBMITTED by EMPLOYEE connections:{Request For Payment FINAL_APPROVED by SUPERVISOR:[0.9917355371900827], Request For Payment APPROVED by PRE_APPROVER:[0.8402366863905325], Request For Payment APPROVED by SUPERVISOR:[0.8571428571428571], Request For Payment APPROVED by ADMINISTRATION:[0.8393402565668907], Request For Payment REJECTED by ADMINISTRATION:[0.8472906403940886], Request For Payment REJECTED by PRE_APPROVER:[0]}), 'Request For Payment FINAL_APPROVED by SUPERVISOR': (node:Request For Payment FINAL_APPROVED by SUPERVISOR connections:{Request For Payment REJECTED by MISSING:[0.8333333333333334], Request Payment:[0.9992892679459844], Request For Payment FINAL_APPROVED by SUPERVISOR:[0.9935897435897436]}), 'Request For Payment REJECTED by EMPLOYEE': (node:Request For Payment REJECTED by EMPLOYEE connections:{Request For Payment REJECTED by EMPLOYEE:[0.9], Request For Payment SUBMITTED by EMPLOYEE:[0.9939393939393939], Start trip:[0.9285714285714286], Declaration SUBMITTED by EMPLOYEE:[0.9375], Request For Payment SAVED by EMPLOYEE:[0.5]}), 'Request For Payment REJECTED by SUPERVISOR': (node:Request For Payment REJECTED by SUPERVISOR connections:{Declaration SUBMITTED by EMPLOYEE:[0.6666666666666666], Request For Payment REJECTED by EMPLOYEE:[0.6428571428571429], Request For Payment FINAL_APPROVED by SUPERVISOR:[0.5], Permit FINAL_APPROVED by DIRECTOR:[0.5], Declaration REJECTED by EMPLOYEE:[0.5], Request For Payment REJECTED by SUPERVISOR:[0.6666666666666666]}), 'Declaration FINAL_APPROVED by SUPERVISOR': (node:Declaration FINAL_APPROVED by SUPERVISOR connections:{Request Payment:[0.9998149176383491], Declaration REJECTED by MISSING:[0.9882352941176471], Permit REJECTED by MISSING:[0.6666666666666666]}), 'Declaration APPROVED by PRE_APPROVER': (node:Declaration APPROVED by PRE_APPROVER connections:{Declaration FINAL_APPROVED by SUPERVISOR:[0.9980769230769231], Declaration REJECTED by SUPERVISOR:[0.9230769230769231]}), 'Declaration APPROVED by ADMINISTRATION': (node:Declaration APPROVED by ADMINISTRATION connections:{Declaration FINAL_APPROVED by SUPERVISOR:[0.9996392496392497], Declaration APPROVED by BUDGET OWNER:[0.9993968636911942], Declaration APPROVED by SUPERVISOR:[0.989010989010989], Declaration REJECTED by BUDGET OWNER:[0.9743589743589743], Declaration REJECTED by SUPERVISOR:[0.9848484848484849], Request For Payment SAVED by EMPLOYEE:[0.5]}), 'Declaration REJECTED by PRE_APPROVER': (node:Declaration REJECTED by PRE_APPROVER connections:{Declaration REJECTED by EMPLOYEE:[0.9861111111111112]}), 'Declaration APPROVED by SUPERVISOR': (node:Declaration APPROVED by SUPERVISOR connections:{Declaration FINAL_APPROVED by DIRECTOR:[0.9952830188679245], Declaration REJECTED by DIRECTOR:[0.8]}), 'Declaration REJECTED by SUPERVISOR': (node:Declaration REJECTED by SUPERVISOR connections:{Declaration REJECTED by EMPLOYEE:[0.9904761904761905], Request For Payment REJECTED by SUPERVISOR:[0.5]}), 'Declaration REJECTED by ADMINISTRATION': (node:Declaration REJECTED by ADMINISTRATION connections:{Declaration REJECTED by EMPLOYEE:[0.9992836676217765]}), 'Request Payment': (node:Request Payment connections:{Payment Handled:[0.9998574483250178], Request For Payment REJECTED by MISSING:[0.5], Permit REJECTED by MISSING:[0]}), 'Declaration REJECTED by MISSING': (node:Declaration REJECTED by MISSING connections:{Declaration SUBMITTED by EMPLOYEE:[0.9886363636363636]}), 'Payment Handled': (node:Payment Handled connections:{Start trip:[0.9990662931839402], Request For Payment SUBMITTED by EMPLOYEE:[0.9956331877729258], Request For Payment REJECTED by MISSING:[0.5], Request For Payment SAVED by EMPLOYEE:[0.5]}), 'Request For Payment REJECTED by MISSING': (node:Request For Payment REJECTED by MISSING connections:{Request For Payment SUBMITTED by EMPLOYEE:[0.8333333333333334], Start trip:[0.5], Declaration SUBMITTED by EMPLOYEE:[0.5]}), 'Permit FINAL_APPROVED by DIRECTOR': (node:Permit FINAL_APPROVED by DIRECTOR connections:{Declaration SUBMITTED by EMPLOYEE:[0.98], Start trip:[0.9972451790633609], Request For Payment SUBMITTED by EMPLOYEE:[0.994535519125683], End trip:[0.9722222222222222], Declaration SAVED by EMPLOYEE:[0.8], Permit REJECTED by MISSING:[0.875], Request For Payment SAVED by EMPLOYEE:[0.5], Request For Payment FINAL_APPROVED by DIRECTOR:[0.6666666666666666]}), 'Permit REJECTED by DIRECTOR': (node:Permit REJECTED by DIRECTOR connections:{Permit REJECTED by EMPLOYEE:[0.6666666666666666]}), 'Request For Payment FINAL_APPROVED by DIRECTOR': (node:Request For Payment FINAL_APPROVED by DIRECTOR connections:{Request Payment:[0.96875], Request For Payment FINAL_APPROVED by SUPERVISOR:[0.6666666666666666], Start trip:[0.6666666666666666]}), 'Declaration APPROVED by BUDGET OWNER': (node:Declaration APPROVED by BUDGET OWNER connections:{Declaration FINAL_APPROVED by SUPERVISOR:[0.9993702770780857], Declaration APPROVED by SUPERVISOR:[0.9787234042553191], Declaration REJECTED by SUPERVISOR:[0.9583333333333334], Declaration SAVED by EMPLOYEE:[0.6666666666666666], Request For Payment REJECTED by SUPERVISOR:[0.5]}), 'Declaration REJECTED by BUDGET OWNER': (node:Declaration REJECTED by BUDGET OWNER connections:{Declaration REJECTED by EMPLOYEE:[0.9722222222222222]}), 'Declaration REJECTED by EMPLOYEE': (node:Declaration REJECTED by EMPLOYEE connections:{Declaration SUBMITTED by EMPLOYEE:[0.9993670886075949], Declaration SAVED by EMPLOYEE:[0.75]}), 'Request For Payment APPROVED by PRE_APPROVER': (node:Request For Payment APPROVED by PRE_APPROVER connections:{Request For Payment FINAL_APPROVED by SUPERVISOR:[0.9921875], Request For Payment REJECTED by SUPERVISOR:[0.5], Request For Payment APPROVED by SUPERVISOR:[0.6666666666666666]}), 'Request For Payment APPROVED by ADMINISTRATION': (node:Request For Payment APPROVED by ADMINISTRATION connections:{Request For Payment FINAL_APPROVED by SUPERVISOR:[0.9986449864498645], Request For Payment APPROVED by BUDGET OWNER:[0.9977116704805492], Request For Payment REJECTED by SUPERVISOR:[0.8], Request For Payment APPROVED by SUPERVISOR:[0.9333333333333333], Request For Payment REJECTED by BUDGET OWNER:[0.8]}), 'Request For Payment REJECTED by ADMINISTRATION': (node:Request For Payment REJECTED by ADMINISTRATION connections:{Request For Payment REJECTED by EMPLOYEE:[0.9932885906040269], Permit FINAL_APPROVED by SUPERVISOR:[0.9090909090909091]}), 'Permit SAVED by EMPLOYEE': (node:Permit SAVED by EMPLOYEE connections:{Start trip:[0.9230769230769231]}), 'Permit REJECTED by EMPLOYEE': (node:Permit REJECTED by EMPLOYEE connections:{Permit SUBMITTED by EMPLOYEE:[0.9959839357429718], Start trip:[0.9824561403508771], Permit SAVED by EMPLOYEE:[0.5]}), 'Declaration FINAL_APPROVED by DIRECTOR': (node:Declaration FINAL_APPROVED by DIRECTOR connections:{Request Payment:[0.9951456310679612], Declaration REJECTED by MISSING:[0.8888888888888888]}), 'Declaration REJECTED by DIRECTOR': (node:Declaration REJECTED by DIRECTOR connections:{Declaration REJECTED by EMPLOYEE:[0.8]}), 'Request For Payment REJECTED by PRE_APPROVER': (node:Request For Payment REJECTED by PRE_APPROVER connections:{Request For Payment REJECTED by EMPLOYEE:[0.9166666666666666], Request For Payment SUBMITTED by EMPLOYEE:[0]}), 'Permit APPROVED by BUDGET OWNER': (node:Permit APPROVED by BUDGET OWNER connections:{Permit FINAL_APPROVED by SUPERVISOR:[0.9993730407523511], Permit REJECTED by SUPERVISOR:[0.9629629629629629], Permit APPROVED by SUPERVISOR:[0.9946808510638298], Request For Payment APPROVED by BUDGET OWNER:[0.972972972972973], Start trip:[0.9917355371900827], Permit FOR_APPROVAL by SUPERVISOR:[0.5]}), 'Permit REJECTED by BUDGET OWNER': (node:Permit REJECTED by BUDGET OWNER connections:{Permit REJECTED by EMPLOYEE:[0.9814814814814815]}), 'Request For Payment APPROVED by BUDGET OWNER': (node:Request For Payment APPROVED by BUDGET OWNER connections:{Request For Payment FINAL_APPROVED by SUPERVISOR:[0.9975186104218362], Request For Payment APPROVED by BUDGET OWNER:[0.9855072463768116], Permit FINAL_APPROVED by SUPERVISOR:[0.967741935483871], Request For Payment APPROVED by SUPERVISOR:[0.9090909090909091], Request For Payment REJECTED by SUPERVISOR:[0.75], Request For Payment SAVED by EMPLOYEE:[0.5]}), 'Permit FOR_APPROVAL by SUPERVISOR': (node:Permit FOR_APPROVAL by SUPERVISOR connections:{Send Reminder:[0.5]}), 'Request For Payment REJECTED by BUDGET OWNER': (node:Request For Payment REJECTED by BUDGET OWNER connections:{Permit APPROVED by BUDGET OWNER:[0.5], Request For Payment REJECTED by EMPLOYEE:[0.6666666666666666], Request For Payment APPROVED by BUDGET OWNER:[0.5], Request For Payment REJECTED by BUDGET OWNER:[0.6666666666666666]})}
+
+Heuristic Miner ile heuristik ağ (heu_net) elde edildi.
+
+## Directly Follows Graph (DFG)
+Directly Follows Graph elde edildi.
+
+### Start Activities:
+- Start trip: 734
+- Permit SUBMITTED by EMPLOYEE: 6319
+- Permit SAVED by EMPLOYEE: 12
+
+### End Activities:
+- Payment Handled: 5474
+- Permit SAVED by EMPLOYEE: 4
+- Declaration SAVED by EMPLOYEE: 28
+- Send Reminder: 991
+- Permit REJECTED by MISSING: 38
+- End trip: 453
+- Declaration REJECTED by MISSING: 2
+- Declaration REJECTED by EMPLOYEE: 28
+- Permit REJECTED by EMPLOYEE: 31
+- Permit FINAL_APPROVED by SUPERVISOR: 14
+- Request Payment: 1
+- Declaration REJECTED by SUPERVISOR: 1
+
+### DFG Kenarları:
+- ('Start trip', 'End trip') -> 6260 kez gözlenmiş
+- ('End trip', 'Permit SUBMITTED by EMPLOYEE') -> 560 kez gözlenmiş
+- ('Permit SUBMITTED by EMPLOYEE', 'Permit FINAL_APPROVED by SUPERVISOR') -> 677 kez gözlenmiş
+- ('Permit FINAL_APPROVED by SUPERVISOR', 'Declaration SUBMITTED by EMPLOYEE') -> 699 kez gözlenmiş
+- ('Declaration SUBMITTED by EMPLOYEE', 'Declaration FINAL_APPROVED by SUPERVISOR') -> 586 kez gözlenmiş
+- ('Declaration FINAL_APPROVED by SUPERVISOR', 'Request Payment') -> 5402 kez gözlenmiş
+- ('Request Payment', 'Payment Handled') -> 7014 kez gözlenmiş
+- ('End trip', 'Permit SAVED by EMPLOYEE') -> 3 kez gözlenmiş
+- ('Start trip', 'Permit SUBMITTED by EMPLOYEE') -> 182 kez gözlenmiş
+- ('Permit SUBMITTED by EMPLOYEE', 'Permit APPROVED by SUPERVISOR') -> 164 kez gözlenmiş
+- ('Permit APPROVED by SUPERVISOR', 'Permit FINAL_APPROVED by DIRECTOR') -> 629 kez gözlenmiş
+- ('Permit FINAL_APPROVED by DIRECTOR', 'Declaration SUBMITTED by EMPLOYEE') -> 49 kez gözlenmiş
+- ('Declaration SUBMITTED by EMPLOYEE', 'Declaration APPROVED by PRE_APPROVER') -> 549 kez gözlenmiş
+- ('Declaration APPROVED by PRE_APPROVER', 'Declaration SUBMITTED by EMPLOYEE') -> 14 kez gözlenmiş
+- ('Declaration APPROVED by PRE_APPROVER', 'Declaration FINAL_APPROVED by SUPERVISOR') -> 519 kez gözlenmiş
+- ('Declaration FINAL_APPROVED by SUPERVISOR', 'Declaration FINAL_APPROVED by SUPERVISOR') -> 68 kez gözlenmiş
+- ('Request Payment', 'Request Payment') -> 285 kez gözlenmiş
+- ('Payment Handled', 'Payment Handled') -> 327 kez gözlenmiş
+- ('Payment Handled', 'Declaration SUBMITTED by EMPLOYEE') -> 142 kez gözlenmiş
+- ('Declaration SUBMITTED by EMPLOYEE', 'Declaration SUBMITTED by EMPLOYEE') -> 9 kez gözlenmiş
+- ('Declaration FINAL_APPROVED by SUPERVISOR', 'Declaration APPROVED by PRE_APPROVER') -> 1 kez gözlenmiş
+- ('Declaration FINAL_APPROVED by SUPERVISOR', 'Declaration SUBMITTED by EMPLOYEE') -> 35 kez gözlenmiş
+- ('Payment Handled', 'Request Payment') -> 33 kez gözlenmiş
+- ('Payment Handled', 'End trip') -> 155 kez gözlenmiş
+- ('End trip', 'Declaration SUBMITTED by EMPLOYEE') -> 4268 kez gözlenmiş
+- ('Declaration SUBMITTED by EMPLOYEE', 'Declaration APPROVED by ADMINISTRATION') -> 4685 kez gözlenmiş
+- ('Declaration APPROVED by ADMINISTRATION', 'Declaration FINAL_APPROVED by SUPERVISOR') -> 2771 kez gözlenmiş
+- ('Permit SUBMITTED by EMPLOYEE', 'Permit APPROVED by PRE_APPROVER') -> 581 kez gözlenmiş
+- ('Permit APPROVED by PRE_APPROVER', 'Permit FINAL_APPROVED by SUPERVISOR') -> 513 kez gözlenmiş
+- ('Declaration SUBMITTED by EMPLOYEE', 'Declaration REJECTED by PRE_APPROVER') -> 74 kez gözlenmiş
+- ('Declaration REJECTED by PRE_APPROVER', 'Declaration REJECTED by EMPLOYEE') -> 71 kez gözlenmiş
+- ('Declaration REJECTED by EMPLOYEE', 'Declaration SUBMITTED by EMPLOYEE') -> 1579 kez gözlenmiş
+- ('Permit FINAL_APPROVED by SUPERVISOR', 'Start trip') -> 4018 kez gözlenmiş
+- ('End trip', 'Declaration SAVED by EMPLOYEE') -> 22 kez gözlenmiş
+- ('End trip', 'Send Reminder') -> 1116 kez gözlenmiş
+- ('Send Reminder', 'Send Reminder') -> 916 kez gözlenmiş
+- ('Permit FINAL_APPROVED by SUPERVISOR', 'Request For Payment SUBMITTED by EMPLOYEE') -> 871 kez gözlenmiş
+- ('Request For Payment SUBMITTED by EMPLOYEE', 'Request For Payment FINAL_APPROVED by SUPERVISOR') -> 120 kez gözlenmiş
+- ('Request For Payment FINAL_APPROVED by SUPERVISOR', 'Request For Payment REJECTED by MISSING') -> 5 kez gözlenmiş
+- ('Request For Payment REJECTED by MISSING', 'Request For Payment SUBMITTED by EMPLOYEE') -> 5 kez gözlenmiş
+- ('Request For Payment FINAL_APPROVED by SUPERVISOR', 'Request Payment') -> 1406 kez gözlenmiş
+- ('Payment Handled', 'Start trip') -> 1070 kez gözlenmiş
+- ('End trip', 'Permit REJECTED by MISSING') -> 34 kez gözlenmiş
+- ('Permit FINAL_APPROVED by DIRECTOR', 'Start trip') -> 362 kez gözlenmiş
+- ('Declaration SUBMITTED by EMPLOYEE', 'Permit REJECTED by MISSING') -> 1 kez gözlenmiş
+- ('Permit REJECTED by MISSING', 'Permit SUBMITTED by EMPLOYEE') -> 18 kez gözlenmiş
+- ('Permit FINAL_APPROVED by SUPERVISOR', 'Declaration APPROVED by PRE_APPROVER') -> 1 kez gözlenmiş
+- ('Declaration SUBMITTED by EMPLOYEE', 'Request Payment') -> 3 kez gözlenmiş
+- ('Payment Handled', 'Declaration APPROVED by PRE_APPROVER') -> 3 kez gözlenmiş
+- ('Permit FINAL_APPROVED by DIRECTOR', 'Request For Payment SUBMITTED by EMPLOYEE') -> 182 kez gözlenmiş
+- ('Payment Handled', 'Permit REJECTED by MISSING') -> 3 kez gözlenmiş
+- ('Permit REJECTED by MISSING', 'Start trip') -> 14 kez gözlenmiş
+- ('Permit SUBMITTED by EMPLOYEE', 'Permit REJECTED by SUPERVISOR') -> 20 kez gözlenmiş
+- ('Permit REJECTED by SUPERVISOR', 'Permit REJECTED by EMPLOYEE') -> 112 kez gözlenmiş
+- ('Permit REJECTED by EMPLOYEE', 'Permit SUBMITTED by EMPLOYEE') -> 248 kez gözlenmiş
+- ('Request For Payment SUBMITTED by EMPLOYEE', 'Request For Payment APPROVED by PRE_APPROVER') -> 155 kez gözlenmiş
+- ('Request For Payment APPROVED by PRE_APPROVER', 'Request For Payment FINAL_APPROVED by SUPERVISOR') -> 127 kez gözlenmiş
+- ('Payment Handled', 'Request For Payment SUBMITTED by EMPLOYEE') -> 228 kez gözlenmiş
+- ('Declaration FINAL_APPROVED by SUPERVISOR', 'Declaration REJECTED by MISSING') -> 84 kez gözlenmiş
+- ('Declaration REJECTED by MISSING', 'Declaration SUBMITTED by EMPLOYEE') -> 87 kez gözlenmiş
+- ('Permit APPROVED by SUPERVISOR', 'Start trip') -> 25 kez gözlenmiş
+- ('End trip', 'Permit FINAL_APPROVED by DIRECTOR') -> 8 kez gözlenmiş
+- ('Declaration SUBMITTED by EMPLOYEE', 'Declaration APPROVED by SUPERVISOR') -> 72 kez gözlenmiş
+- ('Declaration APPROVED by SUPERVISOR', 'Declaration FINAL_APPROVED by DIRECTOR') -> 211 kez gözlenmiş
+- ('Declaration FINAL_APPROVED by DIRECTOR', 'Request Payment') -> 205 kez gözlenmiş
+- ('Declaration APPROVED by PRE_APPROVER', 'Declaration APPROVED by SUPERVISOR') -> 9 kez gözlenmiş
+- ('Declaration FINAL_APPROVED by DIRECTOR', 'Declaration REJECTED by MISSING') -> 8 kez gözlenmiş
+- ('Permit FINAL_APPROVED by SUPERVISOR', 'Permit REJECTED by MISSING') -> 23 kez gözlenmiş
+- ('Permit REJECTED by MISSING', 'Send Reminder') -> 1 kez gözlenmiş
+- ('Permit SAVED by EMPLOYEE', 'Start trip') -> 12 kez gözlenmiş
+- ('Permit SUBMITTED by EMPLOYEE', 'Permit REJECTED by PRE_APPROVER') -> 33 kez gözlenmiş
+- ('Permit REJECTED by PRE_APPROVER', 'Permit REJECTED by EMPLOYEE') -> 32 kez gözlenmiş
+- ('Request Payment', 'Start trip') -> 66 kez gözlenmiş
+- ('Start trip', 'Payment Handled') -> 64 kez gözlenmiş
+- ('Permit FINAL_APPROVED by SUPERVISOR', 'End trip') -> 311 kez gözlenmiş
+- ('Declaration APPROVED by SUPERVISOR', 'Declaration REJECTED by DIRECTOR') -> 4 kez gözlenmiş
+- ('Declaration REJECTED by DIRECTOR', 'Declaration REJECTED by EMPLOYEE') -> 4 kez gözlenmiş
+- ('Start trip', 'Permit FINAL_APPROVED by DIRECTOR') -> 15 kez gözlenmiş
+- ('Permit FINAL_APPROVED by DIRECTOR', 'End trip') -> 35 kez gözlenmiş
+- ('Declaration SUBMITTED by EMPLOYEE', 'Declaration REJECTED by SUPERVISOR') -> 10 kez gözlenmiş
+- ('Declaration REJECTED by SUPERVISOR', 'Declaration REJECTED by EMPLOYEE') -> 104 kez gözlenmiş
+- ('Request For Payment SUBMITTED by EMPLOYEE', 'Request For Payment REJECTED by PRE_APPROVER') -> 17 kez gözlenmiş
+- ('Request For Payment REJECTED by PRE_APPROVER', 'Request For Payment SUBMITTED by EMPLOYEE') -> 6 kez gözlenmiş
+- ('Request For Payment REJECTED by PRE_APPROVER', 'Request For Payment REJECTED by EMPLOYEE') -> 11 kez gözlenmiş
+- ('Request For Payment REJECTED by EMPLOYEE', 'Request For Payment REJECTED by EMPLOYEE') -> 9 kez gözlenmiş
+- ('Request For Payment REJECTED by EMPLOYEE', 'Request For Payment SUBMITTED by EMPLOYEE') -> 164 kez gözlenmiş
+- ('Request For Payment APPROVED by PRE_APPROVER', 'Request For Payment SUBMITTED by EMPLOYEE') -> 13 kez gözlenmiş
+- ('Request For Payment FINAL_APPROVED by SUPERVISOR', 'Request For Payment FINAL_APPROVED by SUPERVISOR') -> 155 kez gözlenmiş
+- ('Permit APPROVED by PRE_APPROVER', 'End trip') -> 5 kez gözlenmiş
+- ('End trip', 'Permit FINAL_APPROVED by SUPERVISOR') -> 216 kez gözlenmiş
+- ('Permit FINAL_APPROVED by SUPERVISOR', 'Send Reminder') -> 208 kez gözlenmiş
+- ('Start trip', 'Declaration SUBMITTED by EMPLOYEE') -> 123 kez gözlenmiş
+- ('Declaration SUBMITTED by EMPLOYEE', 'End trip') -> 57 kez gözlenmiş
+- ('End trip', 'Declaration APPROVED by PRE_APPROVER') -> 7 kez gözlenmiş
+- ('Permit SUBMITTED by EMPLOYEE', 'Permit APPROVED by ADMINISTRATION') -> 5705 kez gözlenmiş
+- ('Permit APPROVED by ADMINISTRATION', 'Permit FINAL_APPROVED by SUPERVISOR') -> 2956 kez gözlenmiş
+- ('Send Reminder', 'Declaration SUBMITTED by EMPLOYEE') -> 360 kez gözlenmiş
+- ('Permit REJECTED by MISSING', 'Permit SAVED by EMPLOYEE') -> 1 kez gözlenmiş
+- ('Permit APPROVED by PRE_APPROVER', 'Start trip') -> 34 kez gözlenmiş
+- ('Start trip', 'Permit FINAL_APPROVED by SUPERVISOR') -> 202 kez gözlenmiş
+- ('Declaration APPROVED by PRE_APPROVER', 'Declaration REJECTED by SUPERVISOR') -> 12 kez gözlenmiş
+- ('Permit FINAL_APPROVED by SUPERVISOR', 'Permit APPROVED by PRE_APPROVER') -> 1 kez gözlenmiş
+- ('Permit APPROVED by PRE_APPROVER', 'Request For Payment SUBMITTED by EMPLOYEE') -> 8 kez gözlenmiş
+- ('Request Payment', 'Request For Payment SUBMITTED by EMPLOYEE') -> 37 kez gözlenmiş
+- ('Request Payment', 'End trip') -> 42 kez gözlenmiş
+- ('End trip', 'Payment Handled') -> 41 kez gözlenmiş
+- ('Request Payment', 'Request For Payment REJECTED by MISSING') -> 1 kez gözlenmiş
+- ('Request For Payment REJECTED by MISSING', 'Start trip') -> 1 kez gözlenmiş
+- ('Request For Payment APPROVED by PRE_APPROVER', 'Start trip') -> 6 kez gözlenmiş
+- ('End trip', 'Request For Payment FINAL_APPROVED by SUPERVISOR') -> 13 kez gözlenmiş
+- ('Permit APPROVED by PRE_APPROVER', 'Permit APPROVED by SUPERVISOR') -> 18 kez gözlenmiş
+- ('Start trip', 'Request For Payment SUBMITTED by EMPLOYEE') -> 27 kez gözlenmiş
+- ('Permit SUBMITTED by EMPLOYEE', 'Start trip') -> 15 kez gözlenmiş
+- ('End trip', 'Request For Payment SUBMITTED by EMPLOYEE') -> 23 kez gözlenmiş
+- ('Request For Payment SUBMITTED by EMPLOYEE', 'Request For Payment REJECTED by SUPERVISOR') -> 3 kez gözlenmiş
+- ('Request For Payment REJECTED by SUPERVISOR', 'Declaration SUBMITTED by EMPLOYEE') -> 2 kez gözlenmiş
+- ('Declaration SUBMITTED by EMPLOYEE', 'Request For Payment REJECTED by EMPLOYEE') -> 2 kez gözlenmiş
+- ('Request For Payment REJECTED by EMPLOYEE', 'Declaration FINAL_APPROVED by SUPERVISOR') -> 2 kez gözlenmiş
+- ('Start trip', 'Request For Payment FINAL_APPROVED by SUPERVISOR') -> 28 kez gözlenmiş
+- ('Declaration REJECTED by MISSING', 'Request For Payment SUBMITTED by EMPLOYEE') -> 3 kez gözlenmiş
+- ('Permit FINAL_APPROVED by DIRECTOR', 'Declaration SAVED by EMPLOYEE') -> 4 kez gözlenmiş
+- ('Declaration SAVED by EMPLOYEE', 'Permit REJECTED by MISSING') -> 3 kez gözlenmiş
+- ('Declaration REJECTED by SUPERVISOR', 'Declaration SUBMITTED by EMPLOYEE') -> 5 kez gözlenmiş
+- ('Request For Payment SUBMITTED by EMPLOYEE', 'Request For Payment APPROVED by SUPERVISOR') -> 6 kez gözlenmiş
+- ('Request For Payment APPROVED by SUPERVISOR', 'Request For Payment FINAL_APPROVED by DIRECTOR') -> 28 kez gözlenmiş
+- ('Request For Payment FINAL_APPROVED by DIRECTOR', 'Request Payment') -> 31 kez gözlenmiş
+- ('Declaration SUBMITTED by EMPLOYEE', 'Start trip') -> 60 kez gözlenmiş
+- ('Declaration SUBMITTED by EMPLOYEE', 'Request For Payment SUBMITTED by EMPLOYEE') -> 12 kez gözlenmiş
+- ('Request For Payment REJECTED by SUPERVISOR', 'Request For Payment REJECTED by EMPLOYEE') -> 11 kez gözlenmiş
+- ('End trip', 'Declaration FINAL_APPROVED by SUPERVISOR') -> 41 kez gözlenmiş
+- ('Permit REJECTED by EMPLOYEE', 'Start trip') -> 56 kez gözlenmiş
+- ('Declaration FINAL_APPROVED by SUPERVISOR', 'Declaration SAVED by EMPLOYEE') -> 1 kez gözlenmiş
+- ('Declaration SAVED by EMPLOYEE', 'Request Payment') -> 1 kez gözlenmiş
+- ('Permit APPROVED by PRE_APPROVER', 'Permit REJECTED by SUPERVISOR') -> 5 kez gözlenmiş
+- ('Declaration FINAL_APPROVED by SUPERVISOR', 'End trip') -> 9 kez gözlenmiş
+- ('End trip', 'Request Payment') -> 33 kez gözlenmiş
+- ('Request For Payment REJECTED by MISSING', 'Declaration SUBMITTED by EMPLOYEE') -> 1 kez gözlenmiş
+- ('Declaration REJECTED by MISSING', 'Permit REJECTED by MISSING') -> 1 kez gözlenmiş
+- ('Declaration APPROVED by ADMINISTRATION', 'Declaration APPROVED by BUDGET OWNER') -> 1657 kez gözlenmiş
+- ('Declaration APPROVED by BUDGET OWNER', 'Declaration FINAL_APPROVED by SUPERVISOR') -> 1587 kez gözlenmiş
+- ('End trip', 'Permit APPROVED by PRE_APPROVER') -> 2 kez gözlenmiş
+- ('Declaration SAVED by EMPLOYEE', 'Declaration SUBMITTED by EMPLOYEE') -> 16 kez gözlenmiş
+- ('Request For Payment SUBMITTED by EMPLOYEE', 'Request For Payment SUBMITTED by EMPLOYEE') -> 19 kez gözlenmiş
+- ('Request For Payment APPROVED by PRE_APPROVER', 'Request For Payment APPROVED by PRE_APPROVER') -> 1 kez gözlenmiş
+- ('Payment Handled', 'Send Reminder') -> 37 kez gözlenmiş
+- ('Declaration FINAL_APPROVED by SUPERVISOR', 'Permit REJECTED by MISSING') -> 2 kez gözlenmiş
+- ('Permit REJECTED by MISSING', 'Request Payment') -> 4 kez gözlenmiş
+- ('Declaration REJECTED by EMPLOYEE', 'Request For Payment SUBMITTED by EMPLOYEE') -> 22 kez gözlenmiş
+- ('End trip', 'Declaration REJECTED by PRE_APPROVER') -> 2 kez gözlenmiş
+- ('Declaration SUBMITTED by EMPLOYEE', 'Declaration FINAL_APPROVED by DIRECTOR') -> 1 kez gözlenmiş
+- ('Declaration FINAL_APPROVED by DIRECTOR', 'Declaration APPROVED by SUPERVISOR') -> 3 kez gözlenmiş
+- ('Declaration APPROVED by SUPERVISOR', 'Request Payment') -> 4 kez gözlenmiş
+- ('Permit REJECTED by SUPERVISOR', 'Start trip') -> 6 kez gözlenmiş
+- ('End trip', 'Permit REJECTED by EMPLOYEE') -> 6 kez gözlenmiş
+- ('End trip', 'Declaration REJECTED by MISSING') -> 1 kez gözlenmiş
+- ('Start trip', 'Declaration REJECTED by PRE_APPROVER') -> 1 kez gözlenmiş
+- ('Declaration REJECTED by PRE_APPROVER', 'End trip') -> 1 kez gözlenmiş
+- ('End trip', 'Declaration REJECTED by EMPLOYEE') -> 13 kez gözlenmiş
+- ('Request For Payment FINAL_APPROVED by SUPERVISOR', 'Payment Handled') -> 15 kez gözlenmiş
+- ('Request For Payment APPROVED by PRE_APPROVER', 'Permit FINAL_APPROVED by SUPERVISOR') -> 4 kez gözlenmiş
+- ('Permit FINAL_APPROVED by SUPERVISOR', 'Request For Payment FINAL_APPROVED by SUPERVISOR') -> 82 kez gözlenmiş
+- ('Request For Payment APPROVED by PRE_APPROVER', 'Request For Payment REJECTED by SUPERVISOR') -> 1 kez gözlenmiş
+- ('Permit FINAL_APPROVED by DIRECTOR', 'Permit REJECTED by MISSING') -> 7 kez gözlenmiş
+- ('Request For Payment FINAL_APPROVED by SUPERVISOR', 'End trip') -> 10 kez gözlenmiş
+- ('Request For Payment FINAL_APPROVED by SUPERVISOR', 'Start trip') -> 52 kez gözlenmiş
+- ('Declaration APPROVED by SUPERVISOR', 'Declaration REJECTED by EMPLOYEE') -> 1 kez gözlenmiş
+- ('Declaration REJECTED by EMPLOYEE', 'Declaration REJECTED by EMPLOYEE') -> 13 kez gözlenmiş
+- ('Declaration REJECTED by EMPLOYEE', 'Declaration FINAL_APPROVED by DIRECTOR') -> 1 kez gözlenmiş
+- ('Permit APPROVED by SUPERVISOR', 'Request For Payment SUBMITTED by EMPLOYEE') -> 7 kez gözlenmiş
+- ('Request For Payment FINAL_APPROVED by SUPERVISOR', 'Permit FINAL_APPROVED by DIRECTOR') -> 12 kez gözlenmiş
+- ('Permit FINAL_APPROVED by DIRECTOR', 'Request Payment') -> 16 kez gözlenmiş
+- ('Request For Payment FINAL_APPROVED by SUPERVISOR', 'Request For Payment REJECTED by EMPLOYEE') -> 6 kez gözlenmiş
+- ('Request For Payment REJECTED by EMPLOYEE', 'Request Payment') -> 5 kez gözlenmiş
+- ('Start trip', 'Request Payment') -> 34 kez gözlenmiş
+- ('Permit FINAL_APPROVED by DIRECTOR', 'Send Reminder') -> 7 kez gözlenmiş
+- ('Declaration SAVED by EMPLOYEE', 'Declaration SAVED by EMPLOYEE') -> 5 kez gözlenmiş
+- ('Start trip', 'Permit REJECTED by EMPLOYEE') -> 4 kez gözlenmiş
+- ('Request For Payment FINAL_APPROVED by SUPERVISOR', 'Request For Payment SUBMITTED by EMPLOYEE') -> 37 kez gözlenmiş
+- ('Declaration SUBMITTED by EMPLOYEE', 'Payment Handled') -> 4 kez gözlenmiş
+- ('Declaration APPROVED by PRE_APPROVER', 'Declaration FINAL_APPROVED by DIRECTOR') -> 2 kez gözlenmiş
+- ('Request For Payment APPROVED by PRE_APPROVER', 'Request For Payment APPROVED by SUPERVISOR') -> 2 kez gözlenmiş
+- ('Request For Payment APPROVED by SUPERVISOR', 'Request For Payment FINAL_APPROVED by SUPERVISOR') -> 2 kez gözlenmiş
+- ('Request For Payment FINAL_APPROVED by SUPERVISOR', 'Request For Payment FINAL_APPROVED by DIRECTOR') -> 1 kez gözlenmiş
+- ('Payment Handled', 'Request For Payment REJECTED by MISSING') -> 1 kez gözlenmiş
+- ('Request For Payment APPROVED by SUPERVISOR', 'Request For Payment SUBMITTED by EMPLOYEE') -> 1 kez gözlenmiş
+- ('Request For Payment APPROVED by PRE_APPROVER', 'Request For Payment FINAL_APPROVED by DIRECTOR') -> 1 kez gözlenmiş
+- ('Request For Payment FINAL_APPROVED by DIRECTOR', 'Request For Payment FINAL_APPROVED by SUPERVISOR') -> 2 kez gözlenmiş
+- ('Declaration APPROVED by PRE_APPROVER', 'End trip') -> 2 kez gözlenmiş
+- ('Permit FINAL_APPROVED by SUPERVISOR', 'Request For Payment SAVED by EMPLOYEE') -> 4 kez gözlenmiş
+- ('Request For Payment SAVED by EMPLOYEE', 'Start trip') -> 4 kez gözlenmiş
+- ('Declaration REJECTED by PRE_APPROVER', 'Permit REJECTED by MISSING') -> 1 kez gözlenmiş
+- ('Permit REJECTED by MISSING', 'Declaration REJECTED by EMPLOYEE') -> 1 kez gözlenmiş
+- ('Request Payment', 'Declaration REJECTED by MISSING') -> 1 kez gözlenmiş
+- ('Declaration REJECTED by MISSING', 'Payment Handled') -> 1 kez gözlenmiş
+- ('Request For Payment APPROVED by PRE_APPROVER', 'Request For Payment REJECTED by EMPLOYEE') -> 1 kez gözlenmiş
+- ('Request For Payment REJECTED by EMPLOYEE', 'Request For Payment FINAL_APPROVED by SUPERVISOR') -> 5 kez gözlenmiş
+- ('Declaration REJECTED by PRE_APPROVER', 'Declaration SUBMITTED by EMPLOYEE') -> 4 kez gözlenmiş
+- ('Request For Payment FINAL_APPROVED by SUPERVISOR', 'Permit REJECTED by MISSING') -> 1 kez gözlenmiş
+- ('Payment Handled', 'Permit SUBMITTED by EMPLOYEE') -> 1 kez gözlenmiş
+- ('Start trip', 'Permit REJECTED by MISSING') -> 1 kez gözlenmiş
+- ('Declaration APPROVED by PRE_APPROVER', 'Start trip') -> 1 kez gözlenmiş
+- ('Start trip', 'Declaration FINAL_APPROVED by SUPERVISOR') -> 5 kez gözlenmiş
+- ('Declaration APPROVED by ADMINISTRATION', 'Declaration APPROVED by SUPERVISOR') -> 90 kez gözlenmiş
+- ('End trip', 'Request For Payment SAVED by EMPLOYEE') -> 3 kez gözlenmiş
+- ('Request For Payment SAVED by EMPLOYEE', 'Declaration SUBMITTED by EMPLOYEE') -> 5 kez gözlenmiş
+- ('Request Payment', 'Declaration SUBMITTED by EMPLOYEE') -> 16 kez gözlenmiş
+- ('Declaration FINAL_APPROVED by SUPERVISOR', 'Payment Handled') -> 12 kez gözlenmiş
+- ('Payment Handled', 'Declaration REJECTED by MISSING') -> 1 kez gözlenmiş
+- ('Permit SUBMITTED by EMPLOYEE', 'Permit REJECTED by ADMINISTRATION') -> 133 kez gözlenmiş
+- ('Permit REJECTED by ADMINISTRATION', 'Permit REJECTED by EMPLOYEE') -> 127 kez gözlenmiş
+- ('Request Payment', 'Permit REJECTED by MISSING') -> 5 kez gözlenmiş
+- ('Permit REJECTED by MISSING', 'Payment Handled') -> 4 kez gözlenmiş
+- ('Permit REJECTED by MISSING', 'End trip') -> 1 kez gözlenmiş
+- ('Declaration FINAL_APPROVED by SUPERVISOR', 'Declaration REJECTED by EMPLOYEE') -> 9 kez gözlenmiş
+- ('Declaration REJECTED by EMPLOYEE', 'Declaration FINAL_APPROVED by SUPERVISOR') -> 14 kez gözlenmiş
+- ('Start trip', 'Permit APPROVED by SUPERVISOR') -> 15 kez gözlenmiş
+- ('Start trip', 'Declaration REJECTED by SUPERVISOR') -> 1 kez gözlenmiş
+- ('Declaration REJECTED by SUPERVISOR', 'End trip') -> 2 kez gözlenmiş
+- ('Declaration SUBMITTED by EMPLOYEE', 'Declaration REJECTED by ADMINISTRATION') -> 1435 kez gözlenmiş
+- ('Declaration REJECTED by ADMINISTRATION', 'Declaration REJECTED by EMPLOYEE') -> 1395 kez gözlenmiş
+- ('Permit FINAL_APPROVED by DIRECTOR', 'Request For Payment SAVED by EMPLOYEE') -> 1 kez gözlenmiş
+- ('Request For Payment SAVED by EMPLOYEE', 'Request For Payment SUBMITTED by EMPLOYEE') -> 3 kez gözlenmiş
+- ('Permit REJECTED by PRE_APPROVER', 'Start trip') -> 1 kez gözlenmiş
+- ('Permit REJECTED by EMPLOYEE', 'End trip') -> 7 kez gözlenmiş
+- ('Request For Payment REJECTED by EMPLOYEE', 'Start trip') -> 13 kez gözlenmiş
+- ('Declaration REJECTED by EMPLOYEE', 'Request Payment') -> 7 kez gözlenmiş
+- ('Permit APPROVED by ADMINISTRATION', 'Permit APPROVED by BUDGET OWNER') -> 1862 kez gözlenmiş
+- ('Permit APPROVED by BUDGET OWNER', 'Permit FINAL_APPROVED by SUPERVISOR') -> 1594 kez gözlenmiş
+- ('Permit APPROVED by BUDGET OWNER', 'End trip') -> 43 kez gözlenmiş
+- ('End trip', 'Permit REJECTED by SUPERVISOR') -> 7 kez gözlenmiş
+- ('Permit APPROVED by BUDGET OWNER', 'Permit REJECTED by SUPERVISOR') -> 26 kez gözlenmiş
+- ('Request For Payment FINAL_APPROVED by SUPERVISOR', 'Permit FINAL_APPROVED by SUPERVISOR') -> 22 kez gözlenmiş
+- ('Permit FINAL_APPROVED by SUPERVISOR', 'Request Payment') -> 22 kez gözlenmiş
+- ('Declaration APPROVED by PRE_APPROVER', 'Declaration REJECTED by MISSING') -> 1 kez gözlenmiş
+- ('Declaration REJECTED by MISSING', 'Declaration FINAL_APPROVED by SUPERVISOR') -> 1 kez gözlenmiş
+- ('Declaration REJECTED by MISSING', 'Request Payment') -> 1 kez gözlenmiş
+- ('Declaration APPROVED by ADMINISTRATION', 'Declaration REJECTED by BUDGET OWNER') -> 38 kez gözlenmiş
+- ('Declaration REJECTED by BUDGET OWNER', 'Declaration REJECTED by EMPLOYEE') -> 35 kez gözlenmiş
+- ('Declaration APPROVED by BUDGET OWNER', 'Declaration APPROVED by SUPERVISOR') -> 46 kez gözlenmiş
+- ('Request For Payment SUBMITTED by EMPLOYEE', 'Request For Payment APPROVED by ADMINISTRATION') -> 1505 kez gözlenmiş
+- ('Request For Payment APPROVED by ADMINISTRATION', 'Request For Payment FINAL_APPROVED by SUPERVISOR') -> 737 kez gözlenmiş
+- ('Declaration APPROVED by ADMINISTRATION', 'Request Payment') -> 13 kez gözlenmiş
+- ('Request Payment', 'Declaration FINAL_APPROVED by SUPERVISOR') -> 14 kez gözlenmiş
+- ('Permit REJECTED by SUPERVISOR', 'End trip') -> 3 kez gözlenmiş
+- ('Permit APPROVED by ADMINISTRATION', 'Permit REJECTED by BUDGET OWNER') -> 52 kez gözlenmiş
+- ('Permit REJECTED by BUDGET OWNER', 'Permit REJECTED by EMPLOYEE') -> 53 kez gözlenmiş
+- ('Permit APPROVED by BUDGET OWNER', 'Send Reminder') -> 3 kez gözlenmiş
+- ('Send Reminder', 'Permit FINAL_APPROVED by SUPERVISOR') -> 10 kez gözlenmiş
+- ('Declaration REJECTED by ADMINISTRATION', 'Declaration SUBMITTED by EMPLOYEE') -> 50 kez gözlenmiş
+- ('Declaration APPROVED by ADMINISTRATION', 'Declaration REJECTED by ADMINISTRATION') -> 5 kez gözlenmiş
+- ('Declaration REJECTED by ADMINISTRATION', 'Declaration FINAL_APPROVED by SUPERVISOR') -> 3 kez gözlenmiş
+- ('Permit APPROVED by ADMINISTRATION', 'Permit APPROVED by SUPERVISOR') -> 269 kez gözlenmiş
+- ('End trip', 'Declaration APPROVED by ADMINISTRATION') -> 79 kez gözlenmiş
+- ('Send Reminder', 'Declaration SAVED by EMPLOYEE') -> 14 kez gözlenmiş
+- ('Declaration APPROVED by ADMINISTRATION', 'Declaration SUBMITTED by EMPLOYEE') -> 64 kez gözlenmiş
+- ('End trip', 'Declaration REJECTED by ADMINISTRATION') -> 29 kez gözlenmiş
+- ('Request For Payment APPROVED by ADMINISTRATION', 'Request For Payment APPROVED by BUDGET OWNER') -> 436 kez gözlenmiş
+- ('Request For Payment APPROVED by BUDGET OWNER', 'Request For Payment FINAL_APPROVED by SUPERVISOR') -> 402 kez gözlenmiş
+- ('Declaration APPROVED by BUDGET OWNER', 'End trip') -> 6 kez gözlenmiş
+- ('Declaration APPROVED by ADMINISTRATION', 'Declaration REJECTED by SUPERVISOR') -> 65 kez gözlenmiş
+- ('Declaration APPROVED by BUDGET OWNER', 'Declaration APPROVED by BUDGET OWNER') -> 22 kez gözlenmiş
+- ('Declaration APPROVED by PRE_APPROVER', 'Declaration REJECTED by EMPLOYEE') -> 1 kez gözlenmiş
+- ('Request For Payment SUBMITTED by EMPLOYEE', 'Request For Payment REJECTED by ADMINISTRATION') -> 187 kez gözlenmiş
+- ('Request For Payment REJECTED by ADMINISTRATION', 'Request For Payment REJECTED by EMPLOYEE') -> 148 kez gözlenmiş
+- ('Request For Payment APPROVED by ADMINISTRATION', 'Declaration SUBMITTED by EMPLOYEE') -> 13 kez gözlenmiş
+- ('Declaration SUBMITTED by EMPLOYEE', 'Request For Payment FINAL_APPROVED by SUPERVISOR') -> 5 kez gözlenmiş
+- ('Request For Payment FINAL_APPROVED by SUPERVISOR', 'Declaration APPROVED by ADMINISTRATION') -> 3 kez gözlenmiş
+- ('Permit APPROVED by PRE_APPROVER', 'Permit FINAL_APPROVED by DIRECTOR') -> 1 kez gözlenmiş
+- ('Permit FINAL_APPROVED by DIRECTOR', 'Permit APPROVED by SUPERVISOR') -> 3 kez gözlenmiş
+- ('Request For Payment APPROVED by ADMINISTRATION', 'Request For Payment SUBMITTED by EMPLOYEE') -> 131 kez gözlenmiş
+- ('Request For Payment APPROVED by BUDGET OWNER', 'Request For Payment APPROVED by BUDGET OWNER') -> 68 kez gözlenmiş
+- ('Request For Payment APPROVED by ADMINISTRATION', 'Payment Handled') -> 15 kez gözlenmiş
+- ('Payment Handled', 'Request For Payment APPROVED by BUDGET OWNER') -> 7 kez gözlenmiş
+- ('Declaration APPROVED by ADMINISTRATION', 'End trip') -> 42 kez gözlenmiş
+- ('End trip', 'Declaration APPROVED by BUDGET OWNER') -> 16 kez gözlenmiş
+- ('End trip', 'Permit APPROVED by ADMINISTRATION') -> 7 kez gözlenmiş
+- ('Declaration APPROVED by BUDGET OWNER', 'Declaration REJECTED by SUPERVISOR') -> 23 kez gözlenmiş
+- ('Declaration APPROVED by ADMINISTRATION', 'Declaration APPROVED by ADMINISTRATION') -> 1 kez gözlenmiş
+- ('Permit APPROVED by ADMINISTRATION', 'Permit REJECTED by SUPERVISOR') -> 60 kez gözlenmiş
+- ('Permit APPROVED by ADMINISTRATION', 'Send Reminder') -> 9 kez gözlenmiş
+- ('Permit APPROVED by BUDGET OWNER', 'Permit APPROVED by SUPERVISOR') -> 187 kez gözlenmiş
+- ('Request For Payment REJECTED by EMPLOYEE', 'Declaration SUBMITTED by EMPLOYEE') -> 15 kez gözlenmiş
+- ('Request Payment', 'Declaration APPROVED by ADMINISTRATION') -> 1 kez gözlenmiş
+- ('Permit SUBMITTED by EMPLOYEE', 'End trip') -> 1 kez gözlenmiş
+- ('Permit APPROVED by BUDGET OWNER', 'Request For Payment SUBMITTED by EMPLOYEE') -> 21 kez gözlenmiş
+- ('Request For Payment APPROVED by BUDGET OWNER', 'Permit FINAL_APPROVED by SUPERVISOR') -> 30 kez gözlenmiş
+- ('Permit APPROVED by ADMINISTRATION', 'Request For Payment SUBMITTED by EMPLOYEE') -> 146 kez gözlenmiş
+- ('Request For Payment APPROVED by ADMINISTRATION', 'Permit APPROVED by BUDGET OWNER') -> 43 kez gözlenmiş
+- ('Permit APPROVED by BUDGET OWNER', 'Request For Payment APPROVED by BUDGET OWNER') -> 36 kez gözlenmiş
+- ('Request For Payment APPROVED by BUDGET OWNER', 'Request Payment') -> 8 kez gözlenmiş
+- ('Request Payment', 'Request For Payment FINAL_APPROVED by SUPERVISOR') -> 16 kez gözlenmiş
+- ('Permit APPROVED by BUDGET OWNER', 'Start trip') -> 120 kez gözlenmiş
+- ('Request For Payment SUBMITTED by EMPLOYEE', 'Permit APPROVED by BUDGET OWNER') -> 3 kez gözlenmiş
+- ('Permit FINAL_APPROVED by SUPERVISOR', 'Request For Payment REJECTED by ADMINISTRATION') -> 6 kez gözlenmiş
+- ('Request For Payment APPROVED by BUDGET OWNER', 'Request For Payment APPROVED by SUPERVISOR') -> 10 kez gözlenmiş
+- ('Request For Payment APPROVED by SUPERVISOR', 'Start trip') -> 1 kez gözlenmiş
+- ('Start trip', 'Request For Payment FINAL_APPROVED by DIRECTOR') -> 1 kez gözlenmiş
+- ('Request For Payment FINAL_APPROVED by DIRECTOR', 'End trip') -> 1 kez gözlenmiş
+- ('Request Payment', 'Declaration FINAL_APPROVED by DIRECTOR') -> 2 kez gözlenmiş
+- ('Declaration FINAL_APPROVED by DIRECTOR', 'Payment Handled') -> 1 kez gözlenmiş
+- ('Request For Payment APPROVED by SUPERVISOR', 'Permit APPROVED by SUPERVISOR') -> 1 kez gözlenmiş
+- ('Permit APPROVED by SUPERVISOR', 'Request For Payment FINAL_APPROVED by DIRECTOR') -> 1 kez gözlenmiş
+- ('Request For Payment FINAL_APPROVED by DIRECTOR', 'Permit FINAL_APPROVED by DIRECTOR') -> 1 kez gözlenmiş
+- ('Request For Payment APPROVED by ADMINISTRATION', 'Permit APPROVED by SUPERVISOR') -> 8 kez gözlenmiş
+- ('Permit APPROVED by SUPERVISOR', 'Request For Payment FINAL_APPROVED by SUPERVISOR') -> 12 kez gözlenmiş
+- ('Request Payment', 'Permit FINAL_APPROVED by DIRECTOR') -> 9 kez gözlenmiş
+- ('Permit FINAL_APPROVED by DIRECTOR', 'Payment Handled') -> 9 kez gözlenmiş
+- ('Request For Payment APPROVED by ADMINISTRATION', 'Request For Payment APPROVED by ADMINISTRATION') -> 14 kez gözlenmiş
+- ('Request For Payment APPROVED by ADMINISTRATION', 'Start trip') -> 27 kez gözlenmiş
+- ('Start trip', 'Request For Payment APPROVED by BUDGET OWNER') -> 13 kez gözlenmiş
+- ('Request For Payment APPROVED by ADMINISTRATION', 'Permit FINAL_APPROVED by SUPERVISOR') -> 50 kez gözlenmiş
+- ('Declaration REJECTED by ADMINISTRATION', 'End trip') -> 9 kez gözlenmiş
+- ('Permit APPROVED by ADMINISTRATION', 'Start trip') -> 321 kez gözlenmiş
+- ('Request For Payment SUBMITTED by EMPLOYEE', 'End trip') -> 2 kez gözlenmiş
+- ('End trip', 'Request For Payment APPROVED by ADMINISTRATION') -> 3 kez gözlenmiş
+- ('Request For Payment REJECTED by EMPLOYEE', 'End trip') -> 7 kez gözlenmiş
+- ('End trip', 'Permit APPROVED by BUDGET OWNER') -> 52 kez gözlenmiş
+- ('Declaration APPROVED by ADMINISTRATION', 'Permit REJECTED by MISSING') -> 1 kez gözlenmiş
+- ('Permit REJECTED by MISSING', 'Declaration FINAL_APPROVED by SUPERVISOR') -> 1 kez gözlenmiş
+- ('Request For Payment APPROVED by BUDGET OWNER', 'Payment Handled') -> 7 kez gözlenmiş
+- ('Payment Handled', 'Request For Payment FINAL_APPROVED by SUPERVISOR') -> 21 kez gözlenmiş
+- ('Permit APPROVED by ADMINISTRATION', 'End trip') -> 31 kez gözlenmiş
+- ('Start trip', 'Permit APPROVED by BUDGET OWNER') -> 65 kez gözlenmiş
+- ('Declaration SAVED by EMPLOYEE', 'Request For Payment SUBMITTED by EMPLOYEE') -> 5 kez gözlenmiş
+- ('Declaration SUBMITTED by EMPLOYEE', 'Request For Payment APPROVED by BUDGET OWNER') -> 2 kez gözlenmiş
+- ('Request For Payment APPROVED by ADMINISTRATION', 'End trip') -> 6 kez gözlenmiş
+- ('Declaration APPROVED by BUDGET OWNER', 'Request For Payment APPROVED by BUDGET OWNER') -> 3 kez gözlenmiş
+- ('Request For Payment APPROVED by BUDGET OWNER', 'Declaration FINAL_APPROVED by SUPERVISOR') -> 1 kez gözlenmiş
+- ('Declaration FINAL_APPROVED by SUPERVISOR', 'Request For Payment FINAL_APPROVED by SUPERVISOR') -> 4 kez gözlenmiş
+- ('Request For Payment REJECTED by EMPLOYEE', 'Request For Payment APPROVED by BUDGET OWNER') -> 7 kez gözlenmiş
+- ('Request For Payment APPROVED by BUDGET OWNER', 'Request For Payment SUBMITTED by EMPLOYEE') -> 20 kez gözlenmiş
+- ('Request For Payment FINAL_APPROVED by SUPERVISOR', 'Request For Payment APPROVED by BUDGET OWNER') -> 8 kez gözlenmiş
+- ('Request For Payment APPROVED by ADMINISTRATION', 'Request Payment') -> 13 kez gözlenmiş
+- ('Request Payment', 'Request For Payment APPROVED by BUDGET OWNER') -> 6 kez gözlenmiş
+- ('Request For Payment APPROVED by BUDGET OWNER', 'Start trip') -> 14 kez gözlenmiş
+- ('Payment Handled', 'Declaration REJECTED by ADMINISTRATION') -> 1 kez gözlenmiş
+- ('Start trip', 'Permit APPROVED by ADMINISTRATION') -> 3 kez gözlenmiş
+- ('Declaration SAVED by EMPLOYEE', 'End trip') -> 2 kez gözlenmiş
+- ('Declaration APPROVED by ADMINISTRATION', 'Declaration REJECTED by EMPLOYEE') -> 11 kez gözlenmiş
+- ('Request For Payment APPROVED by ADMINISTRATION', 'Request For Payment REJECTED by SUPERVISOR') -> 4 kez gözlenmiş
+- ('Request For Payment REJECTED by ADMINISTRATION', 'Request For Payment APPROVED by ADMINISTRATION') -> 2 kez gözlenmiş
+- ('Request Payment', 'Permit FINAL_APPROVED by SUPERVISOR') -> 4 kez gözlenmiş
+- ('Permit FINAL_APPROVED by SUPERVISOR', 'Payment Handled') -> 5 kez gözlenmiş
+- ('Permit FINAL_APPROVED by SUPERVISOR', 'Request For Payment APPROVED by BUDGET OWNER') -> 11 kez gözlenmiş
+- ('Declaration REJECTED by ADMINISTRATION', 'Request For Payment SUBMITTED by EMPLOYEE') -> 7 kez gözlenmiş
+- ('Request For Payment APPROVED by BUDGET OWNER', 'Declaration REJECTED by EMPLOYEE') -> 1 kez gözlenmiş
+- ('Declaration REJECTED by ADMINISTRATION', 'Declaration APPROVED by ADMINISTRATION') -> 1 kez gözlenmiş
+- ('Declaration APPROVED by BUDGET OWNER', 'Declaration REJECTED by EMPLOYEE') -> 3 kez gözlenmiş
+- ('Payment Handled', 'Declaration APPROVED by ADMINISTRATION') -> 6 kez gözlenmiş
+- ('Declaration APPROVED by ADMINISTRATION', 'Start trip') -> 3 kez gözlenmiş
+- ('Request For Payment APPROVED by BUDGET OWNER', 'Permit APPROVED by SUPERVISOR') -> 10 kez gözlenmiş
+- ('Request For Payment APPROVED by ADMINISTRATION', 'Permit FINAL_APPROVED by DIRECTOR') -> 1 kez gözlenmiş
+- ('Request For Payment APPROVED by ADMINISTRATION', 'Request For Payment APPROVED by SUPERVISOR') -> 14 kez gözlenmiş
+- ('Request Payment', 'Request For Payment FINAL_APPROVED by DIRECTOR') -> 1 kez gözlenmiş
+- ('Permit APPROVED by BUDGET OWNER', 'Request For Payment FINAL_APPROVED by SUPERVISOR') -> 8 kez gözlenmiş
+- ('Permit FINAL_APPROVED by SUPERVISOR', 'Declaration SAVED by EMPLOYEE') -> 10 kez gözlenmiş
+- ('Request For Payment APPROVED by BUDGET OWNER', 'End trip') -> 8 kez gözlenmiş
+- ('Declaration REJECTED by EMPLOYEE', 'Start trip') -> 5 kez gözlenmiş
+- ('Request For Payment FINAL_APPROVED by SUPERVISOR', 'Declaration REJECTED by ADMINISTRATION') -> 1 kez gözlenmiş
+- ('Declaration REJECTED by ADMINISTRATION', 'Request Payment') -> 5 kez gözlenmiş
+- ('Payment Handled', 'Declaration REJECTED by EMPLOYEE') -> 5 kez gözlenmiş
+- ('Request For Payment SUBMITTED by EMPLOYEE', 'Permit FINAL_APPROVED by SUPERVISOR') -> 7 kez gözlenmiş
+- ('Request For Payment APPROVED by ADMINISTRATION', 'Request For Payment REJECTED by BUDGET OWNER') -> 4 kez gözlenmiş
+- ('Request For Payment REJECTED by BUDGET OWNER', 'Permit APPROVED by BUDGET OWNER') -> 1 kez gözlenmiş
+- ('Permit APPROVED by BUDGET OWNER', 'Request For Payment REJECTED by EMPLOYEE') -> 4 kez gözlenmiş
+- ('Request For Payment REJECTED by EMPLOYEE', 'Permit FINAL_APPROVED by SUPERVISOR') -> 2 kez gözlenmiş
+- ('Permit APPROVED by BUDGET OWNER', 'Permit FINAL_APPROVED by DIRECTOR') -> 2 kez gözlenmiş
+- ('Declaration APPROVED by ADMINISTRATION', 'Payment Handled') -> 9 kez gözlenmiş
+- ('Payment Handled', 'Declaration APPROVED by BUDGET OWNER') -> 7 kez gözlenmiş
+- ('Declaration SUBMITTED by EMPLOYEE', 'Declaration REJECTED by EMPLOYEE') -> 5 kez gözlenmiş
+- ('Permit REJECTED by ADMINISTRATION', 'Send Reminder') -> 1 kez gözlenmiş
+- ('Send Reminder', 'Request For Payment SUBMITTED by EMPLOYEE') -> 4 kez gözlenmiş
+- ('Request Payment', 'Declaration REJECTED by EMPLOYEE') -> 6 kez gözlenmiş
+- ('Declaration APPROVED by BUDGET OWNER', 'Payment Handled') -> 4 kez gözlenmiş
+- ('Payment Handled', 'Declaration FINAL_APPROVED by SUPERVISOR') -> 15 kez gözlenmiş
+- ('Request For Payment APPROVED by BUDGET OWNER', 'Permit APPROVED by BUDGET OWNER') -> 10 kez gözlenmiş
+- ('Permit FINAL_APPROVED by SUPERVISOR', 'Request For Payment APPROVED by ADMINISTRATION') -> 3 kez gözlenmiş
+- ('Request For Payment REJECTED by ADMINISTRATION', 'Start trip') -> 9 kez gözlenmiş
+- ('Start trip', 'Request For Payment REJECTED by EMPLOYEE') -> 7 kez gözlenmiş
+- ('Permit REJECTED by ADMINISTRATION', 'Request For Payment SUBMITTED by EMPLOYEE') -> 3 kez gözlenmiş
+- ('Request For Payment SUBMITTED by EMPLOYEE', 'Permit REJECTED by EMPLOYEE') -> 2 kez gözlenmiş
+- ('Permit APPROVED by ADMINISTRATION', 'Request For Payment APPROVED by ADMINISTRATION') -> 1 kez gözlenmiş
+- ('Declaration REJECTED by EMPLOYEE', 'Payment Handled') -> 5 kez gözlenmiş
+- ('Declaration REJECTED by ADMINISTRATION', 'Declaration REJECTED by ADMINISTRATION') -> 1 kez gözlenmiş
+- ('Declaration REJECTED by EMPLOYEE', 'Declaration SAVED by EMPLOYEE') -> 3 kez gözlenmiş
+- ('Declaration REJECTED by ADMINISTRATION', 'Request For Payment FINAL_APPROVED by SUPERVISOR') -> 1 kez gözlenmiş
+- ('Request For Payment FINAL_APPROVED by SUPERVISOR', 'Declaration REJECTED by EMPLOYEE') -> 2 kez gözlenmiş
+- ('Request For Payment REJECTED by ADMINISTRATION', 'Request For Payment SUBMITTED by EMPLOYEE') -> 15 kez gözlenmiş
+- ('Request For Payment APPROVED by ADMINISTRATION', 'Request For Payment REJECTED by EMPLOYEE') -> 4 kez gözlenmiş
+- ('Request For Payment APPROVED by BUDGET OWNER', 'Request For Payment REJECTED by SUPERVISOR') -> 3 kez gözlenmiş
+- ('Start trip', 'Request For Payment APPROVED by SUPERVISOR') -> 3 kez gözlenmiş
+- ('Permit FINAL_APPROVED by DIRECTOR', 'Request For Payment FINAL_APPROVED by SUPERVISOR') -> 3 kez gözlenmiş
+- ('Declaration APPROVED by BUDGET OWNER', 'Declaration SUBMITTED by EMPLOYEE') -> 9 kez gözlenmiş
+- ('Declaration FINAL_APPROVED by SUPERVISOR', 'Declaration APPROVED by BUDGET OWNER') -> 3 kez gözlenmiş
+- ('Declaration APPROVED by BUDGET OWNER', 'Request Payment') -> 6 kez gözlenmiş
+- ('Declaration APPROVED by ADMINISTRATION', 'Request For Payment SUBMITTED by EMPLOYEE') -> 8 kez gözlenmiş
+- ('Request For Payment APPROVED by ADMINISTRATION', 'Declaration FINAL_APPROVED by SUPERVISOR') -> 1 kez gözlenmiş
+- ('Declaration APPROVED by BUDGET OWNER', 'Declaration SAVED by EMPLOYEE') -> 2 kez gözlenmiş
+- ('Declaration SAVED by EMPLOYEE', 'Declaration FINAL_APPROVED by SUPERVISOR') -> 2 kez gözlenmiş
+- ('Request For Payment REJECTED by BUDGET OWNER', 'Request For Payment REJECTED by EMPLOYEE') -> 2 kez gözlenmiş
+- ('Send Reminder', 'Request For Payment REJECTED by ADMINISTRATION') -> 1 kez gözlenmiş
+- ('Request Payment', 'Send Reminder') -> 1 kez gözlenmiş
+- ('Send Reminder', 'Payment Handled') -> 1 kez gözlenmiş
+- ('Request For Payment FINAL_APPROVED by DIRECTOR', 'Start trip') -> 2 kez gözlenmiş
+- ('Request For Payment APPROVED by SUPERVISOR', 'Request For Payment APPROVED by BUDGET OWNER') -> 1 kez gözlenmiş
+- ('Request For Payment APPROVED by BUDGET OWNER', 'Request For Payment FINAL_APPROVED by DIRECTOR') -> 1 kez gözlenmiş
+- ('Request For Payment SUBMITTED by EMPLOYEE', 'Send Reminder') -> 1 kez gözlenmiş
+- ('Declaration SUBMITTED by EMPLOYEE', 'Request For Payment REJECTED by ADMINISTRATION') -> 1 kez gözlenmiş
+- ('Request For Payment REJECTED by ADMINISTRATION', 'Declaration APPROVED by ADMINISTRATION') -> 1 kez gözlenmiş
+- ('Declaration FINAL_APPROVED by SUPERVISOR', 'Request For Payment REJECTED by EMPLOYEE') -> 4 kez gözlenmiş
+- ('Request For Payment APPROVED by ADMINISTRATION', 'Declaration APPROVED by ADMINISTRATION') -> 1 kez gözlenmiş
+- ('Declaration APPROVED by BUDGET OWNER', 'Start trip') -> 3 kez gözlenmiş
+- ('Request For Payment FINAL_APPROVED by SUPERVISOR', 'Permit APPROVED by SUPERVISOR') -> 3 kez gözlenmiş
+- ('Permit APPROVED by SUPERVISOR', 'Request Payment') -> 2 kez gözlenmiş
+- ('Request Payment', 'Permit APPROVED by SUPERVISOR') -> 1 kez gözlenmiş
+- ('Request For Payment REJECTED by ADMINISTRATION', 'Request For Payment REJECTED by ADMINISTRATION') -> 1 kez gözlenmiş
+- ('Permit APPROVED by BUDGET OWNER', 'Request For Payment APPROVED by ADMINISTRATION') -> 1 kez gözlenmiş
+- ('Declaration REJECTED by BUDGET OWNER', 'Declaration SUBMITTED by EMPLOYEE') -> 1 kez gözlenmiş
+- ('Permit APPROVED by SUPERVISOR', 'End trip') -> 2 kez gözlenmiş
+- ('Request For Payment SUBMITTED by EMPLOYEE', 'Permit REJECTED by BUDGET OWNER') -> 1 kez gözlenmiş
+- ('Request For Payment APPROVED by BUDGET OWNER', 'Request For Payment REJECTED by EMPLOYEE') -> 6 kez gözlenmiş
+- ('Declaration FINAL_APPROVED by SUPERVISOR', 'Start trip') -> 3 kez gözlenmiş
+- ('Declaration FINAL_APPROVED by SUPERVISOR', 'Declaration REJECTED by ADMINISTRATION') -> 2 kez gözlenmiş
+- ('Start trip', 'Declaration APPROVED by ADMINISTRATION') -> 3 kez gözlenmiş
+- ('Request For Payment REJECTED by ADMINISTRATION', 'Permit FINAL_APPROVED by SUPERVISOR') -> 10 kez gözlenmiş
+- ('Permit FINAL_APPROVED by SUPERVISOR', 'Request For Payment REJECTED by EMPLOYEE') -> 10 kez gözlenmiş
+- ('End trip', 'Permit APPROVED by SUPERVISOR') -> 2 kez gözlenmiş
+- ('Request For Payment REJECTED by ADMINISTRATION', 'Declaration SUBMITTED by EMPLOYEE') -> 1 kez gözlenmiş
+- ('Request For Payment REJECTED by ADMINISTRATION', 'Permit APPROVED by BUDGET OWNER') -> 3 kez gözlenmiş
+- ('Request For Payment FINAL_APPROVED by SUPERVISOR', 'Send Reminder') -> 1 kez gözlenmiş
+- ('Send Reminder', 'Request Payment') -> 1 kez gözlenmiş
+- ('Permit SUBMITTED by EMPLOYEE', 'Permit FOR_APPROVAL by ADMINISTRATION') -> 1 kez gözlenmiş
+- ('Permit FOR_APPROVAL by ADMINISTRATION', 'Start trip') -> 1 kez gözlenmiş
+- ('Request For Payment REJECTED by ADMINISTRATION', 'Request For Payment FINAL_APPROVED by SUPERVISOR') -> 4 kez gözlenmiş
+- ('Request Payment', 'Request For Payment REJECTED by ADMINISTRATION') -> 1 kez gözlenmiş
+- ('Payment Handled', 'Request For Payment REJECTED by EMPLOYEE') -> 1 kez gözlenmiş
+- ('Send Reminder', 'Permit APPROVED by BUDGET OWNER') -> 2 kez gözlenmiş
+- ('Request For Payment APPROVED by BUDGET OWNER', 'Request For Payment SAVED by EMPLOYEE') -> 1 kez gözlenmiş
+- ('Request Payment', 'Declaration APPROVED by BUDGET OWNER') -> 3 kez gözlenmiş
+- ('Payment Handled', 'Permit FINAL_APPROVED by SUPERVISOR') -> 3 kez gözlenmiş
+- ('Request For Payment APPROVED by BUDGET OWNER', 'Declaration APPROVED by BUDGET OWNER') -> 1 kez gözlenmiş
+- ('Declaration APPROVED by BUDGET OWNER', 'Request For Payment REJECTED by SUPERVISOR') -> 1 kez gözlenmiş
+- ('Request For Payment REJECTED by SUPERVISOR', 'Request For Payment FINAL_APPROVED by SUPERVISOR') -> 1 kez gözlenmiş
+- ('Request For Payment SUBMITTED by EMPLOYEE', 'Declaration FINAL_APPROVED by SUPERVISOR') -> 1 kez gözlenmiş
+- ('Request Payment', 'Request For Payment APPROVED by ADMINISTRATION') -> 1 kez gözlenmiş
+- ('Request For Payment REJECTED by ADMINISTRATION', 'Declaration FINAL_APPROVED by SUPERVISOR') -> 2 kez gözlenmiş
+- ('Permit APPROVED by ADMINISTRATION', 'Request For Payment SAVED by EMPLOYEE') -> 4 kez gözlenmiş
+- ('Request For Payment SAVED by EMPLOYEE', 'Permit APPROVED by BUDGET OWNER') -> 3 kez gözlenmiş
+- ('Request For Payment SUBMITTED by EMPLOYEE', 'Request For Payment REJECTED by EMPLOYEE') -> 1 kez gözlenmiş
+- ('Start trip', 'Declaration REJECTED by ADMINISTRATION') -> 2 kez gözlenmiş
+- ('Declaration REJECTED by EMPLOYEE', 'End trip') -> 2 kez gözlenmiş
+- ('Request For Payment SUBMITTED by EMPLOYEE', 'Permit REJECTED by SUPERVISOR') -> 2 kez gözlenmiş
+- ('Permit APPROVED by BUDGET OWNER', 'Request For Payment REJECTED by ADMINISTRATION') -> 1 kez gözlenmiş
+- ('Declaration SAVED by EMPLOYEE', 'Start trip') -> 3 kez gözlenmiş
+- ('Request For Payment REJECTED by BUDGET OWNER', 'Request For Payment APPROVED by BUDGET OWNER') -> 1 kez gözlenmiş
+- ('Request Payment', 'Request For Payment REJECTED by EMPLOYEE') -> 2 kez gözlenmiş
+- ('Request For Payment SUBMITTED by EMPLOYEE', 'Payment Handled') -> 1 kez gözlenmiş
+- ('Payment Handled', 'Request For Payment APPROVED by ADMINISTRATION') -> 1 kez gözlenmiş
+- ('Request For Payment APPROVED by ADMINISTRATION', 'Declaration SAVED by EMPLOYEE') -> 1 kez gözlenmiş
+- ('Request For Payment FINAL_APPROVED by SUPERVISOR', 'Declaration FINAL_APPROVED by SUPERVISOR') -> 6 kez gözlenmiş
+- ('Declaration REJECTED by BUDGET OWNER', 'Declaration APPROVED by BUDGET OWNER') -> 1 kez gözlenmiş
+- ('Declaration REJECTED by BUDGET OWNER', 'End trip') -> 1 kez gözlenmiş
+- ('Declaration SUBMITTED by EMPLOYEE', 'Declaration APPROVED by BUDGET OWNER') -> 1 kez gözlenmiş
+- ('Declaration FINAL_APPROVED by SUPERVISOR', 'Declaration APPROVED by ADMINISTRATION') -> 1 kez gözlenmiş
+- ('Request For Payment FINAL_APPROVED by SUPERVISOR', 'Declaration SUBMITTED by EMPLOYEE') -> 4 kez gözlenmiş
+- ('Request For Payment REJECTED by EMPLOYEE', 'Permit APPROVED by BUDGET OWNER') -> 1 kez gözlenmiş
+- ('Permit REJECTED by SUPERVISOR', 'Permit SUBMITTED by EMPLOYEE') -> 1 kez gözlenmiş
+- ('Request For Payment REJECTED by EMPLOYEE', 'Payment Handled') -> 1 kez gözlenmiş
+- ('Request For Payment APPROVED by ADMINISTRATION', 'Declaration REJECTED by EMPLOYEE') -> 4 kez gözlenmiş
+- ('Declaration REJECTED by EMPLOYEE', 'Request For Payment FINAL_APPROVED by SUPERVISOR') -> 3 kez gözlenmiş
+- ('Permit APPROVED by SUPERVISOR', 'Permit REJECTED by DIRECTOR') -> 2 kez gözlenmiş
+- ('Permit REJECTED by DIRECTOR', 'Permit REJECTED by EMPLOYEE') -> 2 kez gözlenmiş
+- ('Start trip', 'Permit REJECTED by SUPERVISOR') -> 3 kez gözlenmiş
+- ('Permit APPROVED by SUPERVISOR', 'Request For Payment APPROVED by SUPERVISOR') -> 2 kez gözlenmiş
+- ('Request For Payment APPROVED by SUPERVISOR', 'Permit FINAL_APPROVED by DIRECTOR') -> 2 kez gözlenmiş
+- ('Permit FINAL_APPROVED by DIRECTOR', 'Request For Payment FINAL_APPROVED by DIRECTOR') -> 2 kez gözlenmiş
+- ('Send Reminder', 'Request For Payment SAVED by EMPLOYEE') -> 1 kez gözlenmiş
+- ('Send Reminder', 'Permit REJECTED by EMPLOYEE') -> 1 kez gözlenmiş
+- ('Request For Payment APPROVED by BUDGET OWNER', 'Declaration SUBMITTED by EMPLOYEE') -> 3 kez gözlenmiş
+- ('Declaration REJECTED by EMPLOYEE', 'Request For Payment APPROVED by BUDGET OWNER') -> 2 kez gözlenmiş
+- ('Permit REJECTED by ADMINISTRATION', 'Start trip') -> 1 kez gözlenmiş
+- ('Declaration APPROVED by BUDGET OWNER', 'Request For Payment SUBMITTED by EMPLOYEE') -> 1 kez gözlenmiş
+- ('Request For Payment APPROVED by SUPERVISOR', 'End trip') -> 1 kez gözlenmiş
+- ('End trip', 'Request For Payment FINAL_APPROVED by DIRECTOR') -> 1 kez gözlenmiş
+- ('Payment Handled', 'Request For Payment REJECTED by ADMINISTRATION') -> 1 kez gözlenmiş
+- ('Payment Handled', 'Request For Payment SAVED by EMPLOYEE') -> 1 kez gözlenmiş
+- ('Request Payment', 'Permit REJECTED by EMPLOYEE') -> 1 kez gözlenmiş
+- ('Permit APPROVED by ADMINISTRATION', 'Payment Handled') -> 1 kez gözlenmiş
+- ('End trip', 'Declaration APPROVED by SUPERVISOR') -> 1 kez gözlenmiş
+- ('Declaration APPROVED by SUPERVISOR', 'Declaration FINAL_APPROVED by SUPERVISOR') -> 1 kez gözlenmiş
+- ('Permit REJECTED by ADMINISTRATION', 'Permit SUBMITTED by EMPLOYEE') -> 1 kez gözlenmiş
+- ('Permit SUBMITTED by EMPLOYEE', 'Permit REJECTED by EMPLOYEE') -> 1 kez gözlenmiş
+- ('Declaration REJECTED by EMPLOYEE', 'Declaration APPROVED by BUDGET OWNER') -> 2 kez gözlenmiş
+- ('Declaration REJECTED by ADMINISTRATION', 'Request For Payment APPROVED by BUDGET OWNER') -> 1 kez gözlenmiş
+- ('Request For Payment APPROVED by ADMINISTRATION', 'Permit REJECTED by SUPERVISOR') -> 1 kez gözlenmiş
+- ('Permit APPROVED by ADMINISTRATION', 'Request For Payment REJECTED by EMPLOYEE') -> 2 kez gözlenmiş
+- ('Request For Payment REJECTED by EMPLOYEE', 'Request For Payment REJECTED by SUPERVISOR') -> 2 kez gözlenmiş
+- ('Request For Payment REJECTED by SUPERVISOR', 'Request For Payment SUBMITTED by EMPLOYEE') -> 1 kez gözlenmiş
+- ('Declaration APPROVED by ADMINISTRATION', 'Request For Payment APPROVED by BUDGET OWNER') -> 1 kez gözlenmiş
+- ('Request For Payment FINAL_APPROVED by SUPERVISOR', 'Declaration APPROVED by BUDGET OWNER') -> 2 kez gözlenmiş
+- ('Permit APPROVED by SUPERVISOR', 'Request For Payment REJECTED by SUPERVISOR') -> 1 kez gözlenmiş
+- ('Request For Payment REJECTED by SUPERVISOR', 'Permit FINAL_APPROVED by DIRECTOR') -> 1 kez gözlenmiş
+- ('Permit FINAL_APPROVED by DIRECTOR', 'Request For Payment REJECTED by EMPLOYEE') -> 1 kez gözlenmiş
+- ('Request For Payment APPROVED by ADMINISTRATION', 'Declaration REJECTED by SUPERVISOR') -> 1 kez gözlenmiş
+- ('Declaration REJECTED by SUPERVISOR', 'Request For Payment REJECTED by SUPERVISOR') -> 1 kez gözlenmiş
+- ('Request For Payment REJECTED by SUPERVISOR', 'Declaration REJECTED by EMPLOYEE') -> 1 kez gözlenmiş
+- ('Declaration REJECTED by EMPLOYEE', 'Request For Payment REJECTED by EMPLOYEE') -> 1 kez gözlenmiş
+- ('End trip', 'Request For Payment REJECTED by EMPLOYEE') -> 1 kez gözlenmiş
+- ('Declaration FINAL_APPROVED by SUPERVISOR', 'Declaration REJECTED by SUPERVISOR') -> 1 kez gözlenmiş
+- ('Declaration REJECTED by SUPERVISOR', 'Declaration APPROVED by BUDGET OWNER') -> 1 kez gözlenmiş
+- ('Request For Payment SAVED by EMPLOYEE', 'Permit APPROVED by SUPERVISOR') -> 1 kez gözlenmiş
+- ('Start trip', 'Declaration SAVED by EMPLOYEE') -> 1 kez gözlenmiş
+- ('Declaration APPROVED by ADMINISTRATION', 'Declaration SAVED by EMPLOYEE') -> 1 kez gözlenmiş
+- ('Declaration APPROVED by ADMINISTRATION', 'Request For Payment SAVED by EMPLOYEE') -> 1 kez gözlenmiş
+- ('Request For Payment SAVED by EMPLOYEE', 'Declaration SAVED by EMPLOYEE') -> 1 kez gözlenmiş
+- ('Declaration REJECTED by ADMINISTRATION', 'Payment Handled') -> 1 kez gözlenmiş
+- ('Declaration REJECTED by EMPLOYEE', 'Declaration REJECTED by SUPERVISOR') -> 1 kez gözlenmiş
+- ('Permit REJECTED by SUPERVISOR', 'Request For Payment SUBMITTED by EMPLOYEE') -> 2 kez gözlenmiş
+- ('Request For Payment REJECTED by ADMINISTRATION', 'Permit REJECTED by EMPLOYEE') -> 1 kez gözlenmiş
+- ('Permit REJECTED by EMPLOYEE', 'Permit SAVED by EMPLOYEE') -> 1 kez gözlenmiş
+- ('Permit SAVED by EMPLOYEE', 'End trip') -> 1 kez gözlenmiş
+- ('Request For Payment REJECTED by EMPLOYEE', 'Permit APPROVED by SUPERVISOR') -> 1 kez gözlenmiş
+- ('Declaration REJECTED by ADMINISTRATION', 'Start trip') -> 2 kez gözlenmiş
+- ('Start trip', 'Declaration REJECTED by EMPLOYEE') -> 2 kez gözlenmiş
+- ('Request Payment', 'Permit APPROVED by BUDGET OWNER') -> 3 kez gözlenmiş
+- ('Permit APPROVED by BUDGET OWNER', 'Payment Handled') -> 1 kez gözlenmiş
+- ('End trip', 'Request For Payment APPROVED by BUDGET OWNER') -> 1 kez gözlenmiş
+- ('Declaration APPROVED by BUDGET OWNER', 'Request For Payment FINAL_APPROVED by SUPERVISOR') -> 1 kez gözlenmiş
+- ('Request For Payment APPROVED by ADMINISTRATION', 'Declaration APPROVED by BUDGET OWNER') -> 1 kez gözlenmiş
+- ('Request Payment', 'Declaration REJECTED by SUPERVISOR') -> 1 kez gözlenmiş
+- ('Declaration REJECTED by SUPERVISOR', 'Payment Handled') -> 1 kez gözlenmiş
+- ('Request For Payment APPROVED by ADMINISTRATION', 'Send Reminder') -> 1 kez gözlenmiş
+- ('Send Reminder', 'Request For Payment APPROVED by BUDGET OWNER') -> 1 kez gözlenmiş
+- ('Request For Payment REJECTED by ADMINISTRATION', 'Permit REJECTED by SUPERVISOR') -> 1 kez gözlenmiş
+- ('Permit REJECTED by SUPERVISOR', 'Request For Payment REJECTED by EMPLOYEE') -> 1 kez gözlenmiş
+- ('Request For Payment REJECTED by SUPERVISOR', 'Permit REJECTED by EMPLOYEE') -> 1 kez gözlenmiş
+- ('Permit REJECTED by EMPLOYEE', 'Request For Payment REJECTED by EMPLOYEE') -> 1 kez gözlenmiş
+- ('Request For Payment REJECTED by EMPLOYEE', 'Permit SUBMITTED by EMPLOYEE') -> 1 kez gözlenmiş
+- ('Permit REJECTED by BUDGET OWNER', 'Request For Payment SUBMITTED by EMPLOYEE') -> 1 kez gözlenmiş
+- ('Request For Payment FINAL_APPROVED by SUPERVISOR', 'Permit REJECTED by EMPLOYEE') -> 1 kez gözlenmiş
+- ('Permit APPROVED by ADMINISTRATION', 'Request Payment') -> 1 kez gözlenmiş
+- ('Request For Payment REJECTED by ADMINISTRATION', 'Declaration REJECTED by EMPLOYEE') -> 1 kez gözlenmiş
+- ('Declaration APPROVED by ADMINISTRATION', 'Request For Payment FINAL_APPROVED by SUPERVISOR') -> 1 kez gözlenmiş
+- ('End trip', 'Permit REJECTED by BUDGET OWNER') -> 1 kez gözlenmiş
+- ('Request For Payment APPROVED by BUDGET OWNER', 'Permit REJECTED by EMPLOYEE') -> 1 kez gözlenmiş
+- ('Permit REJECTED by EMPLOYEE', 'Request For Payment REJECTED by SUPERVISOR') -> 1 kez gözlenmiş
+- ('Request For Payment REJECTED by SUPERVISOR', 'Request For Payment REJECTED by SUPERVISOR') -> 2 kez gözlenmiş
+- ('Permit FINAL_APPROVED by SUPERVISOR', 'Request For Payment REJECTED by SUPERVISOR') -> 1 kez gözlenmiş
+- ('Request For Payment REJECTED by BUDGET OWNER', 'Request For Payment REJECTED by BUDGET OWNER') -> 2 kez gözlenmiş
+- ('Permit APPROVED by BUDGET OWNER', 'Permit FOR_APPROVAL by SUPERVISOR') -> 1 kez gözlenmiş
+- ('Permit FOR_APPROVAL by SUPERVISOR', 'Send Reminder') -> 1 kez gözlenmiş
+- ('Declaration REJECTED by BUDGET OWNER', 'Declaration REJECTED by BUDGET OWNER') -> 1 kez gözlenmiş
+- ('Request For Payment REJECTED by EMPLOYEE', 'Request For Payment SAVED by EMPLOYEE') -> 1 kez gözlenmiş
+

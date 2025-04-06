@@ -1,0 +1,347 @@
+{
+    "models": {
+        "decision_tree": {
+            "accuracy": 0.9434435364041605,
+            "report": {
+                "Admission IC": {
+                    "precision": 0.97677793904209,
+                    "recall": 1.0,
+                    "f1-score": 0.9882525697503671,
+                    "support": 673.0
+                },
+                "Admission NC": {
+                    "precision": 0.9212034383954155,
+                    "recall": 0.9554234769687965,
+                    "f1-score": 0.9380014587892049,
+                    "support": 673.0
+                },
+                "CRP": {
+                    "precision": 0.7754172989377845,
+                    "recall": 0.7592867756315007,
+                    "f1-score": 0.7672672672672672,
+                    "support": 673.0
+                },
+                "ER Registration": {
+                    "precision": 0.9985163204747775,
+                    "recall": 1.0,
+                    "f1-score": 0.9992576095025983,
+                    "support": 673.0
+                },
+                "ER Sepsis Triage": {
+                    "precision": 0.9707174231332357,
+                    "recall": 0.9851411589895989,
+                    "f1-score": 0.9778761061946902,
+                    "support": 673.0
+                },
+                "ER Triage": {
+                    "precision": 0.9767103347889374,
+                    "recall": 0.9970282317979198,
+                    "f1-score": 0.986764705882353,
+                    "support": 673.0
+                },
+                "IV Antibiotics": {
+                    "precision": 0.9766423357664233,
+                    "recall": 0.9940564635958395,
+                    "f1-score": 0.9852724594992637,
+                    "support": 673.0
+                },
+                "IV Liquid": {
+                    "precision": 0.9456366237482118,
+                    "recall": 0.9821693907875185,
+                    "f1-score": 0.9635568513119533,
+                    "support": 673.0
+                },
+                "LacticAcid": {
+                    "precision": 0.8616874135546335,
+                    "recall": 0.9257057949479941,
+                    "f1-score": 0.8925501432664756,
+                    "support": 673.0
+                },
+                "Leucocytes": {
+                    "precision": 0.7340425531914894,
+                    "recall": 0.512630014858841,
+                    "f1-score": 0.6036745406824147,
+                    "support": 673.0
+                },
+                "Release A": {
+                    "precision": 0.9232914923291492,
+                    "recall": 0.9836552748885586,
+                    "f1-score": 0.9525179856115108,
+                    "support": 673.0
+                },
+                "Release B": {
+                    "precision": 0.9897058823529412,
+                    "recall": 1.0,
+                    "f1-score": 0.9948263118994827,
+                    "support": 673.0
+                },
+                "Release C": {
+                    "precision": 0.9955621301775148,
+                    "recall": 1.0,
+                    "f1-score": 0.9977761304670126,
+                    "support": 673.0
+                },
+                "Release D": {
+                    "precision": 0.9911634756995582,
+                    "recall": 1.0,
+                    "f1-score": 0.9955621301775148,
+                    "support": 673.0
+                },
+                "Release E": {
+                    "precision": 0.9955621301775148,
+                    "recall": 1.0,
+                    "f1-score": 0.9977761304670126,
+                    "support": 673.0
+                },
+                "Return ER": {
+                    "precision": 1.0,
+                    "recall": 1.0,
+                    "f1-score": 1.0,
+                    "support": 673.0
+                },
+                "accuracy": 0.9434435364041605,
+                "macro avg": {
+                    "precision": 0.9395397994856047,
+                    "recall": 0.9434435364041605,
+                    "f1-score": 0.9400582750480702,
+                    "support": 10768.0
+                },
+                "weighted avg": {
+                    "precision": 0.9395397994856047,
+                    "recall": 0.9434435364041605,
+                    "f1-score": 0.9400582750480702,
+                    "support": 10768.0
+                }
+            }
+        },
+        "random_forest": {
+            "accuracy": 0.9540304606240714,
+            "report": {
+                "Admission IC": {
+                    "precision": 1.0,
+                    "recall": 1.0,
+                    "f1-score": 1.0,
+                    "support": 673.0
+                },
+                "Admission NC": {
+                    "precision": 0.9394812680115274,
+                    "recall": 0.9687964338781575,
+                    "f1-score": 0.9539136795903438,
+                    "support": 673.0
+                },
+                "CRP": {
+                    "precision": 0.8317307692307693,
+                    "recall": 0.7711738484398217,
+                    "f1-score": 0.8003084040092521,
+                    "support": 673.0
+                },
+                "ER Registration": {
+                    "precision": 0.9985163204747775,
+                    "recall": 1.0,
+                    "f1-score": 0.9992576095025983,
+                    "support": 673.0
+                },
+                "ER Sepsis Triage": {
+                    "precision": 0.9752186588921283,
+                    "recall": 0.9940564635958395,
+                    "f1-score": 0.9845474613686535,
+                    "support": 673.0
+                },
+                "ER Triage": {
+                    "precision": 0.975254730713246,
+                    "recall": 0.9955423476968797,
+                    "f1-score": 0.9852941176470589,
+                    "support": 673.0
+                },
+                "IV Antibiotics": {
+                    "precision": 0.9723435225618632,
+                    "recall": 0.9925705794947994,
+                    "f1-score": 0.9823529411764705,
+                    "support": 673.0
+                },
+                "IV Liquid": {
+                    "precision": 0.9217877094972067,
+                    "recall": 0.9806835066864784,
+                    "f1-score": 0.9503239740820735,
+                    "support": 673.0
+                },
+                "LacticAcid": {
+                    "precision": 0.879382889200561,
+                    "recall": 0.9316493313521546,
+                    "f1-score": 0.9047619047619048,
+                    "support": 673.0
+                },
+                "Leucocytes": {
+                    "precision": 0.7715827338129496,
+                    "recall": 0.637444279346211,
+                    "f1-score": 0.6981285598047193,
+                    "support": 673.0
+                },
+                "Release A": {
+                    "precision": 0.963924963924964,
+                    "recall": 0.9925705794947994,
+                    "f1-score": 0.9780380673499268,
+                    "support": 673.0
+                },
+                "Release B": {
+                    "precision": 1.0,
+                    "recall": 1.0,
+                    "f1-score": 1.0,
+                    "support": 673.0
+                },
+                "Release C": {
+                    "precision": 1.0,
+                    "recall": 1.0,
+                    "f1-score": 1.0,
+                    "support": 673.0
+                },
+                "Release D": {
+                    "precision": 1.0,
+                    "recall": 1.0,
+                    "f1-score": 1.0,
+                    "support": 673.0
+                },
+                "Release E": {
+                    "precision": 1.0,
+                    "recall": 1.0,
+                    "f1-score": 1.0,
+                    "support": 673.0
+                },
+                "Return ER": {
+                    "precision": 1.0,
+                    "recall": 1.0,
+                    "f1-score": 1.0,
+                    "support": 673.0
+                },
+                "accuracy": 0.9540304606240714,
+                "macro avg": {
+                    "precision": 0.9518264728949994,
+                    "recall": 0.9540304606240713,
+                    "f1-score": 0.9523079199558127,
+                    "support": 10768.0
+                },
+                "weighted avg": {
+                    "precision": 0.9518264728949996,
+                    "recall": 0.9540304606240714,
+                    "f1-score": 0.9523079199558125,
+                    "support": 10768.0
+                }
+            }
+        },
+        "ensemble": {
+            "accuracy": 0.9434435364041605,
+            "report": {
+                "Admission IC": {
+                    "precision": 0.97677793904209,
+                    "recall": 1.0,
+                    "f1-score": 0.9882525697503671,
+                    "support": 673.0
+                },
+                "Admission NC": {
+                    "precision": 0.9212034383954155,
+                    "recall": 0.9554234769687965,
+                    "f1-score": 0.9380014587892049,
+                    "support": 673.0
+                },
+                "CRP": {
+                    "precision": 0.7754172989377845,
+                    "recall": 0.7592867756315007,
+                    "f1-score": 0.7672672672672672,
+                    "support": 673.0
+                },
+                "ER Registration": {
+                    "precision": 0.9985163204747775,
+                    "recall": 1.0,
+                    "f1-score": 0.9992576095025983,
+                    "support": 673.0
+                },
+                "ER Sepsis Triage": {
+                    "precision": 0.9707174231332357,
+                    "recall": 0.9851411589895989,
+                    "f1-score": 0.9778761061946902,
+                    "support": 673.0
+                },
+                "ER Triage": {
+                    "precision": 0.9767103347889374,
+                    "recall": 0.9970282317979198,
+                    "f1-score": 0.986764705882353,
+                    "support": 673.0
+                },
+                "IV Antibiotics": {
+                    "precision": 0.9766423357664233,
+                    "recall": 0.9940564635958395,
+                    "f1-score": 0.9852724594992637,
+                    "support": 673.0
+                },
+                "IV Liquid": {
+                    "precision": 0.9456366237482118,
+                    "recall": 0.9821693907875185,
+                    "f1-score": 0.9635568513119533,
+                    "support": 673.0
+                },
+                "LacticAcid": {
+                    "precision": 0.8616874135546335,
+                    "recall": 0.9257057949479941,
+                    "f1-score": 0.8925501432664756,
+                    "support": 673.0
+                },
+                "Leucocytes": {
+                    "precision": 0.7340425531914894,
+                    "recall": 0.512630014858841,
+                    "f1-score": 0.6036745406824147,
+                    "support": 673.0
+                },
+                "Release A": {
+                    "precision": 0.9232914923291492,
+                    "recall": 0.9836552748885586,
+                    "f1-score": 0.9525179856115108,
+                    "support": 673.0
+                },
+                "Release B": {
+                    "precision": 0.9897058823529412,
+                    "recall": 1.0,
+                    "f1-score": 0.9948263118994827,
+                    "support": 673.0
+                },
+                "Release C": {
+                    "precision": 0.9955621301775148,
+                    "recall": 1.0,
+                    "f1-score": 0.9977761304670126,
+                    "support": 673.0
+                },
+                "Release D": {
+                    "precision": 0.9911634756995582,
+                    "recall": 1.0,
+                    "f1-score": 0.9955621301775148,
+                    "support": 673.0
+                },
+                "Release E": {
+                    "precision": 0.9955621301775148,
+                    "recall": 1.0,
+                    "f1-score": 0.9977761304670126,
+                    "support": 673.0
+                },
+                "Return ER": {
+                    "precision": 1.0,
+                    "recall": 1.0,
+                    "f1-score": 1.0,
+                    "support": 673.0
+                },
+                "accuracy": 0.9434435364041605,
+                "macro avg": {
+                    "precision": 0.9395397994856047,
+                    "recall": 0.9434435364041605,
+                    "f1-score": 0.9400582750480702,
+                    "support": 10768.0
+                },
+                "weighted avg": {
+                    "precision": 0.9395397994856047,
+                    "recall": 0.9434435364041605,
+                    "f1-score": 0.9400582750480702,
+                    "support": 10768.0
+                }
+            }
+        }
+    },
+    "best_model": "random_forest"
+}

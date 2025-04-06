@@ -1,0 +1,13 @@
+feature,importance
+trace_length,0.269082427267851
+current_event,0.1545230371530786
+current_id,0.10815507006438656
+current_case:id,0.09624792764049862
+current_org:role,0.08973992873061463
+event_position,0.07072793442717114
+current_case:DeclarationNumber,0.060435018506485506
+current_case:Amount,0.05740282878838804
+time_since_last_event,0.041087448498973306
+time_since_start,0.03856401301682341
+current_org:resource,0.01403436590572922
+current_case:BudgetNumber,0.0

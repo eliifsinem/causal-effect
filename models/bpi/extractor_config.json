@@ -1,0 +1,18 @@
+{
+    "dataset_path": "dataset/DomesticDeclarations.xes",
+    "original_feature_names": [
+        "case_id",
+        "time_since_start",
+        "time_since_last_event",
+        "event_position",
+        "trace_length",
+        "current_event",
+        "current_id",
+        "current_org:resource",
+        "current_org:role",
+        "current_case:id",
+        "current_case:BudgetNumber",
+        "current_case:DeclarationNumber",
+        "current_case:Amount"
+    ]
+}

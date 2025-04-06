@@ -1,0 +1,32 @@
+{
+    "dataset_path": "dataset/DomesticDeclarations.xes",
+    "model_dir": "models/bpi",
+    "report_dir": "reports/bpi",
+    "test_size": 0.2,
+    "random_state": 42,
+    "balance_classes": true,
+    "run_causality_tests": true,
+    "models": {
+        "decision_tree": {
+            "enabled": true,
+            "params": {
+                "max_depth": null,
+                "min_samples_split": 2,
+                "min_samples_leaf": 1
+            }
+        },
+        "random_forest": {
+            "enabled": true,
+            "params": {
+                "n_estimators": 100,
+                "max_depth": null,
+                "min_samples_split": 2,
+                "min_samples_leaf": 1
+            }
+        },
+        "ensemble": {
+            "enabled": true,
+            "voting": "soft"
+        }
+    }
+}
