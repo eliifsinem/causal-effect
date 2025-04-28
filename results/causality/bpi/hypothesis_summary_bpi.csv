@@ -1,0 +1,7 @@
+ID,Name,Supported,Justification
+H1,Previous Rejections → More Reviews,False,"Features related to Previous Rejections showed insufficient influence on predictions for More Reviews events, with only 0.26 importance vs. 0.05 average for other features."
+H2,Prior Approvals → Faster Confirmations,False,"Features related to Prior Approvals showed insufficient influence on predictions for Faster Confirmations events, with only 0.50 importance vs. 0.04 average for other features."
+H3,Complex Processes → More Oversight,False,"Features related to Complex Processes showed insufficient influence on predictions for More Oversight events, with only 0.74 importance vs. 0.02 average for other features."
+H4,Previous Event Properties → Next Steps,False,Hypothesized features not found in dataset
+H5,Resource Changes → Control Shifts,False,Hypothesized features not found in dataset
+H6,Temporal Factors → Process Flow,False,"Features related to Temporal Factors showed insufficient influence on predictions for Process Flow events, with only 0.00 importance vs. 0.00 average for other features."

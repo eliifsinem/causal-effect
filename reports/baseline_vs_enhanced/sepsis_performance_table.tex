@@ -1,0 +1,15 @@
+\begin{table}[ht]
+\centering
+\caption{Performance Metrics for SEPSIS Dataset with Cross-Validation}
+\begin{tabular}{lcccccc}
+\toprule
+Model Type & Algorithm & Accuracy & Precision & Recall & F1-score & ROC-AUC \\
+\midrule
+Baseline & DT & 0.2881 ± 0.0303 & 0.3327 ± 0.0267 & 0.4166 ± 0.0238 & 0.3180 ± 0.0234 & 0.8247 ± 0.0109 \\
+Baseline & RF & 0.5105 ± 0.0064 & 0.4153 ± 0.0081 & 0.5016 ± 0.0045 & 0.4265 ± 0.0051 & 0.8932 ± 0.0099 \\
+Enhanced & DT & 0.2274 ± 0.0170 & 0.2677 ± 0.0136 & 0.3772 ± 0.0136 & 0.2457 ± 0.0086 & 0.8128 ± 0.0068 \\
+Enhanced & RF & 0.5871 ± 0.0085 & 0.4702 ± 0.0081 & 0.5432 ± 0.0033 & 0.4843 ± 0.0088 & 0.9118 ± 0.0045 \\
+\bottomrule
+\end{tabular}
+\label{tab:sepsis_cv_performance}
+\end{table}

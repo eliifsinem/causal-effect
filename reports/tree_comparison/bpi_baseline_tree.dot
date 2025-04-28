@@ -1,0 +1,33 @@
+digraph Tree {
+node [shape=box, style="filled, rounded", color="black", fontname="helvetica"] ;
+edge [fontname="helvetica"] ;
+0 [label=<event_position &le; 2.916<br/>gini = 0.937<br/>samples = 129676<br/>value = [8105.0, 8105.0, 8105.0, 8104.0, 8105.0, 8105.0, 8104.0<br/>8105.0, 8105.0, 8105.0, 8104.0, 8105.0, 8104.0, 8105.0<br/>8105.0, 8105.0]<br/>class = Declaration APPROVED by ADMINISTRATION>, fillcolor="#ffffff"] ;
+1 [label=<current_event &le; 1.071<br/>gini = 0.933<br/>samples = 121308<br/>value = [8102.0, 8084.0, 8105.0, 8090.0, 0.0, 8105.0, 8104.0<br/>8080.0, 8105.0, 8060.0, 8104.0, 8105.0, 8082.0, 8049.0<br/>8048.0, 8085.0]<br/>class = Declaration APPROVED by PRE_APPROVER>, fillcolor="#ffffff"] ;
+0 -> 1 [labeldistance=2.5, labelangle=45, headlabel="True"] ;
+2 [label=<current_event &le; 0.743<br/>gini = 0.929<br/>samples = 112967<br/>value = [8102.0, 8084.0, 8105.0, 8090.0, 0.0, 8105.0, 8104.0<br/>8080.0, 8105.0, 8060.0, 7805.0, 8105.0, 8082.0, 8049.0<br/>6.0, 8085.0]<br/>class = Declaration APPROVED by PRE_APPROVER>, fillcolor="#ffffff"] ;
+1 -> 2 ;
+3 [label=<gini = 0.874<br/>samples = 61442<br/>value = [0.0, 8084.0, 0.0, 6850.0, 0.0, 0.0, 0.0, 0.0, 8105.0<br/>8017.0, 7805.0, 0.0, 6441.0, 8049.0, 6.0, 8085.0]<br/>class = Declaration REJECTED by BUDGET OWNER>, fillcolor="#ffffff"] ;
+2 -> 3 ;
+4 [label=<gini = 0.85<br/>samples = 51525<br/>value = [8102.0, 0.0, 8105.0, 1240.0, 0.0, 8105.0, 8104.0, 8080.0<br/>0.0, 43.0, 0.0, 8105.0, 1641.0, 0.0, 0.0, 0.0]<br/>class = Declaration APPROVED by PRE_APPROVER>, fillcolor="#ffffff"] ;
+2 -> 4 ;
+5 [label=<trace_length &le; -0.705<br/>gini = 0.069<br/>samples = 8341<br/>value = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 299, 0, 0, 0<br/>8042, 0]<br/>class = Payment Handled>, fillcolor="#e64077"] ;
+1 -> 5 ;
+6 [label=<gini = 0.336<br/>samples = 1401<br/>value = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 299, 0, 0, 0<br/>1102, 0]<br/>class = Payment Handled>, fillcolor="#ec6f98"] ;
+5 -> 6 ;
+7 [label=<gini = 0.0<br/>samples = 6940<br/>value = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0<br/>6940, 0]<br/>class = Payment Handled>, fillcolor="#e53972"] ;
+5 -> 7 ;
+8 [label=<current_event &le; 0.661<br/>gini = 0.062<br/>samples = 8368<br/>value = [3, 21, 0, 14, 8105, 0, 0, 25, 0, 45, 0, 0, 22<br/>56, 57, 20]<br/>class = Declaration FOR_APPROVAL by ADMINISTRATION>, fillcolor="#4de63f"] ;
+0 -> 8 [labeldistance=2.5, labelangle=-45, headlabel="False"] ;
+9 [label=<current_event &le; -0.896<br/>gini = 0.789<br/>samples = 178<br/>value = [0, 21, 0, 14, 0, 0, 0, 0, 0, 45, 0, 0, 22<br/>56, 0, 20]<br/>class = Declaration SUBMITTED by EMPLOYEE>, fillcolor="#fdeff9"] ;
+8 -> 9 ;
+10 [label=<gini = 0.743<br/>samples = 77<br/>value = [0.0, 21.0, 0.0, 14.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0<br/>0.0, 0.0, 22.0, 0.0, 0.0, 20.0]<br/>class = Declaration REJECTED by SUPERVISOR>, fillcolor="#fefbff"] ;
+9 -> 10 ;
+11 [label=<gini = 0.494<br/>samples = 101<br/>value = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 45.0<br/>0.0, 0.0, 0.0, 56.0, 0.0, 0.0]<br/>class = Declaration SUBMITTED by EMPLOYEE>, fillcolor="#fad8f0"] ;
+9 -> 11 ;
+12 [label=<current_event &le; 0.989<br/>gini = 0.021<br/>samples = 8190<br/>value = [3, 0, 0, 0, 8105, 0, 0, 25, 0, 0, 0, 0, 0, 0<br/>57, 0]<br/>class = Declaration FOR_APPROVAL by ADMINISTRATION>, fillcolor="#49e53b"] ;
+8 -> 12 ;
+13 [label=<gini = 0.007<br/>samples = 8133<br/>value = [3, 0, 0, 0, 8105, 0, 0, 25, 0, 0, 0, 0, 0, 0<br/>0, 0]<br/>class = Declaration FOR_APPROVAL by ADMINISTRATION>, fillcolor="#48e53a"] ;
+12 -> 13 ;
+14 [label=<gini = 0.0<br/>samples = 57<br/>value = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0<br/>57, 0]<br/>class = Payment Handled>, fillcolor="#e53972"] ;
+12 -> 14 ;
+}

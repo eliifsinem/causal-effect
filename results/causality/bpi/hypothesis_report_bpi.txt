@@ -1,0 +1,99 @@
+Causality Analysis Report - BPI Dataset
+Generated on: 2025-04-26 18:38:32
+
+Total Hypotheses: 6
+Supported: 0
+Not Supported: 6
+
+Detailed Results:
+================================================================================
+
+ID: H1
+Name: Previous Rejections → More Reviews
+Features: rejection_count, prev_rejections
+Target Events: Declaration REJECTED, Request REJECTED
+Result: NOT SUPPORTED
+Justification: Features related to Previous Rejections showed insufficient influence on predictions for More Reviews events, with only 0.26 importance vs. 0.05 average for other features.
+
+Analysis Details:
+- Hypothesis Feature Importance: 0.2565
+- Other Features Average Importance: 0.0531
+- Statistical Significance (p-value): 0.6626
+
+Feature Importance Breakdown:
+- rejection_count: 0.0000
+- prev_rejections: 0.2565
+
+--------------------------------------------------------------------------------
+
+ID: H2
+Name: Prior Approvals → Faster Confirmations
+Features: approval_count, prev_approvals
+Target Events: Declaration APPROVED, Request For Payment APPROVED
+Result: NOT SUPPORTED
+Justification: Features related to Prior Approvals showed insufficient influence on predictions for Faster Confirmations events, with only 0.50 importance vs. 0.04 average for other features.
+
+Analysis Details:
+- Hypothesis Feature Importance: 0.5000
+- Other Features Average Importance: 0.0357
+- Statistical Significance (p-value): 0.5489
+
+Feature Importance Breakdown:
+- approval_count: 0.0000
+- prev_approvals: 0.5000
+
+--------------------------------------------------------------------------------
+
+ID: H3
+Name: Complex Processes → More Oversight
+Features: trace_length, unique_activities, complexity_score
+Target Events: SUPERVISOR, Declaration FINAL_APPROVED
+Result: NOT SUPPORTED
+Justification: Features related to Complex Processes showed insufficient influence on predictions for More Oversight events, with only 0.74 importance vs. 0.02 average for other features.
+
+Analysis Details:
+- Hypothesis Feature Importance: 0.7437
+- Other Features Average Importance: 0.0171
+- Statistical Significance (p-value): nan
+
+Feature Importance Breakdown:
+- trace_length: 0.7437
+
+--------------------------------------------------------------------------------
+
+ID: H4
+Name: Previous Event Properties → Next Steps
+Features: prev_event_1, prev_event_2, prev_event_3
+Target Events: Any
+Result: NOT SUPPORTED
+Justification: Hypothesized features not found in dataset
+
+--------------------------------------------------------------------------------
+
+ID: H5
+Name: Resource Changes → Control Shifts
+Features: resource_changed, resource_changes
+Target Events: ADMINISTRATION, SUPERVISOR
+Result: NOT SUPPORTED
+Justification: Hypothesized features not found in dataset
+
+--------------------------------------------------------------------------------
+
+ID: H6
+Name: Temporal Factors → Process Flow
+Features: time_since_start, time_since_last_event
+Target Events: Payment Handled, End
+Result: NOT SUPPORTED
+Justification: Features related to Temporal Factors showed insufficient influence on predictions for Process Flow events, with only 0.00 importance vs. 0.00 average for other features.
+
+Analysis Details:
+- Hypothesis Feature Importance: 0.0000
+- Other Features Average Importance: 0.0000
+- Statistical Significance (p-value): nan
+
+Feature Importance Breakdown:
+- time_since_start: 0.0000
+- time_since_last_event: 0.0000
+
+--------------------------------------------------------------------------------
+
