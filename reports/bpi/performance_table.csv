@@ -1,0 +1,5 @@
+Model Type,Algorithm,Accuracy,Precision,Recall,F1-score,ROC-AUC
+Baseline,DT,0.9993,0.9993,0.9993,0.9993,1.2489
+Baseline,RF,0.9991,0.9991,0.9991,0.9991,1.2486
+Enhanced,DT,0.9993,0.9993,0.9993,0.9993,1.2489
+Enhanced,RF,0.9991,0.9991,0.9991,0.9991,1.2486
