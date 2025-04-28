@@ -1,10 +1,512 @@
 import os
 import pandas as pd
 import numpy as np
+import logging
 from sklearn.metrics import accuracy_score
 import joblib
 from collections import defaultdict
 from datetime import datetime
+from sklearn.base import clone
+from scipy import stats
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Setup logging
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+logger = logging.getLogger("causality_tests")
+
+class CausalityTester:
+    def __init__(self, models, feature_names, X_test, y_test, dataset_type, baseline_dir=None, output_dir='results/causality'):
+        self.models = models
+        self.feature_names = feature_names
+        self.X_test = X_test
+        self.y_test = y_test
+        self.dataset_type = dataset_type
+        self.baseline_dir = baseline_dir or f'models/{dataset_type}'
+        self.output_dir = output_dir
+        
+        # Create output directory if it doesn't exist
+        os.makedirs(self.output_dir, exist_ok=True)
+        
+        # Get the model to use for testing (using the enhanced DT model by default)
+        self.model = models.get('enhanced_dt', models.get('baseline_dt', None))
+        
+        if self.model is None:
+            raise ValueError("No suitable model found for hypothesis testing")
+        
+        logger.info(f"Initialized CausalityTester for {self.dataset_type} dataset")
+        
+        # Load baseline feature importance to inform hypothesis generation
+        self.baseline_feature_importance = self._load_baseline_feature_importance()
+    
+    def _load_baseline_feature_importance(self):
+        """
+        Load baseline model feature importance to guide hypothesis definition
+        """
+        feature_importance_file = os.path.join(self.baseline_dir, f"feature_importance_DT_{self.dataset_type}.csv")
+        
+        if not os.path.exists(feature_importance_file):
+            logger.warning(f"Baseline feature importance file not found: {feature_importance_file}")
+            return None
+            
+        try:
+            importance_df = pd.read_csv(feature_importance_file)
+            logger.info(f"Loaded baseline feature importance with {len(importance_df)} features")
+            return importance_df
+        except Exception as e:
+            logger.error(f"Error loading baseline feature importance: {e}")
+            return None
+    
+    def define_hypotheses(self):
+        """
+        Define hypotheses based on dataset type and baseline feature importance
+        """
+        hypotheses = []
+        
+        # Get top important features from baseline model if available
+        top_features = []
+        if self.baseline_feature_importance is not None:
+            importance_df = self.baseline_feature_importance.sort_values('Importance', ascending=False)
+            top_features = list(importance_df.head(10)['Feature'])
+            logger.info(f"Top baseline features: {', '.join(top_features)}")
+        
+        if self.dataset_type == 'sepsis':
+            # Sepsis dataset hypotheses
+            hypotheses = self._define_sepsis_hypotheses(top_features)
+        elif self.dataset_type == 'bpi':
+            # BPI dataset hypotheses
+            hypotheses = self._define_bpi_hypotheses(top_features)
+        
+        logger.info(f"Defined {len(hypotheses)} hypotheses for {self.dataset_type} dataset")
+        return hypotheses
+    
+    def _define_sepsis_hypotheses(self, top_features):
+        """Define hypotheses for Sepsis dataset based on top features"""
+        hypotheses = []
+        
+        # Prepare filtered top features by category
+        diagnostic_features = [f for f in top_features if any(term in f for term in ['CRP', 'Leucocytes', 'LacticAcid'])]
+        sirs_features = [f for f in top_features if 'SIRS' in f]
+        dept_features = [f for f in top_features if 'dept' in f.lower() or 'org:group' in f]
+        time_features = [f for f in top_features if 'time' in f.lower()]
+        
+        logger.info(f"Feature categories from baseline model importance:")
+        logger.info(f"Diagnostic features: {diagnostic_features}")
+        logger.info(f"SIRS features: {sirs_features}")
+        logger.info(f"Department features: {dept_features}")
+        logger.info(f"Time features: {time_features}")
+        
+        # H7: Critical Diagnostic Tests -> Specific Events (if diagnostic features important)
+        if diagnostic_features or not top_features:
+            h7_features = diagnostic_features or ['CRP_last', 'Leucocytes_last']
+            logger.info(f"Adding H7 with features: {h7_features}")
+            hypotheses.append({
+                'id': 'H7',
+                'name': 'Critical Diagnostic Tests → Specific Events',
+                'description': 'Critical Diagnostic Tests Lead to Specific Events',
+                'features': h7_features,
+                'target_events': ['Release A', 'Admission NC'],
+                'supported': None
+            })
+        
+        # H8: SIRS Criteria -> Diagnostic Testing (if SIRS features important)
+        if sirs_features or not top_features:
+            h8_features = sirs_features or ['SIRSCritTemperature', 'SIRSCritLeucos']
+            logger.info(f"Adding H8 with features: {h8_features}")
+            hypotheses.append({
+                'id': 'H8',
+                'name': 'SIRS Criteria → Diagnostic Testing',
+                'description': 'SIRS Criteria Lead to Diagnostic Testing',
+                'features': h8_features,
+                'target_events': ['CRP', 'Leucocytes', 'LacticAcid'],
+                'supported': None
+            })
+        
+        # H9: Department Transitions -> Outcome Events (if department features important)
+        if dept_features or not top_features:
+            h9_features = dept_features or ['dept_changes', 'current_dept']
+            logger.info(f"Adding H9 with features: {h9_features}")
+            hypotheses.append({
+                'id': 'H9',
+                'name': 'Department Transitions → Outcome Events',
+                'description': 'Department Transitions Lead to Outcome Events',
+                'features': h9_features,
+                'target_events': ['Return ER', 'Admission NC', 'Admission IC'],
+                'supported': None
+            })
+        
+        # H10: Clinical Marker Changes -> Next Events (if diagnostic or change features important)
+        change_features = [f for f in self.feature_names if 'change' in f]
+        if diagnostic_features or change_features or not top_features:
+            h10_features = [f for f in change_features if any(term in f for term in ['CRP', 'Leucocytes', 'LacticAcid'])]
+            if not h10_features:
+                h10_features = ['CRP_change', 'Leucocytes_change', 'LacticAcid_change']
+            logger.info(f"Adding H10 with features: {h10_features}")
+            hypotheses.append({
+                'id': 'H10',
+                'name': 'Clinical Marker Changes → Next Events',
+                'description': 'Clinical Marker Changes Influence Next Events',
+                'features': h10_features,
+                'target_events': ['IV Antibiotics', 'IV Liquid', 'Release A'],
+                'supported': None
+            })
+            
+        return hypotheses
+    
+    def _define_bpi_hypotheses(self, top_features):
+        """Define hypotheses for BPI dataset based on top features"""
+        hypotheses = []
+        
+        # Prepare filtered top features by category
+        rejection_features = [f for f in top_features if 'reject' in f.lower()]
+        approval_features = [f for f in top_features if any(term in f.lower() for term in ['approv', 'complet'])]
+        process_features = [f for f in top_features if any(term in f.lower() for term in ['trace', 'activ', 'complex'])]
+        event_features = [f for f in top_features if 'event' in f.lower()]
+        resource_features = [f for f in top_features if 'resource' in f.lower()]
+        time_features = [f for f in top_features if 'time' in f.lower()]
+        
+        logger.info(f"Feature categories from baseline model importance:")
+        logger.info(f"Rejection features: {rejection_features}")
+        logger.info(f"Approval features: {approval_features}")
+        logger.info(f"Process features: {process_features}")
+        logger.info(f"Event features: {event_features}")
+        logger.info(f"Resource features: {resource_features}")
+        logger.info(f"Time features: {time_features}")
+        
+        # H1: Previous Rejections -> More Reviews (if rejection features important)
+        if rejection_features or not top_features:
+            h1_features = rejection_features or ['rejection_count', 'prev_rejections']
+            logger.info(f"Adding H1 with features: {h1_features}")
+            hypotheses.append({
+                'id': 'H1',
+                'name': 'Previous Rejections → More Reviews',
+                'description': 'Previous Rejections Lead to More Reviews',
+                'features': h1_features,
+                'target_events': ['Declaration REJECTED', 'Request REJECTED'],
+                'supported': None
+            })
+        
+        # H2: Prior Approvals -> Faster Confirmations (if approval features important)
+        if approval_features or not top_features:
+            h2_features = approval_features or ['approval_count', 'prev_approvals']
+            logger.info(f"Adding H2 with features: {h2_features}")
+            hypotheses.append({
+                'id': 'H2',
+                'name': 'Prior Approvals → Faster Confirmations',
+                'description': 'Prior Approvals Lead to Faster Confirmations',
+                'features': h2_features,
+                'target_events': ['Declaration APPROVED', 'Request For Payment APPROVED'],
+                'supported': None
+            })
+        
+        # H3: Complex Processes -> More Oversight (if process features important)
+        if process_features or not top_features:
+            h3_features = process_features or ['trace_length', 'unique_activities', 'complexity_score']
+            logger.info(f"Adding H3 with features: {h3_features}")
+            hypotheses.append({
+                'id': 'H3',
+                'name': 'Complex Processes → More Oversight',
+                'description': 'Complex Processes Require More Oversight',
+                'features': h3_features,
+                'target_events': ['SUPERVISOR', 'Declaration FINAL_APPROVED'],
+                'supported': None
+            })
+        
+        # H4: Previous Event Properties -> Next Steps (if event features important)
+        if event_features or not top_features:
+            prev_event_features = [f for f in self.feature_names if 'prev_event' in f]
+            h4_features = event_features or prev_event_features or ['prev_event_1', 'prev_event_2', 'prev_event_3']
+            logger.info(f"Adding H4 with features: {h4_features}")
+            hypotheses.append({
+                'id': 'H4',
+                'name': 'Previous Event Properties → Next Steps',
+                'description': 'Previous Event Properties Determine Next Steps',
+                'features': h4_features,
+                'target_events': None,  # Any event
+                'supported': None
+            })
+        
+        # H5: Resource Changes -> Control Shifts (if resource features important)
+        if resource_features or not top_features:
+            h5_features = resource_features or ['resource_changed', 'resource_changes']
+            logger.info(f"Adding H5 with features: {h5_features}")
+            hypotheses.append({
+                'id': 'H5',
+                'name': 'Resource Changes → Control Shifts',
+                'description': 'Resource Changes Result in Control Shifts',
+                'features': h5_features,
+                'target_events': ['ADMINISTRATION', 'SUPERVISOR'],
+                'supported': None
+            })
+        
+        # H6: Temporal Factors -> Process Flow (if time features important)
+        if time_features or not top_features:
+            h6_features = time_features or ['time_since_start', 'time_since_last_event']
+            logger.info(f"Adding H6 with features: {h6_features}")
+            hypotheses.append({
+                'id': 'H6',
+                'name': 'Temporal Factors → Process Flow',
+                'description': 'Temporal Factors Influence Process Flow',
+                'features': h6_features,
+                'target_events': ['Payment Handled', 'End'],
+                'supported': None
+            })
+            
+        return hypotheses
+    
+    def test_hypothesis(self, hypothesis, threshold=0.25, min_significance=0.05):
+        """
+        Test a single hypothesis
+        """
+        logger.info(f"Testing hypothesis {hypothesis['id']}: {hypothesis['name']}")
+        
+        # Extract hypothesized features that exist in our feature set
+        hypothesis_features = [f for f in hypothesis['features'] if f in self.feature_names]
+        
+        if not hypothesis_features:
+            logger.warning(f"None of the hypothesized features exist in the dataset: {hypothesis['features']}")
+            hypothesis['supported'] = False
+            hypothesis['justification'] = "Hypothesized features not found in dataset"
+            return hypothesis
+        
+        # If target events are specified, filter test data for these events
+        if hypothesis['target_events']:
+            target_indices = []
+            for i, y_val in enumerate(self.y_test):
+                # Handle both string and numeric encoded target values
+                if isinstance(y_val, str):
+                    if any(target in y_val for target in hypothesis['target_events']):
+                        target_indices.append(i)
+                else:
+                    # For numeric targets, we'd need to decode them first
+                    # This is simplified here
+                    target_indices.append(i)
+            
+            if not target_indices:
+                logger.warning(f"No target events found in test data: {hypothesis['target_events']}")
+                hypothesis['supported'] = False
+                hypothesis['justification'] = "Target events not found in test data"
+                return hypothesis
+            
+            X_filtered = self.X_test.iloc[target_indices]
+            y_filtered = self.y_test.iloc[target_indices]
+        else:
+            X_filtered = self.X_test
+            y_filtered = self.y_test
+        
+        # Extract feature importance for these specific transitions
+        transition_model = clone(self.model)
+        try:
+            transition_model.fit(X_filtered, y_filtered)
+            importances = transition_model.feature_importances_
+        except Exception as e:
+            logger.error(f"Error fitting transition model: {e}")
+            hypothesis['supported'] = False
+            hypothesis['justification'] = f"Error in transition model fitting: {str(e)}"
+            return hypothesis
+        
+        # Calculate importance of hypothesized features
+        hypothesis_indices = [self.feature_names.index(f) for f in hypothesis_features]
+        hypothesis_importance = sum(importances[i] for i in hypothesis_indices)
+        
+        # Calculate average importance of other features
+        other_indices = [i for i in range(len(self.feature_names)) if i not in hypothesis_indices]
+        other_importance = np.mean([importances[i] for i in other_indices]) if other_indices else 0
+        
+        # Perform significance test (simplified)
+        # In a real implementation, this would be a more sophisticated statistical test
+        t_stat, p_value = stats.ttest_1samp(
+            [importances[i] for i in hypothesis_indices],
+            other_importance
+        )
+        
+        # Determine if hypothesis is supported
+        hypothesis['supported'] = (
+            hypothesis_importance >= threshold and 
+            p_value < min_significance and
+            hypothesis_importance > 2 * other_importance
+        )
+        
+        # Store details
+        hypothesis['analysis'] = {
+            'hypothesis_importance': hypothesis_importance,
+            'other_importance': other_importance,
+            'p_value': p_value,
+            'feature_importances': {f: importances[self.feature_names.index(f)] 
+                                  for f in hypothesis_features}
+        }
+        
+        # Generate justification text
+        if hypothesis['supported']:
+            hypothesis['justification'] = (
+                f"Features related to {hypothesis['name'].split('→')[0].strip()} showed significant "
+                f"influence on predictions for {hypothesis['name'].split('→')[1].strip()} events, "
+                f"with {hypothesis_importance:.2f} importance vs. {other_importance:.2f} average for other features."
+            )
+        else:
+            hypothesis['justification'] = (
+                f"Features related to {hypothesis['name'].split('→')[0].strip()} showed insufficient "
+                f"influence on predictions for {hypothesis['name'].split('→')[1].strip()} events, "
+                f"with only {hypothesis_importance:.2f} importance vs. {other_importance:.2f} average for other features."
+            )
+        
+        logger.info(f"Hypothesis {hypothesis['id']} is {'SUPPORTED' if hypothesis['supported'] else 'NOT SUPPORTED'}")
+        return hypothesis
+    
+    def run_tests(self):
+        """
+        Run all hypothesis tests and generate report
+        """
+        # Define hypotheses
+        hypotheses = self.define_hypotheses()
+        
+        # Test each hypothesis
+        for i, hypothesis in enumerate(hypotheses):
+            logger.info(f"Testing hypothesis {i+1}/{len(hypotheses)}")
+            hypotheses[i] = self.test_hypothesis(hypothesis)
+        
+        # Generate summary report
+        self._generate_report(hypotheses)
+        
+        return hypotheses
+    
+    def _generate_report(self, hypotheses):
+        """
+        Generate a report of hypothesis testing results
+        """
+        # Create summary DataFrame
+        summary = pd.DataFrame({
+            'ID': [h['id'] for h in hypotheses],
+            'Name': [h['name'] for h in hypotheses],
+            'Supported': [h['supported'] for h in hypotheses],
+            'Justification': [h['justification'] for h in hypotheses]
+        })
+        
+        # Save summary to CSV
+        summary.to_csv(os.path.join(self.output_dir, f"hypothesis_summary_{self.dataset_type}.csv"), index=False)
+        
+        # Create visualization
+        plt.figure(figsize=(12, 6))
+        
+        # Count supported/not supported
+        support_counts = summary['Supported'].value_counts()
+        supported = support_counts.get(True, 0)
+        not_supported = support_counts.get(False, 0)
+        
+        # Create bar chart
+        plt.bar(['Supported', 'Not Supported'], [supported, not_supported], color=['green', 'red'])
+        plt.title(f'Hypothesis Testing Results - {self.dataset_type.upper()} Dataset')
+        plt.ylabel('Number of Hypotheses')
+        
+        # Add count labels
+        for i, count in enumerate([supported, not_supported]):
+            if count > 0:
+                plt.text(i, count + 0.1, str(count), ha='center')
+        
+        # Save figure
+        plt.savefig(os.path.join(self.output_dir, f"hypothesis_results_{self.dataset_type}.png"), dpi=300)
+        plt.close()
+        
+        # Generate detailed report
+        with open(os.path.join(self.output_dir, f"hypothesis_report_{self.dataset_type}.txt"), 'w') as f:
+            f.write(f"Causality Analysis Report - {self.dataset_type.upper()} Dataset\n")
+            f.write(f"Generated on: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n")
+            f.write(f"Total Hypotheses: {len(hypotheses)}\n")
+            f.write(f"Supported: {supported}\n")
+            f.write(f"Not Supported: {not_supported}\n\n")
+            
+            f.write("Detailed Results:\n")
+            f.write("="*80 + "\n\n")
+            
+            for h in hypotheses:
+                f.write(f"ID: {h['id']}\n")
+                f.write(f"Name: {h['name']}\n")
+                f.write(f"Features: {', '.join(h['features'])}\n")
+                f.write(f"Target Events: {', '.join(h['target_events']) if h['target_events'] else 'Any'}\n")
+                f.write(f"Result: {'SUPPORTED' if h['supported'] else 'NOT SUPPORTED'}\n")
+                f.write(f"Justification: {h['justification']}\n")
+                
+                if 'analysis' in h:
+                    f.write("\nAnalysis Details:\n")
+                    f.write(f"- Hypothesis Feature Importance: {h['analysis']['hypothesis_importance']:.4f}\n")
+                    f.write(f"- Other Features Average Importance: {h['analysis']['other_importance']:.4f}\n")
+                    f.write(f"- Statistical Significance (p-value): {h['analysis']['p_value']:.4f}\n")
+                    
+                    f.write("\nFeature Importance Breakdown:\n")
+                    for feature, importance in h['analysis']['feature_importances'].items():
+                        f.write(f"- {feature}: {importance:.4f}\n")
+                
+                f.write("\n" + "-"*80 + "\n\n")
+        
+        logger.info(f"Generated hypothesis testing report in {self.output_dir}")
+        
+        # Generate summary report in markdown format
+        md_report_path = os.path.join(self.output_dir, f"hypothesis_report_{self.dataset_type}.md")
+        with open(md_report_path, 'w') as f:
+            f.write(f"# Causality Analysis Report - {self.dataset_type.upper()} Dataset\n\n")
+            f.write(f"Generated on: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n")
+            
+            # Summary table
+            f.write("## Summary of Hypothesis Testing\n\n")
+            f.write("| ID | Hypothesis | Supported | Significance |\n")
+            f.write("|----|-----------|-----------|--------------|\n")
+            
+            for h in hypotheses:
+                support_icon = "✅" if h['supported'] else "❌"
+                p_value = h['analysis']['p_value'] if 'analysis' in h else 'N/A'
+                p_value_str = f"p = {p_value:.4f}" if isinstance(p_value, float) else p_value
+                
+                f.write(f"| {h['id']} | {h['name']} | {support_icon} | {p_value_str} |\n")
+            
+            # Detailed results
+            f.write("\n## Detailed Results\n\n")
+            
+            for h in hypotheses:
+                f.write(f"### {h['id']}: {h['name']}\n\n")
+                f.write(f"**Features examined**: {', '.join(h['features'])}\n\n")
+                f.write(f"**Target events**: {', '.join(h['target_events']) if h['target_events'] else 'Any'}\n\n")
+                f.write(f"**Result**: {'SUPPORTED' if h['supported'] else 'NOT SUPPORTED'}\n\n")
+                f.write(f"**Justification**: {h['justification']}\n\n")
+                
+                if 'analysis' in h:
+                    f.write("**Analysis Details**:\n\n")
+                    f.write(f"- Hypothesis Feature Importance: {h['analysis']['hypothesis_importance']:.4f}\n")
+                    f.write(f"- Other Features Average Importance: {h['analysis']['other_importance']:.4f}\n")
+                    f.write(f"- Statistical Significance: p-value = {h['analysis']['p_value']:.4f}\n\n")
+                    
+                    f.write("**Feature Importance Breakdown**:\n\n")
+                    f.write("| Feature | Importance |\n")
+                    f.write("|---------|------------|\n")
+                    
+                    # Sort features by importance
+                    sorted_features = sorted(
+                        h['analysis']['feature_importances'].items(),
+                        key=lambda x: x[1],
+                        reverse=True
+                    )
+                    
+                    for feature, importance in sorted_features:
+                        f.write(f"| {feature} | {importance:.4f} |\n")
+                    
+                    f.write("\n")
+            
+            # Implications and conclusion
+            f.write("## Implications for Process Prediction\n\n")
+            
+            supported_hyps = [h for h in hypotheses if h['supported']]
+            if supported_hyps:
+                f.write("The following causal relationships have been validated and can be leveraged for enhanced prediction models:\n\n")
+                for h in supported_hyps:
+                    f.write(f"1. **{h['name']}**: {h['justification']}\n\n")
+            
+            not_supported_hyps = [h for h in hypotheses if not h['supported']]
+            if not_supported_hyps:
+                f.write("The following hypothesized relationships were not supported and should be reconsidered:\n\n")
+                for h in not_supported_hyps:
+                    f.write(f"1. **{h['name']}**: {h['justification']}\n\n")
+        
+        logger.info(f"Generated markdown report at {md_report_path}")
+
 
 def test_model_predictions(model, X_test, y_test, label_map=None):
     """Test model predictions on test data"""
@@ -503,20 +1005,20 @@ def save_causality_report(results, report_dir, dataset_name):
     report_path = os.path.join(report_dir, f'{dataset_name}_causality_report.md')
     
     with open(report_path, 'w') as f:
-        f.write(f"# {dataset_name.upper()} Nedensellik Analizi Raporu\n\n")
-        f.write("## 1. Giriş\n\n")
-        f.write(f"Bu rapor, {dataset_name} veri seti için yapılan nedensellik analizlerinin sonuçlarını içermektedir.\n\n")
-        f.write("* Analiz tarihi: " + datetime.now().strftime("%Y-%m-%d %H:%M:%S") + "\n")
-        f.write("* Kullanılan modeller: Karar Ağacı, Rastgele Orman\n\n")
+        f.write(f"# {dataset_name.upper()} Causality Analysis Report\n\n")
+        f.write("## 1. Introduction\n\n")
+        f.write(f"This report contains the results of causality analyses conducted for the {dataset_name} dataset.\n\n")
+        f.write("* Analysis date: " + datetime.now().strftime("%Y-%m-%d %H:%M:%S") + "\n")
+        f.write("* Models used: Decision Tree, Random Forest\n\n")
         
-        f.write("## 2. Hipotez Testleri\n\n")
+        f.write("## 2. Hypothesis Tests\n\n")
         
         for model_name, hypotheses in [(k, v) for k, v in results.items() if 'hypotheses' in k]:
             model_display_name = model_name.replace('_hypotheses', '').replace('_', ' ').title()
-            f.write(f"### {model_display_name} Hipotez Sonuçları\n\n")
+            f.write(f"### {model_display_name} Hypothesis Results\n\n")
             
             # Create a summary table of hypothesis results
-            f.write("| Hipotez | Sonuç | Destek Oranı |\n")
+            f.write("| Hypothesis | Result | Support Rate |\n")
             f.write("|---------|-------|-------------|\n")
             
             for hypothesis_name, result in hypotheses.items():
@@ -537,56 +1039,56 @@ def save_causality_report(results, report_dir, dataset_name):
                     
                 f.write(f"| {hypothesis_name} | {status_icon} {status} | {support_rate} |\n")
             
-            f.write("\n#### Hipotez Detayları\n\n")
+            f.write("\n#### Hypothesis Details\n\n")
             
             for hypothesis_name, result in hypotheses.items():
                 f.write(f"##### {hypothesis_name}\n\n")
-                f.write(f"- **Sonuç**: {result['status']}\n")
+                f.write(f"- **Result**: {result['status']}\n")
                 
                 if 'description' in result:
-                    f.write(f"- **Açıklama**: {result['description']}\n")
+                    f.write(f"- **Description**: {result['description']}\n")
                 
                 if result.get('is_fallback', False):
-                    f.write(f"- **Not**: Bu hipotez testi için hazır değerler kullanıldı (sebep: {result.get('fallback_reason', 'bilinmiyor')})\n")
+                    f.write(f"- **Note**: Predefined values were used for this hypothesis test (reason: {result.get('fallback_reason', 'unknown')})\n")
                     
                     # If we have both fallback and calculated values, show both
                     if 'calculated_condition_true_rate' in result:
-                        f.write("- **Hesaplanan değerler vs. Beklenen değerler**:\n")
-                        f.write(f"  - Koşul doğruyken (hesaplanan): {result['calculated_condition_true_rate']:.1%}\n")
-                        f.write(f"  - Koşul doğruyken (beklenen): {result['condition_true_rate']:.1%}\n")
+                        f.write("- **Calculated values vs. Expected values**:\n")
+                        f.write(f"  - When condition is true (calculated): {result['calculated_condition_true_rate']:.1%}\n")
+                        f.write(f"  - When condition is true (expected): {result['condition_true_rate']:.1%}\n")
                         
                         if 'calculated_condition_false_rate' in result and 'condition_false_rate' in result:
-                            f.write(f"  - Koşul yanlışken (hesaplanan): {result['calculated_condition_false_rate']:.1%}\n")
-                            f.write(f"  - Koşul yanlışken (beklenen): {result['condition_false_rate']:.1%}\n")
+                            f.write(f"  - When condition is false (calculated): {result['calculated_condition_false_rate']:.1%}\n")
+                            f.write(f"  - When condition is false (expected): {result['condition_false_rate']:.1%}\n")
                             
-                        f.write(f"  - Fark (hesaplanan): {result['calculated_difference']:.1%}\n")
-                        f.write(f"  - Fark (beklenen): {result['difference']:.1%}\n")
-                        f.write(f"  - Sonuç (hesaplanan): {result['calculated_status']}\n")
-                        f.write(f"  - Sonuç (beklenen): {result['status']}\n")
+                        f.write(f"  - Difference (calculated): {result['calculated_difference']:.1%}\n")
+                        f.write(f"  - Difference (expected): {result['difference']:.1%}\n")
+                        f.write(f"  - Result (calculated): {result['calculated_status']}\n")
+                        f.write(f"  - Result (expected): {result['status']}\n")
                 else:
                     if 'condition_true_rate' in result:
-                        f.write(f"- Koşul doğruyken: {result['condition_true_rate']:.1%}\n")
+                        f.write(f"- When condition is true: {result['condition_true_rate']:.1%}\n")
                         if 'condition_false_rate' in result:
-                            f.write(f"- Koşul yanlışken: {result['condition_false_rate']:.1%}\n")
-                        f.write(f"- Fark: {result['difference']:.1%}\n")
+                            f.write(f"- When condition is false: {result['condition_false_rate']:.1%}\n")
+                        f.write(f"- Difference: {result['difference']:.1%}\n")
                     elif 'reason' in result:
-                        f.write(f"- Sebep: {result['reason']}\n")
+                        f.write(f"- Reason: {result['reason']}\n")
                 
                 f.write("\n")
         
-        f.write("## 3. Geçiş Analizi\n\n")
-        f.write("Aşağıdaki analizler, olay akışlarındaki geçişleri ve bu geçişlerde etkili olan faktörleri göstermektedir.\n\n")
+        f.write("## 3. Transition Analysis\n\n")
+        f.write("The following analyses show the transitions in event flows and the factors influencing these transitions.\n\n")
         
         for model_name, transitions in [(k, v) for k, v in results.items() if 'transitions' in k]:
             model_display_name = model_name.replace('_transitions', '').replace('_', ' ').title()
-            f.write(f"### {model_display_name} Geçiş Analizi\n\n")
+            f.write(f"### {model_display_name} Transition Analysis\n\n")
             
             if not transitions:
-                f.write("Hiç geçiş analizi bulunamadı.\n\n")
+                f.write("No transition analysis found.\n\n")
                 continue
                 
             # Create a summary table of top transitions
-            f.write("| Geçiş | Örnek Sayısı | Önemli Özellikler |\n")
+            f.write("| Transition | Number of Examples | Important Features |\n")
             f.write("|-------|--------------|-------------------|\n")
             
             # Limit number of transitions to report
@@ -614,14 +1116,14 @@ def save_causality_report(results, report_dir, dataset_name):
                 
                 f.write(f"| {transition} | {len(cases)} | {feature_str} |\n")
             
-            f.write("\n#### Detaylı Geçiş Analizleri\n\n")
+            f.write("\n#### Detailed Transition Analyses\n\n")
             
             for transition, cases in top_transitions:
                 if len(cases) < 5:
                     continue
                     
                 f.write(f"##### {transition}\n\n")
-                f.write(f"Toplam {len(cases)} örnek bulundu. En önemli özellikler:\n\n")
+                f.write(f"Found {len(cases)} examples. Most important features:\n\n")
                 
                 # Extract common patterns
                 for feature in cases[0].keys():
@@ -633,18 +1135,18 @@ def save_causality_report(results, report_dir, dataset_name):
                     if isinstance(values[0], (int, float, np.int64, np.float64)):
                         mean_val = np.mean(values)
                         std_val = np.std(values)
-                        f.write(f"- **{feature}**: ortalama={mean_val:.2f}, std={std_val:.2f}\n")
+                        f.write(f"- **{feature}**: mean={mean_val:.2f}, std={std_val:.2f}\n")
                     else:
                         value_counts = pd.Series(values).value_counts()
                         if not value_counts.empty:
                             most_common = value_counts.index[0]
                             frequency = value_counts.iloc[0] / len(values)
-                            f.write(f"- **{feature}**: en yaygın={most_common} ({frequency:.1%})\n")
+                            f.write(f"- **{feature}**: most common={most_common} ({frequency:.1%})\n")
                 
                 f.write("\n")
         
-        f.write("## 4. Sonuç ve Değerlendirme\n\n")
-        f.write("Bu analiz, süreç madenciliği ve makine öğrenmesi yöntemleri kullanılarak, iş süreçlerindeki nedensellik ilişkilerini ortaya çıkarmayı amaçlamıştır.\n\n")
+        f.write("## 4. Conclusion and Evaluation\n\n")
+        f.write("This analysis aimed to uncover causal relationships in business processes using process mining and machine learning methods.\n\n")
         
         # Summary of supported hypotheses
         supported_hyps = []
@@ -658,22 +1160,22 @@ def save_causality_report(results, report_dir, dataset_name):
                     not_supported_hyps.append(f"{hypothesis_name.split(':')[0]}")
         
         if supported_hyps:
-            f.write("### Desteklenen Hipotezler\n\n")
-            f.write("Analiz sonucunda aşağıdaki hipotezler desteklenmiştir:\n\n")
+            f.write("### Supported Hypotheses\n\n")
+            f.write("The following hypotheses were supported by the analysis:\n\n")
             for hyp in set(supported_hyps):
                 f.write(f"- {hyp}\n")
             f.write("\n")
             
         if not_supported_hyps:
-            f.write("### Desteklenmeyen Hipotezler\n\n")
-            f.write("Analiz sonucunda aşağıdaki hipotezler yeterince desteklenmemiştir:\n\n")
+            f.write("### Unsupported Hypotheses\n\n")
+            f.write("The following hypotheses were not sufficiently supported by the analysis:\n\n")
             for hyp in set(not_supported_hyps):
                 f.write(f"- {hyp}\n")
             f.write("\n")
             
-        f.write("### Sonuç\n\n")
-        f.write("Süreç verilerinin analizi, süreç içindeki nedensellik ilişkilerini anlamak için çok değerli içgörüler sunmaktadır. ")
-        f.write("Bu analizler, süreç performansını iyileştirmek ve süreç verimliliğini artırmak için kullanılabilir.\n")
+        f.write("### Conclusion\n\n")
+        f.write("The analysis of process data provides valuable insights for understanding causal relationships within processes. ")
+        f.write("These analyses can be used to improve process performance and increase process efficiency.\n")
     
     print(f"Causality report saved to {report_path}")
     return report_path

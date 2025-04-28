@@ -13,15 +13,18 @@ class DataTransformer:
         self.X_test = None
         self.y_test = None
         
-    def preprocess_data(self, X, y, test_size=0.2, random_state=42, balance_classes=True):
+    def preprocess_data(self, X, y, X_test=None, y_test=None, test_size=0.2, random_state=42, balance_classes=True):
         """
         Preprocess the data by encoding categorical variables, scaling features,
-        handling class imbalance, and splitting into train/test sets
+        handling class imbalance, and splitting into train/test sets.
+        
+        If X_test and y_test are provided, they will be used as the test set (useful for cross-validation).
+        Otherwise, the data will be split using test_size.
         """
         # Store original feature names
         self.feature_names = X.columns.tolist()
         
-        # Handle class imbalance if requested
+        # Handle class imbalance if requested (only for training data)
         if balance_classes:
             X, y = self._balance_classes(X, y)
         
@@ -29,6 +32,12 @@ class DataTransformer:
         X_for_training = X.copy()
         if 'case_id' in X_for_training.columns:
             X_for_training = X_for_training.drop(columns=['case_id'])
+        
+        # If test data is provided, prepare it as well
+        if X_test is not None:
+            X_test_for_training = X_test.copy()
+            if 'case_id' in X_test_for_training.columns:
+                X_test_for_training = X_test_for_training.drop(columns=['case_id'])
         
         # Encode categorical variables
         X_for_training = self._encode_categorical_features(X_for_training)
@@ -39,21 +48,33 @@ class DataTransformer:
         # Scale numerical features
         X_for_training = self._scale_features(X_for_training)
         
-        # Split into train and test sets
-        X_train, X_test, y_train, y_test = train_test_split(
-            X_for_training, y, test_size=test_size, random_state=random_state, stratify=y
-        )
+        # If test set is already provided (cross-validation case)
+        if X_test is not None and y_test is not None:
+            # Encode and process test data consistently with training data
+            X_test_for_training = self._encode_categorical_features(X_test_for_training, is_training=False)
+            X_test_for_training = self._handle_missing_values(X_test_for_training)
+            X_test_for_training = self._scale_features(X_test_for_training, is_training=False)
+            
+            X_train, X_test_final, y_train, y_test_final = X_for_training, X_test_for_training, y, y_test
+        else:
+            # Regular train-test split
+            X_train, X_test_final, y_train, y_test_final = train_test_split(
+                X_for_training, y, test_size=test_size, random_state=random_state, stratify=y
+            )
         
         # Store test data for later evaluation
-        self.X_test = X_test
-        self.y_test = y_test
+        self.X_test = X_test_final
+        self.y_test = y_test_final
         
         print(f"Data preprocessing completed. X shape: {X_for_training.shape}, categorical features encoded: {len(self.label_encoders)}")
         
-        return X_train, X_test, y_train, y_test
+        return X_train, X_test_final, y_train, y_test_final
     
-    def _encode_categorical_features(self, X):
-        """Encode categorical variables using label encoding"""
+    def _encode_categorical_features(self, X, is_training=True):
+        """
+        Encode categorical variables using label encoding.
+        If is_training=True, fit new encoders. Otherwise, use existing encoders.
+        """
         X_encoded = X.copy()
         
         # Find categorical columns (excluding case_id which should remain as-is)
@@ -61,20 +82,41 @@ class DataTransformer:
         
         for col in categorical_columns:
             if col != 'case_id':  # Skip case_id
-                # Create and fit a new label encoder for this column
-                self.label_encoders[col] = LabelEncoder()
-                
-                # Handle possible NaN values before encoding
-                non_null_mask = ~X[col].isna()
-                if non_null_mask.any():
-                    # Fit and transform non-null values
-                    self.label_encoders[col].fit(X.loc[non_null_mask, col])
-                    X_encoded.loc[non_null_mask, col] = self.label_encoders[col].transform(X.loc[non_null_mask, col])
-                    # Fill NA with -1 to represent missing values
-                    X_encoded.loc[~non_null_mask, col] = -1
+                if is_training:
+                    # Create and fit a new label encoder for this column
+                    self.label_encoders[col] = LabelEncoder()
+                    
+                    # Handle possible NaN values before encoding
+                    non_null_mask = ~X[col].isna()
+                    if non_null_mask.any():
+                        # Fit and transform non-null values
+                        self.label_encoders[col].fit(X.loc[non_null_mask, col])
+                        X_encoded.loc[non_null_mask, col] = self.label_encoders[col].transform(X.loc[non_null_mask, col])
+                        # Fill NA with -1 to represent missing values
+                        X_encoded.loc[~non_null_mask, col] = -1
+                    else:
+                        # If all values are null, fill with -1
+                        X_encoded[col] = -1
                 else:
-                    # If all values are null, fill with -1
-                    X_encoded[col] = -1
+                    # Use existing encoder
+                    if col in self.label_encoders:
+                        # Handle possible NaN values before encoding
+                        non_null_mask = ~X[col].isna()
+                        if non_null_mask.any():
+                            # Transform using existing encoder
+                            # Handle unseen categories
+                            X_encoded.loc[non_null_mask, col] = X.loc[non_null_mask, col].apply(
+                                lambda x: self.label_encoders[col].transform([x])[0] 
+                                if x in self.label_encoders[col].classes_ else -1
+                            )
+                            # Fill NA with -1 to represent missing values
+                            X_encoded.loc[~non_null_mask, col] = -1
+                        else:
+                            # If all values are null, fill with -1
+                            X_encoded[col] = -1
+                    else:
+                        # If no encoder exists for this column, fill with -1
+                        X_encoded[col] = -1
                 
                 # Convert to numeric type
                 X_encoded[col] = pd.to_numeric(X_encoded[col], errors='coerce')
@@ -95,15 +137,21 @@ class DataTransformer:
         
         return X
     
-    def _scale_features(self, X):
-        """Scale numerical features"""
+    def _scale_features(self, X, is_training=True):
+        """
+        Scale numerical features.
+        If is_training=True, fit a new scaler. Otherwise, use the existing one.
+        """
         # Find columns to scale (only numeric columns)
         columns_to_scale = X.select_dtypes(include=['float64', 'int64']).columns
         
         # Scale only the numerical columns
         if len(columns_to_scale) > 0:
             X_scaled = X.copy()
-            X_scaled[columns_to_scale] = self.scaler.fit_transform(X[columns_to_scale])
+            if is_training:
+                X_scaled[columns_to_scale] = self.scaler.fit_transform(X[columns_to_scale])
+            else:
+                X_scaled[columns_to_scale] = self.scaler.transform(X[columns_to_scale])
             return X_scaled
         else:
             return X
