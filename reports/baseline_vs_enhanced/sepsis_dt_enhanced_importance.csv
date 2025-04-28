@@ -1,0 +1,16 @@
+feature,importance
+unique_activities,0.22528451021414433
+current_event,0.21700764926309754
+dept_changes,0.19375915223573756
+SIRSCritLeucos,0.18651646083932785
+time_since_start,0.11280617718596482
+event_position,0.05740411254506762
+time_since_last_event,0.00646273245092541
+trace_length,0.0005743367592798947
+time_of_day,0.00018486850645487511
+repeated_activities,0.0
+CRP_last,0.0
+Leucocytes_last,0.0
+LacticAcid_last,0.0
+SIRSCritTemperature,0.0
+weekend,0.0

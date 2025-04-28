@@ -1,0 +1,5 @@
+ID,Name,Supported,Justification
+H7,Critical Diagnostic Tests → Specific Events,False,"Features related to Critical Diagnostic Tests showed insufficient influence on predictions for Specific Events events, with only 0.01 importance vs. 0.02 average for other features."
+H8,SIRS Criteria → Diagnostic Testing,False,"Features related to SIRS Criteria showed insufficient influence on predictions for Diagnostic Testing events, with only 0.00 importance vs. 0.02 average for other features."
+H9,Department Transitions → Outcome Events,False,"Features related to Department Transitions showed insufficient influence on predictions for Outcome Events events, with only 0.00 importance vs. 0.02 average for other features."
+H10,Clinical Marker Changes → Next Events,False,"Features related to Clinical Marker Changes showed insufficient influence on predictions for Next Events events, with only 0.00 importance vs. 0.02 average for other features."

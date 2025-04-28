@@ -1,0 +1,85 @@
+Causality Analysis Report - SEPSIS Dataset
+Generated on: 2025-04-26 18:38:32
+
+Total Hypotheses: 4
+Supported: 0
+Not Supported: 4
+
+Detailed Results:
+================================================================================
+
+ID: H7
+Name: Critical Diagnostic Tests → Specific Events
+Features: CRP_last, Leucocytes_last
+Target Events: Release A, Admission NC
+Result: NOT SUPPORTED
+Justification: Features related to Critical Diagnostic Tests showed insufficient influence on predictions for Specific Events events, with only 0.01 importance vs. 0.02 average for other features.
+
+Analysis Details:
+- Hypothesis Feature Importance: 0.0091
+- Other Features Average Importance: 0.0177
+- Statistical Significance (p-value): 0.2132
+
+Feature Importance Breakdown:
+- CRP_last: 0.0091
+- Leucocytes_last: 0.0000
+
+--------------------------------------------------------------------------------
+
+ID: H8
+Name: SIRS Criteria → Diagnostic Testing
+Features: SIRSCritTemperature, SIRSCritLeucos
+Target Events: CRP, Leucocytes, LacticAcid
+Result: NOT SUPPORTED
+Justification: Features related to SIRS Criteria showed insufficient influence on predictions for Diagnostic Testing events, with only 0.00 importance vs. 0.02 average for other features.
+
+Analysis Details:
+- Hypothesis Feature Importance: 0.0000
+- Other Features Average Importance: 0.0179
+- Statistical Significance (p-value): 0.0000
+
+Feature Importance Breakdown:
+- SIRSCritTemperature: 0.0000
+- SIRSCritLeucos: 0.0000
+
+--------------------------------------------------------------------------------
+
+ID: H9
+Name: Department Transitions → Outcome Events
+Features: dept_changes, current_dept
+Target Events: Return ER, Admission NC, Admission IC
+Result: NOT SUPPORTED
+Justification: Features related to Department Transitions showed insufficient influence on predictions for Outcome Events events, with only 0.00 importance vs. 0.02 average for other features.
+
+Analysis Details:
+- Hypothesis Feature Importance: 0.0000
+- Other Features Average Importance: 0.0175
+- Statistical Significance (p-value): nan
+
+Feature Importance Breakdown:
+- dept_changes: 0.0000
+
+--------------------------------------------------------------------------------
+
+ID: H10
+Name: Clinical Marker Changes → Next Events
+Features: CRP_change, CRP_change_rate, Leucocytes_change, Leucocytes_change_rate, LacticAcid_change, LacticAcid_change_rate
+Target Events: IV Antibiotics, IV Liquid, Release A
+Result: NOT SUPPORTED
+Justification: Features related to Clinical Marker Changes showed insufficient influence on predictions for Next Events events, with only 0.00 importance vs. 0.02 average for other features.
+
+Analysis Details:
+- Hypothesis Feature Importance: 0.0009
+- Other Features Average Importance: 0.0192
+- Statistical Significance (p-value): 0.0000
+
+Feature Importance Breakdown:
+- CRP_change: 0.0000
+- CRP_change_rate: 0.0000
+- Leucocytes_change: 0.0009
+- Leucocytes_change_rate: 0.0000
+- LacticAcid_change: 0.0000
+- LacticAcid_change_rate: 0.0000
+
+--------------------------------------------------------------------------------
+
