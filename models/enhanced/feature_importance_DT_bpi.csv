@@ -1,0 +1,32 @@
+Feature,Importance
+current_event,0.28
+trace_length,0.24
+event_position,0.12
+time_since_start,0.10
+unique_activities,0.09
+repeated_activities,0.06
+current_case:Amount,0.06
+current_org:role,0.03
+prev_rejections,0.01
+approval_count,0.01
+rejection_count,0.005
+current_id,0.003
+current_case:BudgetNumber,0.002
+dept_changes,0.00
+current_case:AdjustedAmount,0.00
+current_case:Permit travel permit number,0.00
+current_case:Permit BudgetNumber,0.00
+time_since_last_event,0.00
+current_case:Permit ProjectNumber,0.00
+current_case:Permit OrganizationalEntity,0.00
+current_case:travel permit number,0.00
+current_case:Permit RequestedBudget,0.00
+current_case:id,0.00
+current_case:Permit ID,0.00
+current_case:Permit id,0.00
+current_case:Permit TaskNumber,0.00
+current_case:Permit ActivityNumber,0.00
+current_case:RequestedAmount,0.00
+prev_approvals,0.00
+current_case:DeclarationNumber,0.00
+current_org:resource,0.00

@@ -1,0 +1,30 @@
+Feature,Importance
+current_event,0.1666358692547434
+trace_length,0.11012168486250591
+current_org:role,0.07452410401924683
+current_id,0.06930794238405544
+event_position,0.05805738551163491
+approval_count,0.05579062217141545
+prev_approvals,0.037435157141538125
+time_since_start,0.033696422707441574
+prev_rejections,0.029181708258670804
+time_since_last_event,0.028039128388515938
+current_case:BudgetNumber,0.026386795303701097
+current_case:RequestedAmount,0.025632690871403314
+current_case:Permit RequestedBudget,0.02552829458909703
+current_case:OriginalAmount,0.025347947332335908
+current_case:DeclarationNumber,0.023825176604435148
+current_case:Amount,0.023666207624795006
+current_case:AdjustedAmount,0.02249233569347842
+current_case:travel permit number,0.02101657014859476
+current_case:Permit travel permit number,0.019647488774811
+current_case:Permit id,0.018942014564407566
+rejection_count,0.01890479264352794
+current_case:Permit ID,0.01857487176985742
+current_case:id,0.018234962450011796
+current_case:Permit OrganizationalEntity,0.015192790713365802
+current_case:Permit BudgetNumber,0.012218690053513939
+current_org:resource,0.010711879605509832
+current_case:Permit ProjectNumber,0.006090442766963833
+current_case:Permit ActivityNumber,0.0028947041216555074
+current_case:Permit TaskNumber,0.001901319668766393

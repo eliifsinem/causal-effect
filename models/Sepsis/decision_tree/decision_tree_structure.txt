@@ -1,0 +1,1006 @@
+|--- prev_event_5 <= 1.32
+|   |--- dept_changes <= -1.35
+|   |   |--- SIRSCritLeucos <= -0.45
+|   |   |   |--- current_dept_duration <= -0.34
+|   |   |   |   |--- department <= 1.00
+|   |   |   |   |   |--- trace_length <= -0.45
+|   |   |   |   |   |   |--- time_of_day <= 2.05
+|   |   |   |   |   |   |   |--- class: ER Triage
+|   |   |   |   |   |   |--- time_of_day >  2.05
+|   |   |   |   |   |   |   |--- SIRSCriteria2OrMore <= -3.21
+|   |   |   |   |   |   |   |   |--- class: ER Triage
+|   |   |   |   |   |   |   |--- SIRSCriteria2OrMore >  -3.21
+|   |   |   |   |   |   |   |   |--- class: CRP
+|   |   |   |   |   |--- trace_length >  -0.45
+|   |   |   |   |   |   |--- trace_length <= -0.41
+|   |   |   |   |   |   |   |--- SIRSCritHeartRate <= -2.65
+|   |   |   |   |   |   |   |   |--- time_of_day <= -0.11
+|   |   |   |   |   |   |   |   |   |--- class: ER Triage
+|   |   |   |   |   |   |   |   |--- time_of_day >  -0.11
+|   |   |   |   |   |   |   |   |   |--- time_of_day <= 1.30
+|   |   |   |   |   |   |   |   |   |   |--- class: LacticAcid
+|   |   |   |   |   |   |   |   |   |--- time_of_day >  1.30
+|   |   |   |   |   |   |   |   |   |   |--- class: ER Triage
+|   |   |   |   |   |   |   |--- SIRSCritHeartRate >  -2.65
+|   |   |   |   |   |   |   |   |--- class: ER Triage
+|   |   |   |   |   |   |--- trace_length >  -0.41
+|   |   |   |   |   |   |   |--- time_of_day <= 1.48
+|   |   |   |   |   |   |   |   |--- time_of_day <= -0.39
+|   |   |   |   |   |   |   |   |   |--- time_of_day <= -0.58
+|   |   |   |   |   |   |   |   |   |   |--- class: ER Triage
+|   |   |   |   |   |   |   |   |   |--- time_of_day >  -0.58
+|   |   |   |   |   |   |   |   |   |   |--- current_dept_duration <= -0.39
+|   |   |   |   |   |   |   |   |   |   |   |--- class: ER Triage
+|   |   |   |   |   |   |   |   |   |   |--- current_dept_duration >  -0.39
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |--- time_of_day >  -0.39
+|   |   |   |   |   |   |   |   |   |--- class: ER Triage
+|   |   |   |   |   |   |   |--- time_of_day >  1.48
+|   |   |   |   |   |   |   |   |--- trace_length <= -0.06
+|   |   |   |   |   |   |   |   |   |--- class: ER Triage
+|   |   |   |   |   |   |   |   |--- trace_length >  -0.06
+|   |   |   |   |   |   |   |   |   |--- class: Leucocytes
+|   |   |   |   |--- department >  1.00
+|   |   |   |   |   |--- SIRSCritTemperature <= -2.55
+|   |   |   |   |   |   |--- class: ER Triage
+|   |   |   |   |   |--- SIRSCritTemperature >  -2.55
+|   |   |   |   |   |   |--- SIRSCritTachypnea <= -0.55
+|   |   |   |   |   |   |   |--- time_of_day <= -0.39
+|   |   |   |   |   |   |   |   |--- class: ER Triage
+|   |   |   |   |   |   |   |--- time_of_day >  -0.39
+|   |   |   |   |   |   |   |   |--- time_of_day <= 0.08
+|   |   |   |   |   |   |   |   |   |--- class: LacticAcid
+|   |   |   |   |   |   |   |   |--- time_of_day >  0.08
+|   |   |   |   |   |   |   |   |   |--- class: Leucocytes
+|   |   |   |   |   |   |--- SIRSCritTachypnea >  -0.55
+|   |   |   |   |   |   |   |--- class: ER Triage
+|   |   |   |--- current_dept_duration >  -0.34
+|   |   |   |   |--- time_of_day <= -1.51
+|   |   |   |   |   |--- trace_length <= -0.49
+|   |   |   |   |   |   |--- trace_length <= -0.58
+|   |   |   |   |   |   |   |--- class: ER Triage
+|   |   |   |   |   |   |--- trace_length >  -0.58
+|   |   |   |   |   |   |   |--- weekend <= 0.39
+|   |   |   |   |   |   |   |   |--- time_of_day <= -1.79
+|   |   |   |   |   |   |   |   |   |--- class: ER Triage
+|   |   |   |   |   |   |   |   |--- time_of_day >  -1.79
+|   |   |   |   |   |   |   |   |   |--- class: LacticAcid
+|   |   |   |   |   |   |   |--- weekend >  0.39
+|   |   |   |   |   |   |   |   |--- class: LacticAcid
+|   |   |   |   |   |--- trace_length >  -0.49
+|   |   |   |   |   |   |--- SIRSCritTemperature <= -2.55
+|   |   |   |   |   |   |   |--- class: Leucocytes
+|   |   |   |   |   |   |--- SIRSCritTemperature >  -2.55
+|   |   |   |   |   |   |   |--- trace_length <= -0.36
+|   |   |   |   |   |   |   |   |--- time_of_day <= -1.89
+|   |   |   |   |   |   |   |   |   |--- SIRSCritTachypnea <= -0.55
+|   |   |   |   |   |   |   |   |   |   |--- class: ER Triage
+|   |   |   |   |   |   |   |   |   |--- SIRSCritTachypnea >  -0.55
+|   |   |   |   |   |   |   |   |   |   |--- class: Leucocytes
+|   |   |   |   |   |   |   |   |--- time_of_day >  -1.89
+|   |   |   |   |   |   |   |   |   |--- weekend <= 0.39
+|   |   |   |   |   |   |   |   |   |   |--- SIRSCritTachypnea <= -0.55
+|   |   |   |   |   |   |   |   |   |   |   |--- class: ER Triage
+|   |   |   |   |   |   |   |   |   |   |--- SIRSCritTachypnea >  -0.55
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |--- weekend >  0.39
+|   |   |   |   |   |   |   |   |   |   |--- class: ER Triage
+|   |   |   |   |   |   |   |--- trace_length >  -0.36
+|   |   |   |   |   |   |   |   |--- time_of_day <= -1.70
+|   |   |   |   |   |   |   |   |   |--- class: ER Triage
+|   |   |   |   |   |   |   |   |--- time_of_day >  -1.70
+|   |   |   |   |   |   |   |   |   |--- SIRSCritTachypnea_duration <= -0.25
+|   |   |   |   |   |   |   |   |   |   |--- class: ER Triage
+|   |   |   |   |   |   |   |   |   |--- SIRSCritTachypnea_duration >  -0.25
+|   |   |   |   |   |   |   |   |   |   |--- trace_length <= -0.32
+|   |   |   |   |   |   |   |   |   |   |   |--- class: ER Triage
+|   |   |   |   |   |   |   |   |   |   |--- trace_length >  -0.32
+|   |   |   |   |   |   |   |   |   |   |   |--- class: CRP
+|   |   |   |   |--- time_of_day >  -1.51
+|   |   |   |   |   |--- time_of_day <= 2.23
+|   |   |   |   |   |   |--- time_of_day <= -0.02
+|   |   |   |   |   |   |   |--- time_of_day <= -0.20
+|   |   |   |   |   |   |   |   |--- department <= 1.00
+|   |   |   |   |   |   |   |   |   |--- time_of_day <= -1.33
+|   |   |   |   |   |   |   |   |   |   |--- trace_length <= -0.43
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- trace_length >  -0.43
+|   |   |   |   |   |   |   |   |   |   |   |--- class: ER Triage
+|   |   |   |   |   |   |   |   |   |--- time_of_day >  -1.33
+|   |   |   |   |   |   |   |   |   |   |--- trace_length <= -0.41
+|   |   |   |   |   |   |   |   |   |   |   |--- class: ER Triage
+|   |   |   |   |   |   |   |   |   |   |--- trace_length >  -0.41
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 7
+|   |   |   |   |   |   |   |   |--- department >  1.00
+|   |   |   |   |   |   |   |   |   |--- trace_length <= -0.30
+|   |   |   |   |   |   |   |   |   |   |--- time_of_day <= -0.76
+|   |   |   |   |   |   |   |   |   |   |   |--- class: LacticAcid
+|   |   |   |   |   |   |   |   |   |   |--- time_of_day >  -0.76
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 4
+|   |   |   |   |   |   |   |   |   |--- trace_length >  -0.30
+|   |   |   |   |   |   |   |   |   |   |--- class: CRP
+|   |   |   |   |   |   |   |--- time_of_day >  -0.20
+|   |   |   |   |   |   |   |   |--- trace_length <= -0.23
+|   |   |   |   |   |   |   |   |   |--- trace_length <= -0.41
+|   |   |   |   |   |   |   |   |   |   |--- class: ER Triage
+|   |   |   |   |   |   |   |   |   |--- trace_length >  -0.41
+|   |   |   |   |   |   |   |   |   |   |--- trace_length <= -0.36
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- trace_length >  -0.36
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |--- trace_length >  -0.23
+|   |   |   |   |   |   |   |   |   |--- SIRSCritTemperature_duration <= -0.57
+|   |   |   |   |   |   |   |   |   |   |--- class: ER Sepsis Triage
+|   |   |   |   |   |   |   |   |   |--- SIRSCritTemperature_duration >  -0.57
+|   |   |   |   |   |   |   |   |   |   |--- trace_length <= -0.17
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- trace_length >  -0.17
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |--- time_of_day >  -0.02
+|   |   |   |   |   |   |   |--- trace_length <= -0.19
+|   |   |   |   |   |   |   |   |--- trace_length <= -0.54
+|   |   |   |   |   |   |   |   |   |--- SIRSCritHeartRate_duration <= -0.69
+|   |   |   |   |   |   |   |   |   |   |--- time_of_day <= 0.92
+|   |   |   |   |   |   |   |   |   |   |   |--- class: ER Triage
+|   |   |   |   |   |   |   |   |   |   |--- time_of_day >  0.92
+|   |   |   |   |   |   |   |   |   |   |   |--- class: Leucocytes
+|   |   |   |   |   |   |   |   |   |--- SIRSCritHeartRate_duration >  -0.69
+|   |   |   |   |   |   |   |   |   |   |--- time_of_day <= 0.36
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- time_of_day >  0.36
+|   |   |   |   |   |   |   |   |   |   |   |--- class: ER Triage
+|   |   |   |   |   |   |   |   |--- trace_length >  -0.54
+|   |   |   |   |   |   |   |   |   |--- trace_length <= -0.49
+|   |   |   |   |   |   |   |   |   |   |--- time_of_day <= 0.55
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- time_of_day >  0.55
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 5
+|   |   |   |   |   |   |   |   |   |--- trace_length >  -0.49
+|   |   |   |   |   |   |   |   |   |   |--- time_of_day <= 0.55
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 7
+|   |   |   |   |   |   |   |   |   |   |--- time_of_day >  0.55
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 11
+|   |   |   |   |   |   |   |--- trace_length >  -0.19
+|   |   |   |   |   |   |   |   |--- SIRSCritTemperature_duration <= -0.57
+|   |   |   |   |   |   |   |   |   |--- time_of_day <= 0.73
+|   |   |   |   |   |   |   |   |   |   |--- trace_length <= 0.00
+|   |   |   |   |   |   |   |   |   |   |   |--- class: IV Liquid
+|   |   |   |   |   |   |   |   |   |   |--- trace_length >  0.00
+|   |   |   |   |   |   |   |   |   |   |   |--- class: ER Triage
+|   |   |   |   |   |   |   |   |   |--- time_of_day >  0.73
+|   |   |   |   |   |   |   |   |   |   |--- class: ER Triage
+|   |   |   |   |   |   |   |   |--- SIRSCritTemperature_duration >  -0.57
+|   |   |   |   |   |   |   |   |   |--- trace_length <= -0.15
+|   |   |   |   |   |   |   |   |   |   |--- time_of_day <= 1.30
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- time_of_day >  1.30
+|   |   |   |   |   |   |   |   |   |   |   |--- class: ER Triage
+|   |   |   |   |   |   |   |   |   |--- trace_length >  -0.15
+|   |   |   |   |   |   |   |   |   |   |--- class: ER Triage
+|   |   |   |   |   |--- time_of_day >  2.23
+|   |   |   |   |   |   |--- trace_length <= -0.41
+|   |   |   |   |   |   |   |--- SIRSCritTachypnea_duration <= -0.25
+|   |   |   |   |   |   |   |   |--- class: IV Liquid
+|   |   |   |   |   |   |   |--- SIRSCritTachypnea_duration >  -0.25
+|   |   |   |   |   |   |   |   |--- class: ER Triage
+|   |   |   |   |   |   |--- trace_length >  -0.41
+|   |   |   |   |   |   |   |--- SIRSCritTemperature <= -2.55
+|   |   |   |   |   |   |   |   |--- class: Leucocytes
+|   |   |   |   |   |   |   |--- SIRSCritTemperature >  -2.55
+|   |   |   |   |   |   |   |   |--- trace_length <= -0.30
+|   |   |   |   |   |   |   |   |   |--- weekend <= 0.39
+|   |   |   |   |   |   |   |   |   |   |--- class: ER Triage
+|   |   |   |   |   |   |   |   |   |--- weekend >  0.39
+|   |   |   |   |   |   |   |   |   |   |--- class: ER Triage
+|   |   |   |   |   |   |   |   |--- trace_length >  -0.30
+|   |   |   |   |   |   |   |   |   |--- class: ER Triage
+|   |   |--- SIRSCritLeucos >  -0.45
+|   |   |   |--- SIRSCriteria2OrMore_duration <= -0.92
+|   |   |   |   |--- Leucocytes <= -0.80
+|   |   |   |   |   |--- class: CRP
+|   |   |   |   |--- Leucocytes >  -0.80
+|   |   |   |   |   |--- LacticAcid <= -0.50
+|   |   |   |   |   |   |--- class: Leucocytes
+|   |   |   |   |   |--- LacticAcid >  -0.50
+|   |   |   |   |   |   |--- CRP <= -2.15
+|   |   |   |   |   |   |   |--- class: Leucocytes
+|   |   |   |   |   |   |--- CRP >  -2.15
+|   |   |   |   |   |   |   |--- time_since_last_event <= -0.34
+|   |   |   |   |   |   |   |   |--- time_of_day <= 2.23
+|   |   |   |   |   |   |   |   |   |--- SIRSCritLeucos_changes <= -0.66
+|   |   |   |   |   |   |   |   |   |   |--- CRP <= -0.17
+|   |   |   |   |   |   |   |   |   |   |   |--- class: Leucocytes
+|   |   |   |   |   |   |   |   |   |   |--- CRP >  -0.17
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 7
+|   |   |   |   |   |   |   |   |   |--- SIRSCritLeucos_changes >  -0.66
+|   |   |   |   |   |   |   |   |   |   |--- class: ER Registration
+|   |   |   |   |   |   |   |   |--- time_of_day >  2.23
+|   |   |   |   |   |   |   |   |   |--- prev_event_4 <= 0.84
+|   |   |   |   |   |   |   |   |   |   |--- class: ER Registration
+|   |   |   |   |   |   |   |   |   |--- prev_event_4 >  0.84
+|   |   |   |   |   |   |   |   |   |   |--- current_dept_duration <= -0.37
+|   |   |   |   |   |   |   |   |   |   |   |--- class: ER Registration
+|   |   |   |   |   |   |   |   |   |   |--- current_dept_duration >  -0.37
+|   |   |   |   |   |   |   |   |   |   |   |--- class: IV Antibiotics
+|   |   |   |   |   |   |   |--- time_since_last_event >  -0.34
+|   |   |   |   |   |   |   |   |--- event_position <= -0.60
+|   |   |   |   |   |   |   |   |   |--- weekend <= 0.39
+|   |   |   |   |   |   |   |   |   |   |--- class: IV Liquid
+|   |   |   |   |   |   |   |   |   |--- weekend >  0.39
+|   |   |   |   |   |   |   |   |   |   |--- class: IV Antibiotics
+|   |   |   |   |   |   |   |   |--- event_position >  -0.60
+|   |   |   |   |   |   |   |   |   |--- class: ER Registration
+|   |   |   |--- SIRSCriteria2OrMore_duration >  -0.92
+|   |   |   |   |--- prev_event_3 <= -0.80
+|   |   |   |   |   |--- time_since_start <= -0.48
+|   |   |   |   |   |   |--- class: ER Triage
+|   |   |   |   |   |--- time_since_start >  -0.48
+|   |   |   |   |   |   |--- class: IV Antibiotics
+|   |   |   |   |--- prev_event_3 >  -0.80
+|   |   |   |   |   |--- time_since_last_event <= -0.33
+|   |   |   |   |   |   |--- current_dept_duration <= -0.34
+|   |   |   |   |   |   |   |--- time_since_start <= -0.48
+|   |   |   |   |   |   |   |   |--- class: ER Triage
+|   |   |   |   |   |   |   |--- time_since_start >  -0.48
+|   |   |   |   |   |   |   |   |--- class: IV Antibiotics
+|   |   |   |   |   |   |--- current_dept_duration >  -0.34
+|   |   |   |   |   |   |   |--- trace_length <= -0.36
+|   |   |   |   |   |   |   |   |--- trace_length <= -0.41
+|   |   |   |   |   |   |   |   |   |--- trace_length <= -0.62
+|   |   |   |   |   |   |   |   |   |   |--- class: Leucocytes
+|   |   |   |   |   |   |   |   |   |--- trace_length >  -0.62
+|   |   |   |   |   |   |   |   |   |   |--- class: ER Triage
+|   |   |   |   |   |   |   |   |--- trace_length >  -0.41
+|   |   |   |   |   |   |   |   |   |--- current_event <= -0.10
+|   |   |   |   |   |   |   |   |   |   |--- time_since_last_event <= -0.34
+|   |   |   |   |   |   |   |   |   |   |   |--- class: IV Antibiotics
+|   |   |   |   |   |   |   |   |   |   |--- time_since_last_event >  -0.34
+|   |   |   |   |   |   |   |   |   |   |   |--- class: IV Liquid
+|   |   |   |   |   |   |   |   |   |--- current_event >  -0.10
+|   |   |   |   |   |   |   |   |   |   |--- time_since_start <= -0.48
+|   |   |   |   |   |   |   |   |   |   |   |--- class: ER Sepsis Triage
+|   |   |   |   |   |   |   |   |   |   |--- time_since_start >  -0.48
+|   |   |   |   |   |   |   |   |   |   |   |--- class: ER Triage
+|   |   |   |   |   |   |   |--- trace_length >  -0.36
+|   |   |   |   |   |   |   |   |--- trace_length <= 2.92
+|   |   |   |   |   |   |   |   |   |--- class: ER Triage
+|   |   |   |   |   |   |   |   |--- trace_length >  2.92
+|   |   |   |   |   |   |   |   |   |--- class: CRP
+|   |   |   |   |   |--- time_since_last_event >  -0.33
+|   |   |   |   |   |   |--- class: ER Sepsis Triage
+|   |--- dept_changes >  -1.35
+|   |   |--- SIRSCritLeucos_changes <= -0.60
+|   |   |   |--- department <= -0.14
+|   |   |   |   |--- time_since_last_event <= -0.15
+|   |   |   |   |   |--- Leucocytes_max <= -0.74
+|   |   |   |   |   |   |--- prev_event_4 <= -0.56
+|   |   |   |   |   |   |   |--- time_since_last_event <= -0.34
+|   |   |   |   |   |   |   |   |--- class: LacticAcid
+|   |   |   |   |   |   |   |--- time_since_last_event >  -0.34
+|   |   |   |   |   |   |   |   |--- CRP_last <= -0.22
+|   |   |   |   |   |   |   |   |   |--- LacticAcid_max <= -0.59
+|   |   |   |   |   |   |   |   |   |   |--- trace_length <= -0.64
+|   |   |   |   |   |   |   |   |   |   |   |--- class: Leucocytes
+|   |   |   |   |   |   |   |   |   |   |--- trace_length >  -0.64
+|   |   |   |   |   |   |   |   |   |   |   |--- class: LacticAcid
+|   |   |   |   |   |   |   |   |   |--- LacticAcid_max >  -0.59
+|   |   |   |   |   |   |   |   |   |   |--- current_dept_duration <= -0.32
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- current_dept_duration >  -0.32
+|   |   |   |   |   |   |   |   |   |   |   |--- class: Leucocytes
+|   |   |   |   |   |   |   |   |--- CRP_last >  -0.22
+|   |   |   |   |   |   |   |   |   |--- class: Leucocytes
+|   |   |   |   |   |   |--- prev_event_4 >  -0.56
+|   |   |   |   |   |   |   |--- time_since_start <= -0.48
+|   |   |   |   |   |   |   |   |--- class: Leucocytes
+|   |   |   |   |   |   |   |--- time_since_start >  -0.48
+|   |   |   |   |   |   |   |   |--- class: ER Sepsis Triage
+|   |   |   |   |   |--- Leucocytes_max >  -0.74
+|   |   |   |   |   |   |--- Leucocytes_mean <= 0.45
+|   |   |   |   |   |   |   |--- Leucocytes_last <= 0.17
+|   |   |   |   |   |   |   |   |--- Leucocytes <= -0.85
+|   |   |   |   |   |   |   |   |   |--- class: LacticAcid
+|   |   |   |   |   |   |   |   |--- Leucocytes >  -0.85
+|   |   |   |   |   |   |   |   |   |--- Leucocytes_mean <= -0.14
+|   |   |   |   |   |   |   |   |   |   |--- Leucocytes <= -0.70
+|   |   |   |   |   |   |   |   |   |   |   |--- class: CRP
+|   |   |   |   |   |   |   |   |   |   |--- Leucocytes >  -0.70
+|   |   |   |   |   |   |   |   |   |   |   |--- class: LacticAcid
+|   |   |   |   |   |   |   |   |   |--- Leucocytes_mean >  -0.14
+|   |   |   |   |   |   |   |   |   |   |--- class: CRP
+|   |   |   |   |   |   |   |--- Leucocytes_last >  0.17
+|   |   |   |   |   |   |   |   |--- class: LacticAcid
+|   |   |   |   |   |   |--- Leucocytes_mean >  0.45
+|   |   |   |   |   |   |   |--- class: CRP
+|   |   |   |   |--- time_since_last_event >  -0.15
+|   |   |   |   |   |--- class: ER Triage
+|   |   |   |--- department >  -0.14
+|   |   |   |   |--- SIRSCritTachypnea <= -2.31
+|   |   |   |   |   |--- class: ER Triage
+|   |   |   |   |--- SIRSCritTachypnea >  -2.31
+|   |   |   |   |   |--- time_of_day <= -1.70
+|   |   |   |   |   |   |--- time_since_last_event <= -0.34
+|   |   |   |   |   |   |   |--- time_since_start <= -0.48
+|   |   |   |   |   |   |   |   |--- class: ER Sepsis Triage
+|   |   |   |   |   |   |   |--- time_since_start >  -0.48
+|   |   |   |   |   |   |   |   |--- class: IV Liquid
+|   |   |   |   |   |   |--- time_since_last_event >  -0.34
+|   |   |   |   |   |   |   |--- time_since_start <= -0.48
+|   |   |   |   |   |   |   |   |--- time_since_last_event <= -0.34
+|   |   |   |   |   |   |   |   |   |--- class: ER Sepsis Triage
+|   |   |   |   |   |   |   |   |--- time_since_last_event >  -0.34
+|   |   |   |   |   |   |   |   |   |--- class: Leucocytes
+|   |   |   |   |   |   |   |--- time_since_start >  -0.48
+|   |   |   |   |   |   |   |   |--- time_of_day <= -1.89
+|   |   |   |   |   |   |   |   |   |--- class: ER Sepsis Triage
+|   |   |   |   |   |   |   |   |--- time_of_day >  -1.89
+|   |   |   |   |   |   |   |   |   |--- time_since_last_event <= -0.33
+|   |   |   |   |   |   |   |   |   |   |--- trace_length <= -0.30
+|   |   |   |   |   |   |   |   |   |   |   |--- class: ER Sepsis Triage
+|   |   |   |   |   |   |   |   |   |   |--- trace_length >  -0.30
+|   |   |   |   |   |   |   |   |   |   |   |--- class: LacticAcid
+|   |   |   |   |   |   |   |   |   |--- time_since_last_event >  -0.33
+|   |   |   |   |   |   |   |   |   |   |--- class: IV Liquid
+|   |   |   |   |   |--- time_of_day >  -1.70
+|   |   |   |   |   |   |--- time_since_last_event <= -0.34
+|   |   |   |   |   |   |   |--- trace_length <= -0.28
+|   |   |   |   |   |   |   |   |--- time_since_last_event <= -0.34
+|   |   |   |   |   |   |   |   |   |--- time_since_last_event <= -0.34
+|   |   |   |   |   |   |   |   |   |   |--- time_of_day <= 1.67
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 7
+|   |   |   |   |   |   |   |   |   |   |--- time_of_day >  1.67
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 5
+|   |   |   |   |   |   |   |   |   |--- time_since_last_event >  -0.34
+|   |   |   |   |   |   |   |   |   |   |--- class: CRP
+|   |   |   |   |   |   |   |   |--- time_since_last_event >  -0.34
+|   |   |   |   |   |   |   |   |   |--- class: ER Sepsis Triage
+|   |   |   |   |   |   |   |--- trace_length >  -0.28
+|   |   |   |   |   |   |   |   |--- time_of_day <= -1.05
+|   |   |   |   |   |   |   |   |   |--- time_since_start <= -0.48
+|   |   |   |   |   |   |   |   |   |   |--- class: ER Sepsis Triage
+|   |   |   |   |   |   |   |   |   |--- time_since_start >  -0.48
+|   |   |   |   |   |   |   |   |   |   |--- time_since_start <= -0.48
+|   |   |   |   |   |   |   |   |   |   |   |--- class: Leucocytes
+|   |   |   |   |   |   |   |   |   |   |--- time_since_start >  -0.48
+|   |   |   |   |   |   |   |   |   |   |   |--- class: CRP
+|   |   |   |   |   |   |   |   |--- time_of_day >  -1.05
+|   |   |   |   |   |   |   |   |   |--- time_of_day <= 1.11
+|   |   |   |   |   |   |   |   |   |   |--- trace_length <= -0.06
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 8
+|   |   |   |   |   |   |   |   |   |   |--- trace_length >  -0.06
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |--- time_of_day >  1.11
+|   |   |   |   |   |   |   |   |   |   |--- class: ER Sepsis Triage
+|   |   |   |   |   |   |--- time_since_last_event >  -0.34
+|   |   |   |   |   |   |   |--- time_since_start <= -0.48
+|   |   |   |   |   |   |   |   |--- weekend <= 0.39
+|   |   |   |   |   |   |   |   |   |--- class: ER Sepsis Triage
+|   |   |   |   |   |   |   |   |--- weekend >  0.39
+|   |   |   |   |   |   |   |   |   |--- class: IV Liquid
+|   |   |   |   |   |   |   |--- time_since_start >  -0.48
+|   |   |   |   |   |   |   |   |--- SIRSCritLeucos_duration <= 1.86
+|   |   |   |   |   |   |   |   |   |--- time_of_day <= -0.02
+|   |   |   |   |   |   |   |   |   |   |--- time_since_start <= -0.48
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 10
+|   |   |   |   |   |   |   |   |   |   |--- time_since_start >  -0.48
+|   |   |   |   |   |   |   |   |   |   |   |--- class: Leucocytes
+|   |   |   |   |   |   |   |   |   |--- time_of_day >  -0.02
+|   |   |   |   |   |   |   |   |   |   |--- time_of_day <= 2.05
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 10
+|   |   |   |   |   |   |   |   |   |   |--- time_of_day >  2.05
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 7
+|   |   |   |   |   |   |   |   |--- SIRSCritLeucos_duration >  1.86
+|   |   |   |   |   |   |   |   |   |--- time_since_last_event <= -0.34
+|   |   |   |   |   |   |   |   |   |   |--- class: Leucocytes
+|   |   |   |   |   |   |   |   |   |--- time_since_last_event >  -0.34
+|   |   |   |   |   |   |   |   |   |   |--- time_since_start <= -0.48
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- time_since_start >  -0.48
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 5
+|   |   |--- SIRSCritLeucos_changes >  -0.60
+|   |   |   |--- time_since_start <= -0.38
+|   |   |   |   |--- unique_activities <= 0.28
+|   |   |   |   |   |--- unique_activities <= -0.05
+|   |   |   |   |   |   |--- unique_activities <= -0.39
+|   |   |   |   |   |   |   |--- current_dept_duration <= -0.44
+|   |   |   |   |   |   |   |   |--- current_event <= -0.41
+|   |   |   |   |   |   |   |   |   |--- LacticAcid_last <= -0.12
+|   |   |   |   |   |   |   |   |   |   |--- time_of_day <= 0.55
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- time_of_day >  0.55
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |--- LacticAcid_last >  -0.12
+|   |   |   |   |   |   |   |   |   |   |--- class: Admission IC
+|   |   |   |   |   |   |   |   |--- current_event >  -0.41
+|   |   |   |   |   |   |   |   |   |--- Leucocytes <= -0.36
+|   |   |   |   |   |   |   |   |   |   |--- class: Admission NC
+|   |   |   |   |   |   |   |   |   |--- Leucocytes >  -0.36
+|   |   |   |   |   |   |   |   |   |   |--- Leucocytes_count <= -0.43
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 8
+|   |   |   |   |   |   |   |   |   |   |--- Leucocytes_count >  -0.43
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |--- current_dept_duration >  -0.44
+|   |   |   |   |   |   |   |   |--- LacticAcid_mean <= -0.74
+|   |   |   |   |   |   |   |   |   |--- prev_event_3 <= -0.80
+|   |   |   |   |   |   |   |   |   |   |--- current_dept_duration <= -0.34
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 14
+|   |   |   |   |   |   |   |   |   |   |--- current_dept_duration >  -0.34
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 26
+|   |   |   |   |   |   |   |   |   |--- prev_event_3 >  -0.80
+|   |   |   |   |   |   |   |   |   |   |--- CRP_last <= -0.84
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 18
+|   |   |   |   |   |   |   |   |   |   |--- CRP_last >  -0.84
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 17
+|   |   |   |   |   |   |   |   |--- LacticAcid_mean >  -0.74
+|   |   |   |   |   |   |   |   |   |--- Leucocytes_max <= -0.86
+|   |   |   |   |   |   |   |   |   |   |--- time_since_last_event <= -0.34
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- time_since_last_event >  -0.34
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 15
+|   |   |   |   |   |   |   |   |   |--- Leucocytes_max >  -0.86
+|   |   |   |   |   |   |   |   |   |   |--- CRP_count <= -0.42
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 4
+|   |   |   |   |   |   |   |   |   |   |--- CRP_count >  -0.42
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 10
+|   |   |   |   |   |   |--- unique_activities >  -0.39
+|   |   |   |   |   |   |   |--- LacticAcid_last <= -0.69
+|   |   |   |   |   |   |   |   |--- time_since_last_event <= 0.24
+|   |   |   |   |   |   |   |   |   |--- time_since_start <= -0.48
+|   |   |   |   |   |   |   |   |   |   |--- time_since_last_event <= -0.34
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 7
+|   |   |   |   |   |   |   |   |   |   |--- time_since_last_event >  -0.34
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 7
+|   |   |   |   |   |   |   |   |   |--- time_since_start >  -0.48
+|   |   |   |   |   |   |   |   |   |   |--- department <= -0.42
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 4
+|   |   |   |   |   |   |   |   |   |   |--- department >  -0.42
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 14
+|   |   |   |   |   |   |   |   |--- time_since_last_event >  0.24
+|   |   |   |   |   |   |   |   |   |--- trace_length <= -0.58
+|   |   |   |   |   |   |   |   |   |   |--- class: Release D
+|   |   |   |   |   |   |   |   |   |--- trace_length >  -0.58
+|   |   |   |   |   |   |   |   |   |   |--- Leucocytes_max <= -0.15
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- Leucocytes_max >  -0.15
+|   |   |   |   |   |   |   |   |   |   |   |--- class: CRP
+|   |   |   |   |   |   |   |--- LacticAcid_last >  -0.69
+|   |   |   |   |   |   |   |   |--- SIRSCriteria2OrMore_duration <= -0.92
+|   |   |   |   |   |   |   |   |   |--- CRP_mean <= 0.23
+|   |   |   |   |   |   |   |   |   |   |--- current_dept_duration <= 0.14
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- current_dept_duration >  0.14
+|   |   |   |   |   |   |   |   |   |   |   |--- class: IV Antibiotics
+|   |   |   |   |   |   |   |   |   |--- CRP_mean >  0.23
+|   |   |   |   |   |   |   |   |   |   |--- time_since_start <= -0.48
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- time_since_start >  -0.48
+|   |   |   |   |   |   |   |   |   |   |   |--- class: Admission IC
+|   |   |   |   |   |   |   |   |--- SIRSCriteria2OrMore_duration >  -0.92
+|   |   |   |   |   |   |   |   |   |--- Leucocytes_max <= -0.86
+|   |   |   |   |   |   |   |   |   |   |--- prev_event_3 <= 0.38
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 5
+|   |   |   |   |   |   |   |   |   |   |--- prev_event_3 >  0.38
+|   |   |   |   |   |   |   |   |   |   |   |--- class: IV Liquid
+|   |   |   |   |   |   |   |   |   |--- Leucocytes_max >  -0.86
+|   |   |   |   |   |   |   |   |   |   |--- CRP_last <= -0.84
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 5
+|   |   |   |   |   |   |   |   |   |   |--- CRP_last >  -0.84
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 23
+|   |   |   |   |   |--- unique_activities >  -0.05
+|   |   |   |   |   |   |--- prev_event_5 <= 0.37
+|   |   |   |   |   |   |   |--- trace_length <= -0.54
+|   |   |   |   |   |   |   |   |--- time_since_start <= -0.47
+|   |   |   |   |   |   |   |   |   |--- time_since_start <= -0.48
+|   |   |   |   |   |   |   |   |   |   |--- current_event <= -0.10
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- current_event >  -0.10
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |--- time_since_start >  -0.48
+|   |   |   |   |   |   |   |   |   |   |--- Leucocytes_last <= -0.01
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- Leucocytes_last >  -0.01
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |--- time_since_start >  -0.47
+|   |   |   |   |   |   |   |   |   |--- SIRSCritTemperature_duration <= -0.57
+|   |   |   |   |   |   |   |   |   |   |--- class: Release A
+|   |   |   |   |   |   |   |   |   |--- SIRSCritTemperature_duration >  -0.57
+|   |   |   |   |   |   |   |   |   |   |--- CRP_mean <= -0.74
+|   |   |   |   |   |   |   |   |   |   |   |--- class: Admission NC
+|   |   |   |   |   |   |   |   |   |   |--- CRP_mean >  -0.74
+|   |   |   |   |   |   |   |   |   |   |   |--- class: IV Liquid
+|   |   |   |   |   |   |   |--- trace_length >  -0.54
+|   |   |   |   |   |   |   |   |--- time_since_last_event <= -0.34
+|   |   |   |   |   |   |   |   |   |--- prev_event_3 <= 0.24
+|   |   |   |   |   |   |   |   |   |   |--- prev_event_2 <= 0.25
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- prev_event_2 >  0.25
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 4
+|   |   |   |   |   |   |   |   |   |--- prev_event_3 >  0.24
+|   |   |   |   |   |   |   |   |   |   |--- SIRSCriteria2OrMore_changes <= -0.10
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 5
+|   |   |   |   |   |   |   |   |   |   |--- SIRSCriteria2OrMore_changes >  -0.10
+|   |   |   |   |   |   |   |   |   |   |   |--- class: LacticAcid
+|   |   |   |   |   |   |   |   |--- time_since_last_event >  -0.34
+|   |   |   |   |   |   |   |   |   |--- trace_length <= -0.06
+|   |   |   |   |   |   |   |   |   |   |--- time_since_start <= -0.48
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 4
+|   |   |   |   |   |   |   |   |   |   |--- time_since_start >  -0.48
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 9
+|   |   |   |   |   |   |   |   |   |--- trace_length >  -0.06
+|   |   |   |   |   |   |   |   |   |   |--- Leucocytes_mean <= 0.48
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 7
+|   |   |   |   |   |   |   |   |   |   |--- Leucocytes_mean >  0.48
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 6
+|   |   |   |   |   |   |--- prev_event_5 >  0.37
+|   |   |   |   |   |   |   |--- LacticAcid_last <= -0.66
+|   |   |   |   |   |   |   |   |--- time_since_start <= -0.47
+|   |   |   |   |   |   |   |   |   |--- class: LacticAcid
+|   |   |   |   |   |   |   |   |--- time_since_start >  -0.47
+|   |   |   |   |   |   |   |   |   |--- Leucocytes_mean <= -0.27
+|   |   |   |   |   |   |   |   |   |   |--- class: IV Antibiotics
+|   |   |   |   |   |   |   |   |   |--- Leucocytes_mean >  -0.27
+|   |   |   |   |   |   |   |   |   |   |--- Leucocytes <= -0.30
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- Leucocytes >  -0.30
+|   |   |   |   |   |   |   |   |   |   |   |--- class: Admission NC
+|   |   |   |   |   |   |   |--- LacticAcid_last >  -0.66
+|   |   |   |   |   |   |   |   |--- repeated_activities <= -0.29
+|   |   |   |   |   |   |   |   |   |--- CRP_mean <= -0.96
+|   |   |   |   |   |   |   |   |   |   |--- prev_event_3 <= 0.11
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- prev_event_3 >  0.11
+|   |   |   |   |   |   |   |   |   |   |   |--- class: IV Antibiotics
+|   |   |   |   |   |   |   |   |   |--- CRP_mean >  -0.96
+|   |   |   |   |   |   |   |   |   |   |--- Leucocytes_max <= -0.86
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- Leucocytes_max >  -0.86
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 9
+|   |   |   |   |   |   |   |   |--- repeated_activities >  -0.29
+|   |   |   |   |   |   |   |   |   |--- current_dept_duration <= -0.25
+|   |   |   |   |   |   |   |   |   |   |--- time_since_start <= -0.44
+|   |   |   |   |   |   |   |   |   |   |   |--- class: CRP
+|   |   |   |   |   |   |   |   |   |   |--- time_since_start >  -0.44
+|   |   |   |   |   |   |   |   |   |   |   |--- class: Release A
+|   |   |   |   |   |   |   |   |   |--- current_dept_duration >  -0.25
+|   |   |   |   |   |   |   |   |   |   |--- SIRSCritTachypnea_duration <= -0.25
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 6
+|   |   |   |   |   |   |   |   |   |   |--- SIRSCritTachypnea_duration >  -0.25
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |--- unique_activities >  0.28
+|   |   |   |   |   |--- trace_length <= -0.23
+|   |   |   |   |   |   |--- SIRSCritTachypnea_changes <= -0.25
+|   |   |   |   |   |   |   |--- current_dept_duration <= -0.44
+|   |   |   |   |   |   |   |   |--- prev_event_4 <= -0.84
+|   |   |   |   |   |   |   |   |   |--- CRP_max <= 0.46
+|   |   |   |   |   |   |   |   |   |   |--- class: Admission NC
+|   |   |   |   |   |   |   |   |   |--- CRP_max >  0.46
+|   |   |   |   |   |   |   |   |   |   |--- class: Release B
+|   |   |   |   |   |   |   |   |--- prev_event_4 >  -0.84
+|   |   |   |   |   |   |   |   |   |--- time_since_last_event <= -0.32
+|   |   |   |   |   |   |   |   |   |   |--- Leucocytes_max <= -0.33
+|   |   |   |   |   |   |   |   |   |   |   |--- class: IV Liquid
+|   |   |   |   |   |   |   |   |   |   |--- Leucocytes_max >  -0.33
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 9
+|   |   |   |   |   |   |   |   |   |--- time_since_last_event >  -0.32
+|   |   |   |   |   |   |   |   |   |   |--- CRP_last <= -0.68
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- CRP_last >  -0.68
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 5
+|   |   |   |   |   |   |   |--- current_dept_duration >  -0.44
+|   |   |   |   |   |   |   |   |--- LacticAcid_mean <= -0.41
+|   |   |   |   |   |   |   |   |   |--- prev_event_3 <= 0.51
+|   |   |   |   |   |   |   |   |   |   |--- CRP_mean <= 0.27
+|   |   |   |   |   |   |   |   |   |   |   |--- class: Admission NC
+|   |   |   |   |   |   |   |   |   |   |--- CRP_mean >  0.27
+|   |   |   |   |   |   |   |   |   |   |   |--- class: Leucocytes
+|   |   |   |   |   |   |   |   |   |--- prev_event_3 >  0.51
+|   |   |   |   |   |   |   |   |   |   |--- LacticAcid_last <= -0.41
+|   |   |   |   |   |   |   |   |   |   |   |--- class: Admission NC
+|   |   |   |   |   |   |   |   |   |   |--- LacticAcid_last >  -0.41
+|   |   |   |   |   |   |   |   |   |   |   |--- class: Admission IC
+|   |   |   |   |   |   |   |   |--- LacticAcid_mean >  -0.41
+|   |   |   |   |   |   |   |   |   |--- LacticAcid_mean <= 1.20
+|   |   |   |   |   |   |   |   |   |   |--- prev_event_4 <= -0.28
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 6
+|   |   |   |   |   |   |   |   |   |   |--- prev_event_4 >  -0.28
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 7
+|   |   |   |   |   |   |   |   |   |--- LacticAcid_mean >  1.20
+|   |   |   |   |   |   |   |   |   |   |--- time_of_day <= 0.55
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 5
+|   |   |   |   |   |   |   |   |   |   |--- time_of_day >  0.55
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |--- SIRSCritTachypnea_changes >  -0.25
+|   |   |   |   |   |   |   |--- trace_length <= -0.41
+|   |   |   |   |   |   |   |   |--- time_since_start <= -0.47
+|   |   |   |   |   |   |   |   |   |--- time_since_start <= -0.47
+|   |   |   |   |   |   |   |   |   |   |--- trace_length <= -0.49
+|   |   |   |   |   |   |   |   |   |   |   |--- class: Release A
+|   |   |   |   |   |   |   |   |   |   |--- trace_length >  -0.49
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 4
+|   |   |   |   |   |   |   |   |   |--- time_since_start >  -0.47
+|   |   |   |   |   |   |   |   |   |   |--- class: Release C
+|   |   |   |   |   |   |   |   |--- time_since_start >  -0.47
+|   |   |   |   |   |   |   |   |   |--- CRP_last <= 0.45
+|   |   |   |   |   |   |   |   |   |   |--- LacticAcid_max <= 2.70
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 10
+|   |   |   |   |   |   |   |   |   |   |--- LacticAcid_max >  2.70
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |--- CRP_last >  0.45
+|   |   |   |   |   |   |   |   |   |   |--- prev_event_1 <= 0.66
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 12
+|   |   |   |   |   |   |   |   |   |   |--- prev_event_1 >  0.66
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 4
+|   |   |   |   |   |   |   |--- trace_length >  -0.41
+|   |   |   |   |   |   |   |   |--- SIRSCritTemperature_changes <= 0.10
+|   |   |   |   |   |   |   |   |   |--- time_since_last_event <= -0.33
+|   |   |   |   |   |   |   |   |   |   |--- LacticAcid_mean <= 1.20
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 18
+|   |   |   |   |   |   |   |   |   |   |--- LacticAcid_mean >  1.20
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 5
+|   |   |   |   |   |   |   |   |   |--- time_since_last_event >  -0.33
+|   |   |   |   |   |   |   |   |   |   |--- SIRSCritHeartRate_changes <= -0.13
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 13
+|   |   |   |   |   |   |   |   |   |   |--- SIRSCritHeartRate_changes >  -0.13
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 8
+|   |   |   |   |   |   |   |   |--- SIRSCritTemperature_changes >  0.10
+|   |   |   |   |   |   |   |   |   |--- class: Release B
+|   |   |   |   |   |--- trace_length >  -0.23
+|   |   |   |   |   |   |--- time_since_start <= -0.46
+|   |   |   |   |   |   |   |--- LacticAcid_last <= 1.19
+|   |   |   |   |   |   |   |   |--- Leucocytes_mean <= -0.68
+|   |   |   |   |   |   |   |   |   |--- CRP_max <= 0.95
+|   |   |   |   |   |   |   |   |   |   |--- current_dept_duration <= -0.37
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- current_dept_duration >  -0.37
+|   |   |   |   |   |   |   |   |   |   |   |--- class: Admission NC
+|   |   |   |   |   |   |   |   |   |--- CRP_max >  0.95
+|   |   |   |   |   |   |   |   |   |   |--- repeated_activities <= -0.29
+|   |   |   |   |   |   |   |   |   |   |   |--- class: Leucocytes
+|   |   |   |   |   |   |   |   |   |   |--- repeated_activities >  -0.29
+|   |   |   |   |   |   |   |   |   |   |   |--- class: LacticAcid
+|   |   |   |   |   |   |   |   |--- Leucocytes_mean >  -0.68
+|   |   |   |   |   |   |   |   |   |--- Leucocytes_last <= 0.31
+|   |   |   |   |   |   |   |   |   |   |--- prev_event_1 <= 0.37
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 18
+|   |   |   |   |   |   |   |   |   |   |--- prev_event_1 >  0.37
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 13
+|   |   |   |   |   |   |   |   |   |--- Leucocytes_last >  0.31
+|   |   |   |   |   |   |   |   |   |   |--- CRP_mean <= 1.04
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 10
+|   |   |   |   |   |   |   |   |   |   |--- CRP_mean >  1.04
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 9
+|   |   |   |   |   |   |   |--- LacticAcid_last >  1.19
+|   |   |   |   |   |   |   |   |--- current_dept_duration <= -0.44
+|   |   |   |   |   |   |   |   |   |--- time_since_last_event <= -0.34
+|   |   |   |   |   |   |   |   |   |   |--- class: Admission IC
+|   |   |   |   |   |   |   |   |   |--- time_since_last_event >  -0.34
+|   |   |   |   |   |   |   |   |   |   |--- LacticAcid_max <= 1.76
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 6
+|   |   |   |   |   |   |   |   |   |   |--- LacticAcid_max >  1.76
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 4
+|   |   |   |   |   |   |   |   |--- current_dept_duration >  -0.44
+|   |   |   |   |   |   |   |   |   |--- dept_changes <= 0.31
+|   |   |   |   |   |   |   |   |   |   |--- CRP_max <= -0.60
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 5
+|   |   |   |   |   |   |   |   |   |   |--- CRP_max >  -0.60
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 13
+|   |   |   |   |   |   |   |   |   |--- dept_changes >  0.31
+|   |   |   |   |   |   |   |   |   |   |--- current_dept_duration <= 3.81
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 4
+|   |   |   |   |   |   |   |   |   |   |--- current_dept_duration >  3.81
+|   |   |   |   |   |   |   |   |   |   |   |--- class: Admission IC
+|   |   |   |   |   |   |--- time_since_start >  -0.46
+|   |   |   |   |   |   |   |--- SIRSCritTemperature_changes <= 0.46
+|   |   |   |   |   |   |   |   |--- LacticAcid_mean <= 1.58
+|   |   |   |   |   |   |   |   |   |--- time_since_last_event <= -0.19
+|   |   |   |   |   |   |   |   |   |   |--- CRP_mean <= 1.30
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 14
+|   |   |   |   |   |   |   |   |   |   |--- CRP_mean >  1.30
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 8
+|   |   |   |   |   |   |   |   |   |--- time_since_last_event >  -0.19
+|   |   |   |   |   |   |   |   |   |   |--- CRP <= 1.95
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 12
+|   |   |   |   |   |   |   |   |   |   |--- CRP >  1.95
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |--- LacticAcid_mean >  1.58
+|   |   |   |   |   |   |   |   |   |--- SIRSCritLeucos_duration <= 1.86
+|   |   |   |   |   |   |   |   |   |   |--- CRP_count <= -0.07
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 9
+|   |   |   |   |   |   |   |   |   |   |--- CRP_count >  -0.07
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 4
+|   |   |   |   |   |   |   |   |   |--- SIRSCritLeucos_duration >  1.86
+|   |   |   |   |   |   |   |   |   |   |--- time_since_start <= -0.43
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- time_since_start >  -0.43
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 5
+|   |   |   |   |   |   |   |--- SIRSCritTemperature_changes >  0.46
+|   |   |   |   |   |   |   |   |--- class: Release B
+|   |   |   |--- time_since_start >  -0.38
+|   |   |   |   |--- CRP_mean <= -0.38
+|   |   |   |   |   |--- time_since_start <= 0.86
+|   |   |   |   |   |   |--- repeated_activities <= -0.13
+|   |   |   |   |   |   |   |--- current_dept_duration <= -0.20
+|   |   |   |   |   |   |   |   |--- time_since_last_event <= -0.15
+|   |   |   |   |   |   |   |   |   |--- prev_event_4 <= -1.27
+|   |   |   |   |   |   |   |   |   |   |--- class: CRP
+|   |   |   |   |   |   |   |   |   |--- prev_event_4 >  -1.27
+|   |   |   |   |   |   |   |   |   |   |--- CRP <= -1.41
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- CRP >  -1.41
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |--- time_since_last_event >  -0.15
+|   |   |   |   |   |   |   |   |   |--- current_dept_duration <= -0.30
+|   |   |   |   |   |   |   |   |   |   |--- trace_length <= -0.36
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 7
+|   |   |   |   |   |   |   |   |   |   |--- trace_length >  -0.36
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 4
+|   |   |   |   |   |   |   |   |   |--- current_dept_duration >  -0.30
+|   |   |   |   |   |   |   |   |   |   |--- prev_event_5 <= 0.06
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- prev_event_5 >  0.06
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 4
+|   |   |   |   |   |   |   |--- current_dept_duration >  -0.20
+|   |   |   |   |   |   |   |   |--- prev_event_5 <= 1.00
+|   |   |   |   |   |   |   |   |   |--- SIRSCritTemperature_changes <= -0.07
+|   |   |   |   |   |   |   |   |   |   |--- CRP_last <= 0.16
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- CRP_last >  0.16
+|   |   |   |   |   |   |   |   |   |   |   |--- class: Admission NC
+|   |   |   |   |   |   |   |   |   |--- SIRSCritTemperature_changes >  -0.07
+|   |   |   |   |   |   |   |   |   |   |--- CRP_last <= 0.03
+|   |   |   |   |   |   |   |   |   |   |   |--- class: CRP
+|   |   |   |   |   |   |   |   |   |   |--- CRP_last >  0.03
+|   |   |   |   |   |   |   |   |   |   |   |--- class: Leucocytes
+|   |   |   |   |   |   |   |   |--- prev_event_5 >  1.00
+|   |   |   |   |   |   |   |   |   |--- LacticAcid_last <= -0.09
+|   |   |   |   |   |   |   |   |   |   |--- time_since_last_event <= 0.98
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- time_since_last_event >  0.98
+|   |   |   |   |   |   |   |   |   |   |   |--- class: CRP
+|   |   |   |   |   |   |   |   |   |--- LacticAcid_last >  -0.09
+|   |   |   |   |   |   |   |   |   |   |--- class: CRP
+|   |   |   |   |   |   |--- repeated_activities >  -0.13
+|   |   |   |   |   |   |   |--- Leucocytes_mean <= 0.30
+|   |   |   |   |   |   |   |   |--- Leucocytes_max <= -0.35
+|   |   |   |   |   |   |   |   |   |--- time_since_start <= 0.21
+|   |   |   |   |   |   |   |   |   |   |--- CRP_last <= -0.02
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 6
+|   |   |   |   |   |   |   |   |   |   |--- CRP_last >  -0.02
+|   |   |   |   |   |   |   |   |   |   |   |--- class: Release B
+|   |   |   |   |   |   |   |   |   |--- time_since_start >  0.21
+|   |   |   |   |   |   |   |   |   |   |--- Leucocytes_last <= -0.44
+|   |   |   |   |   |   |   |   |   |   |   |--- class: Leucocytes
+|   |   |   |   |   |   |   |   |   |   |--- Leucocytes_last >  -0.44
+|   |   |   |   |   |   |   |   |   |   |   |--- class: Release C
+|   |   |   |   |   |   |   |   |--- Leucocytes_max >  -0.35
+|   |   |   |   |   |   |   |   |   |--- LacticAcid_max <= -0.70
+|   |   |   |   |   |   |   |   |   |   |--- trace_length <= -0.23
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 4
+|   |   |   |   |   |   |   |   |   |   |--- trace_length >  -0.23
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 4
+|   |   |   |   |   |   |   |   |   |--- LacticAcid_max >  -0.70
+|   |   |   |   |   |   |   |   |   |   |--- Leucocytes_mean <= -0.18
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 6
+|   |   |   |   |   |   |   |   |   |   |--- Leucocytes_mean >  -0.18
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 11
+|   |   |   |   |   |   |   |--- Leucocytes_mean >  0.30
+|   |   |   |   |   |   |   |   |--- CRP_mean <= -0.47
+|   |   |   |   |   |   |   |   |   |--- time_since_start <= -0.09
+|   |   |   |   |   |   |   |   |   |   |--- prev_event_1 <= -1.40
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- prev_event_1 >  -1.40
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 5
+|   |   |   |   |   |   |   |   |   |--- time_since_start >  -0.09
+|   |   |   |   |   |   |   |   |   |   |--- time_since_start <= 0.28
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- time_since_start >  0.28
+|   |   |   |   |   |   |   |   |   |   |   |--- class: Release A
+|   |   |   |   |   |   |   |   |--- CRP_mean >  -0.47
+|   |   |   |   |   |   |   |   |   |--- time_since_last_event <= 1.07
+|   |   |   |   |   |   |   |   |   |   |--- CRP <= -2.17
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- CRP >  -2.17
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 6
+|   |   |   |   |   |   |   |   |   |--- time_since_last_event >  1.07
+|   |   |   |   |   |   |   |   |   |   |--- class: Leucocytes
+|   |   |   |   |   |--- time_since_start >  0.86
+|   |   |   |   |   |   |--- Leucocytes <= -0.48
+|   |   |   |   |   |   |   |--- Leucocytes_mean <= -0.38
+|   |   |   |   |   |   |   |   |--- class: Release C
+|   |   |   |   |   |   |   |--- Leucocytes_mean >  -0.38
+|   |   |   |   |   |   |   |   |--- Leucocytes_mean <= -0.35
+|   |   |   |   |   |   |   |   |   |--- class: Admission NC
+|   |   |   |   |   |   |   |   |--- Leucocytes_mean >  -0.35
+|   |   |   |   |   |   |   |   |   |--- CRP_count <= 0.62
+|   |   |   |   |   |   |   |   |   |   |--- prev_event_2 <= -1.42
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- prev_event_2 >  -1.42
+|   |   |   |   |   |   |   |   |   |   |   |--- class: Release A
+|   |   |   |   |   |   |   |   |   |--- CRP_count >  0.62
+|   |   |   |   |   |   |   |   |   |   |--- Leucocytes_last <= -0.36
+|   |   |   |   |   |   |   |   |   |   |   |--- class: Leucocytes
+|   |   |   |   |   |   |   |   |   |   |--- Leucocytes_last >  -0.36
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |--- Leucocytes >  -0.48
+|   |   |   |   |   |   |   |--- CRP_last <= -0.52
+|   |   |   |   |   |   |   |   |--- LacticAcid_mean <= 0.13
+|   |   |   |   |   |   |   |   |   |--- Leucocytes_last <= 0.15
+|   |   |   |   |   |   |   |   |   |   |--- Leucocytes_mean <= 0.23
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 6
+|   |   |   |   |   |   |   |   |   |   |--- Leucocytes_mean >  0.23
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |--- Leucocytes_last >  0.15
+|   |   |   |   |   |   |   |   |   |   |--- class: Leucocytes
+|   |   |   |   |   |   |   |   |--- LacticAcid_mean >  0.13
+|   |   |   |   |   |   |   |   |   |--- time_since_last_event <= -0.13
+|   |   |   |   |   |   |   |   |   |   |--- time_since_start <= 1.60
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- time_since_start >  1.60
+|   |   |   |   |   |   |   |   |   |   |   |--- class: Release A
+|   |   |   |   |   |   |   |   |   |--- time_since_last_event >  -0.13
+|   |   |   |   |   |   |   |   |   |   |--- prev_event_5 <= 0.06
+|   |   |   |   |   |   |   |   |   |   |   |--- class: Leucocytes
+|   |   |   |   |   |   |   |   |   |   |--- prev_event_5 >  0.06
+|   |   |   |   |   |   |   |   |   |   |   |--- class: CRP
+|   |   |   |   |   |   |   |--- CRP_last >  -0.52
+|   |   |   |   |   |   |   |   |--- CRP_count <= 0.45
+|   |   |   |   |   |   |   |   |   |--- class: Release C
+|   |   |   |   |   |   |   |   |--- CRP_count >  0.45
+|   |   |   |   |   |   |   |   |   |--- CRP_mean <= -0.40
+|   |   |   |   |   |   |   |   |   |   |--- SIRSCritLeucos_changes <= 0.34
+|   |   |   |   |   |   |   |   |   |   |   |--- class: Leucocytes
+|   |   |   |   |   |   |   |   |   |   |--- SIRSCritLeucos_changes >  0.34
+|   |   |   |   |   |   |   |   |   |   |   |--- class: CRP
+|   |   |   |   |   |   |   |   |   |--- CRP_mean >  -0.40
+|   |   |   |   |   |   |   |   |   |   |--- repeated_activities <= 1.05
+|   |   |   |   |   |   |   |   |   |   |   |--- class: Release A
+|   |   |   |   |   |   |   |   |   |   |--- repeated_activities >  1.05
+|   |   |   |   |   |   |   |   |   |   |   |--- class: Leucocytes
+|   |   |   |   |--- CRP_mean >  -0.38
+|   |   |   |   |   |--- LacticAcid <= -2.40
+|   |   |   |   |   |   |--- trace_length <= -0.08
+|   |   |   |   |   |   |   |--- SIRSCriteria2OrMore_changes <= 0.19
+|   |   |   |   |   |   |   |   |--- Leucocytes_max <= 0.26
+|   |   |   |   |   |   |   |   |   |--- class: CRP
+|   |   |   |   |   |   |   |   |--- Leucocytes_max >  0.26
+|   |   |   |   |   |   |   |   |   |--- class: Leucocytes
+|   |   |   |   |   |   |   |--- SIRSCriteria2OrMore_changes >  0.19
+|   |   |   |   |   |   |   |   |--- class: Release E
+|   |   |   |   |   |   |--- trace_length >  -0.08
+|   |   |   |   |   |   |   |--- Leucocytes_last <= -0.16
+|   |   |   |   |   |   |   |   |--- time_since_last_event <= 0.16
+|   |   |   |   |   |   |   |   |   |--- repeated_activities <= 2.08
+|   |   |   |   |   |   |   |   |   |   |--- class: Admission NC
+|   |   |   |   |   |   |   |   |   |--- repeated_activities >  2.08
+|   |   |   |   |   |   |   |   |   |   |--- class: Leucocytes
+|   |   |   |   |   |   |   |   |--- time_since_last_event >  0.16
+|   |   |   |   |   |   |   |   |   |--- class: Leucocytes
+|   |   |   |   |   |   |   |--- Leucocytes_last >  -0.16
+|   |   |   |   |   |   |   |   |--- repeated_activities <= 0.34
+|   |   |   |   |   |   |   |   |   |--- LacticAcid_mean <= -0.02
+|   |   |   |   |   |   |   |   |   |   |--- LacticAcid <= -2.99
+|   |   |   |   |   |   |   |   |   |   |   |--- class: Leucocytes
+|   |   |   |   |   |   |   |   |   |   |--- LacticAcid >  -2.99
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 7
+|   |   |   |   |   |   |   |   |   |--- LacticAcid_mean >  -0.02
+|   |   |   |   |   |   |   |   |   |   |--- LacticAcid_max <= 0.87
+|   |   |   |   |   |   |   |   |   |   |   |--- class: Admission NC
+|   |   |   |   |   |   |   |   |   |   |--- LacticAcid_max >  0.87
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |--- repeated_activities >  0.34
+|   |   |   |   |   |   |   |   |   |--- LacticAcid_mean <= 0.11
+|   |   |   |   |   |   |   |   |   |   |--- time_since_last_event <= 0.51
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 5
+|   |   |   |   |   |   |   |   |   |   |--- time_since_last_event >  0.51
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |--- LacticAcid_mean >  0.11
+|   |   |   |   |   |   |   |   |   |   |--- CRP_mean <= 0.91
+|   |   |   |   |   |   |   |   |   |   |   |--- class: Leucocytes
+|   |   |   |   |   |   |   |   |   |   |--- CRP_mean >  0.91
+|   |   |   |   |   |   |   |   |   |   |   |--- class: CRP
+|   |   |   |   |   |--- LacticAcid >  -2.40
+|   |   |   |   |   |   |--- CRP_last <= 0.79
+|   |   |   |   |   |   |   |--- CRP <= -2.04
+|   |   |   |   |   |   |   |   |--- Leucocytes_mean <= -0.15
+|   |   |   |   |   |   |   |   |   |--- time_since_start <= 0.56
+|   |   |   |   |   |   |   |   |   |   |--- dept_changes <= 0.64
+|   |   |   |   |   |   |   |   |   |   |   |--- class: Release C
+|   |   |   |   |   |   |   |   |   |   |--- dept_changes >  0.64
+|   |   |   |   |   |   |   |   |   |   |   |--- class: Leucocytes
+|   |   |   |   |   |   |   |   |   |--- time_since_start >  0.56
+|   |   |   |   |   |   |   |   |   |   |--- LacticAcid_last <= 0.07
+|   |   |   |   |   |   |   |   |   |   |   |--- class: Release A
+|   |   |   |   |   |   |   |   |   |   |--- LacticAcid_last >  0.07
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |--- Leucocytes_mean >  -0.15
+|   |   |   |   |   |   |   |   |   |--- time_since_start <= -0.06
+|   |   |   |   |   |   |   |   |   |   |--- SIRSCritTemperature_changes <= 0.13
+|   |   |   |   |   |   |   |   |   |   |   |--- class: Leucocytes
+|   |   |   |   |   |   |   |   |   |   |--- SIRSCritTemperature_changes >  0.13
+|   |   |   |   |   |   |   |   |   |   |   |--- class: Admission IC
+|   |   |   |   |   |   |   |   |   |--- time_since_start >  -0.06
+|   |   |   |   |   |   |   |   |   |   |--- current_dept_duration <= 0.44
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 5
+|   |   |   |   |   |   |   |   |   |   |--- current_dept_duration >  0.44
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 5
+|   |   |   |   |   |   |   |--- CRP >  -2.04
+|   |   |   |   |   |   |   |   |--- current_dept_duration <= 0.07
+|   |   |   |   |   |   |   |   |   |--- Leucocytes_last <= -0.14
+|   |   |   |   |   |   |   |   |   |   |--- current_dept_duration <= -0.20
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 13
+|   |   |   |   |   |   |   |   |   |   |--- current_dept_duration >  -0.20
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 14
+|   |   |   |   |   |   |   |   |   |--- Leucocytes_last >  -0.14
+|   |   |   |   |   |   |   |   |   |   |--- Leucocytes_max <= 0.68
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 17
+|   |   |   |   |   |   |   |   |   |   |--- Leucocytes_max >  0.68
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 10
+|   |   |   |   |   |   |   |   |--- current_dept_duration >  0.07
+|   |   |   |   |   |   |   |   |   |--- time_since_start <= 0.35
+|   |   |   |   |   |   |   |   |   |   |--- Leucocytes <= 0.11
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 18
+|   |   |   |   |   |   |   |   |   |   |--- Leucocytes >  0.11
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 8
+|   |   |   |   |   |   |   |   |   |--- time_since_start >  0.35
+|   |   |   |   |   |   |   |   |   |   |--- trace_length <= 1.13
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 17
+|   |   |   |   |   |   |   |   |   |   |--- trace_length >  1.13
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 18
+|   |   |   |   |   |   |--- CRP_last >  0.79
+|   |   |   |   |   |   |   |--- CRP_last <= 0.82
+|   |   |   |   |   |   |   |   |--- CRP <= 1.23
+|   |   |   |   |   |   |   |   |   |--- LacticAcid_max <= -0.29
+|   |   |   |   |   |   |   |   |   |   |--- class: Release B
+|   |   |   |   |   |   |   |   |   |--- LacticAcid_max >  -0.29
+|   |   |   |   |   |   |   |   |   |   |--- trace_length <= -0.10
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- trace_length >  -0.10
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 6
+|   |   |   |   |   |   |   |   |--- CRP >  1.23
+|   |   |   |   |   |   |   |   |   |--- Leucocytes_last <= 0.15
+|   |   |   |   |   |   |   |   |   |   |--- class: Leucocytes
+|   |   |   |   |   |   |   |   |   |--- Leucocytes_last >  0.15
+|   |   |   |   |   |   |   |   |   |   |--- class: Release E
+|   |   |   |   |   |   |   |--- CRP_last >  0.82
+|   |   |   |   |   |   |   |   |--- CRP_max <= 1.67
+|   |   |   |   |   |   |   |   |   |--- time_since_last_event <= -0.33
+|   |   |   |   |   |   |   |   |   |   |--- current_dept_duration <= 0.49
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 15
+|   |   |   |   |   |   |   |   |   |   |--- current_dept_duration >  0.49
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 11
+|   |   |   |   |   |   |   |   |   |--- time_since_last_event >  -0.33
+|   |   |   |   |   |   |   |   |   |   |--- current_event <= 1.00
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 14
+|   |   |   |   |   |   |   |   |   |   |--- current_event >  1.00
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 11
+|   |   |   |   |   |   |   |   |--- CRP_max >  1.67
+|   |   |   |   |   |   |   |   |   |--- trace_length <= -0.41
+|   |   |   |   |   |   |   |   |   |   |--- prev_event_2 <= -0.86
+|   |   |   |   |   |   |   |   |   |   |   |--- class: Release C
+|   |   |   |   |   |   |   |   |   |   |--- prev_event_2 >  -0.86
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |--- trace_length >  -0.41
+|   |   |   |   |   |   |   |   |   |   |--- Leucocytes_max <= 0.35
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 11
+|   |   |   |   |   |   |   |   |   |   |--- Leucocytes_max >  0.35
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 15
+|--- prev_event_5 >  1.32
+|   |--- dept_changes <= -0.02
+|   |   |--- class: Admission NC
+|   |--- dept_changes >  -0.02
+|   |   |--- department <= -0.14
+|   |   |   |--- class: CRP
+|   |   |--- department >  -0.14
+|   |   |   |--- time_since_start <= 2.22
+|   |   |   |   |--- CRP_max <= 2.12
+|   |   |   |   |   |--- class: Return ER
+|   |   |   |   |--- CRP_max >  2.12
+|   |   |   |   |   |--- LacticAcid_max <= -0.45
+|   |   |   |   |   |   |--- class: CRP
+|   |   |   |   |   |--- LacticAcid_max >  -0.45
+|   |   |   |   |   |   |--- class: Return ER
+|   |   |   |--- time_since_start >  2.22
+|   |   |   |   |--- time_since_start <= 2.32
+|   |   |   |   |   |--- class: Leucocytes
+|   |   |   |   |--- time_since_start >  2.32
+|   |   |   |   |   |--- class: Return ER
